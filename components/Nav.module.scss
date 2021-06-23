@@ -1,0 +1,24 @@
+@import "../styles/mixins";
+@import "../styles/variables";
+.nav {
+  margin-left: spacing(11);
+}
+.navList {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+.navItem {
+  & + & {
+    margin-left: spacing(2);
+  }
+}
+.active {
+  background-color: aqua;
+}
+.navLink {
+  text-decoration: none;
+  color: $saffron;
+  font-family: sans-serif;
+  font-size: 20px;
+}

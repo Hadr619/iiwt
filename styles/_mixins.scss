@@ -1,0 +1,66 @@
+@mixin constrain() {
+  width: 100%;
+  max-width: 100%;
+
+  margin-right: auto;
+  margin-left: auto;
+
+  @include bp(small) {
+    width: 750px;
+  }
+
+  @include bp(medium) {
+    width: 950px;
+  }
+
+  @include bp(large) {
+    width: 1170px;
+  }
+}
+
+// BREAKPOINTS
+@mixin bp($point) {
+  @if $point == large {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  } @else if $point == medium {
+    @media (min-width: 992px) {
+      @content;
+    }
+  } @else if $point == small {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $point == xsmall {
+    @media (min-width: 546px) {
+      @content;
+    }
+  } @else {
+    @media (min-width: '#{$point}') {
+      @content;
+    }
+  }
+}
+
+@function spacing($numbers...) {
+  $space: 4;
+  $newList: ();
+
+  @if length($numbers) == 0 {
+    $newList: append($newList, $space);
+  }
+  @each $number in $numbers {
+    @if type-of($number) == number {
+      @if $number == 0 {
+        $number: $number * $space;
+      } @else {
+        $number: $number * $space + px;
+      }
+    } @else if type-of($number) == string {
+      $number: $number;
+    }
+    $newList: append($newList, $number);
+  }
+  @return $newList;
+}
