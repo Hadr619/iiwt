@@ -1,14 +1,17 @@
 @import "../styles/mixins";
 @import "../styles/variables";
 .nav {
-  margin-left: spacing(11);
+  margin-left: spacing(22);
 }
 .navList {
   display: flex;
+  height: 100%;
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 .navItem {
+  display: flex;
   & + & {
     margin-left: spacing(2);
   }
