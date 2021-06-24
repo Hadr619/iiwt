@@ -12,16 +12,42 @@
 }
 .navItem {
   display: flex;
+  align-self:flex-start;
   & + & {
-    margin-left: spacing(2);
+    margin-left: spacing(7);
   }
 }
 .active {
-  background-color: aqua;
+  a:after{
+    width:100%;
+    transition: width .25s ease-in-out;
+  }
 }
 .navLink {
+  position:relative;
   text-decoration: none;
   color: $saffron;
   font-family: sans-serif;
   font-size: 20px;
+  text-transform:uppercase;
+
+  &:hover{
+    &:after{
+      width:100%;
+      transition: width .25s ease-in-out;
+    }
+
+  }
+
+  &:after{
+    content:'';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    transform: translateX(-50%);
+    background-color: #0a0b09;
+    transition: width .25s ease-in-out;
+  }
 }

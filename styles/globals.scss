@@ -4,7 +4,7 @@
 .header {
   position: relative;
   display: flex;
-  padding-left: 30px;
+  padding-left: spacing(11);
   height: 250px;
   overflow: hidden;
   // background: radial-gradient(
@@ -26,7 +26,10 @@
 }
 .topNav {
   display: flex;
+  height: 60%;
+  align-items: center;
   z-index: 1;
+  margin-left:auto;
 }
 .inner {
   display: flex;
@@ -63,8 +66,9 @@
 svg#wave {
   position: absolute;
   fill: #041205;
-  bottom: 0;
+  bottom: -17px;
   left: 0;
+  transform:rotateZ(1deg);
 }
 footer {
   display: flex;

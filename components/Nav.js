@@ -13,7 +13,7 @@ export default function Nav(){
         return (
             <nav className={styles.nav}>
                 <ul className={styles.navList}>
-                    <li className={clsx(pathCheck('/'), styles.navItem)}><Link  href="/"><a className={styles.navLink}>TEST</a></Link></li>
+                    <li className={clsx(pathCheck('/'), styles.navItem)}><Link  href="/"><a className={styles.navLink}>Home</a></Link></li>
                     <li className={clsx(pathCheck('/blog'), styles.navItem)}><Link href="/blog"><a className={styles.navLink}>Blog</a></Link></li>
                 </ul>
             </nav>
