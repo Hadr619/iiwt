@@ -49,7 +49,7 @@
   svg {
     width: 60%;
     height: auto;
-    fill: $saffron;
+    fill: $amber;
   }
   .logo-subtitle {
     position: absolute;
@@ -62,6 +62,39 @@
     bottom: 103px;
     left: 20px;
   }
+}
+.scene{
+  position: absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:250px;
+}
+.palmtree-svg{
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    &:nth-child(1){
+      top:50px;
+      left:42%;
+      transform:rotate(12deg);
+    }
+    &:nth-child(2){
+      top:100px;
+      left:55%;
+      transform:rotate(12deg);
+    }
+    &:nth-child(3){
+      top: 27px;
+      left: 71%;
+      transform: rotate(354deg);
+    }
+    &:nth-child(4){
+      top: -37px;
+      left: 92%;
+      transform: rotate(337deg);
+    }
 }
 svg#wave {
   position: absolute;
