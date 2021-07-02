@@ -31,6 +31,10 @@
   z-index: 1;
   margin-left:auto;
 }
+.page-content{
+  display:flex;
+  justify-content: center;
+}
 .inner {
   display: flex;
   @include constrain();

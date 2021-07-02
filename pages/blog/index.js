@@ -1,6 +1,6 @@
 export default function BlogPage() {
     return (
-      <div>
+      <div className="blog-list">
         Blog PAGE
       </div>
     )
