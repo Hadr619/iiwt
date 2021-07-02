@@ -1,15 +1,33 @@
+import { createClient} from 'contentful';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styles from './index.module.scss';
 import clsx from 'clsx';
 
-export default function Home() {
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+  });
+
+  const res = await client.getEntries({ content_type: 'homePage' }) //whatever content type is set up in content model
+  return {
+    props: {
+      homePage: res.items[0]
+    },
+    revalidate: 1
+  }
+
+}
+
+export default function Home({ homePage }) {
+  const {title, content} = homePage.fields;
+  console.log(homePage);
   return (
-    <section className={clsx(styles.homepageContent, 'inner')}>
-      <div class="info">
-        <h2>311 can't be the worst band, right?</h2>
-        <p> Well on Is It Worse Than... we try to listen to artists and see where they stack againt the </p>
-        boys from Omaha 
-      </div>
+    <section className={clsx('inner')}>
+      <div className={styles.homepageContent}>
+      <div>{documentToReactComponents(content)}</div>
       <iframe src="https://open.spotify.com/embed/show/1I7lI0F33YvpLuORxLp7Ar?theme=0" width="100%" height="232" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      </div>
     </section>
   )
 }
