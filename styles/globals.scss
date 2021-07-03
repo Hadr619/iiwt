@@ -2,13 +2,6 @@
 @import "_mixins";
 @import "_variables";
 
-.topNav {
-  display: flex;
-  height: 60%;
-  align-items: center;
-  z-index: 1;
-  margin-left: auto;
-}
 .page-content {
   display: flex;
   justify-content: center;
@@ -18,49 +11,7 @@
   @include constrain();
   padding: spacing(0, 3);
 }
-.logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  flex-basis: 160px;
-  padding-top: 25px;
-  cursor: pointer;
-  z-index: 1;
-  position: relative;
 
-  svg {
-    width: 60%;
-    height: auto;
-    fill: $amber;
-  }
-}
-.palmtree-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 500px;
-  &:nth-child(1) {
-    top: 50px;
-    left: 42%;
-    transform: rotate(12deg);
-  }
-  &:nth-child(2) {
-    top: 100px;
-    left: 55%;
-    transform: rotate(12deg);
-  }
-  &:nth-child(3) {
-    top: 27px;
-    left: 71%;
-    transform: rotate(354deg);
-  }
-  &:nth-child(4) {
-    top: -37px;
-    left: 92%;
-    transform: rotate(337deg);
-  }
-}
 svg#wave {
   position: absolute;
   fill: #041205;

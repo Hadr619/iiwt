@@ -1,9 +1,9 @@
 
-export default function Palmtree() {
+export default function Palmtree({ className }) {
     return (
-        <svg version="1.1" id="Layer_1" className="palmtree-svg" xmlns="http://www.w3.org/2000/svg"
+    <svg version="1.1" id="Layer_1" className={className} xmlns="http://www.w3.org/2000/svg"
 	 viewBox="0 0 851 1280">
-<g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)">
+	<g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)">
 	<path d="M768.7,12750c-3-11-0.3-22.4,11.6-44.7c2.5-4.4,3.6-10.5,2.8-13s0.6-8.6,2.8-13c5-9.1,5.8-15.2,1.7-8.6
 		c-2.5,3.6-2.8,3.6-2.8,0c-0.3-2.2-2.2-0.8-4.4,3.6c-2.2,4.1-3.3,8.8-2.5,10.2c2.2,3.3-14.9,35.9-18.8,35.9c-1.4,0-0.6-2.8,1.9-6.1
 		c6.9-9.9,16-27.6,14.6-28.7c-0.8-0.8-4.7,4.4-8.6,11.3c-4.1,6.9-8,12.4-8.8,12.4c-0.8,0,1.1-4.1,4.4-9.4

@@ -13,18 +13,18 @@ export default function Nav(){
             return styles.active
         }
     }
-    const handleOpen = () => {        
+    const handleNav = () => {        
         setOpen(!open);
     }
         return (
             <nav className={clsx(styles.nav, open ? styles.open : '')}>
-                    <a href="#" onClick={() => handleOpen()} className={styles.iconToggle}><span></span></a>
+                    <span onClick={() => handleNav()} className={styles.iconToggle}><span className={styles.bar}></span></span>
                     <i className={clsx(styles.menuBkgrnd, styles.top)}></i>
                     <i className={clsx(styles.menuBkgrnd, styles.middle)}></i>
                     <i className={clsx(styles.menuBkgrnd, styles.bottom)}></i>
                 <ul className={styles.navList}>
-                    <li className={clsx(pathCheck('/'), styles.navItem)}><Link  href="/"><a className={styles.navLink}>Home</a></Link></li>
-                    <li className={clsx(pathCheck('/blog'), styles.navItem)}><Link href="/blog"><a className={styles.navLink}>Blog</a></Link></li>
+                    <li className={clsx(pathCheck('/'), styles.navItem)}><Link href="/"><a onClick={() => handleNav()} className={styles.navLink}>Home</a></Link></li>
+                    <li className={clsx(pathCheck('/blog'), styles.navItem)}><Link href="/blog"><a onClick={() => handleNav()} className={styles.navLink}>Blog</a></Link></li>
                 </ul>
             </nav>
         )
