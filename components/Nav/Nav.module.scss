@@ -1,7 +1,6 @@
 @import "../styles/mixins";
 @import "../styles/variables";
 .nav {
-
   @include bp(medium){
     margin-left: spacing(22);
   }
@@ -15,6 +14,12 @@
   opacity:0;
   visibility:hidden;
   transition:visibility 1s, opacity 20s;
+
+  @include bp(medium){
+    position:static;
+    opacity:1;
+    visibility: visible;
+  }
 }
 .navList {
   display: flex;
@@ -28,6 +33,12 @@
   transform: translate(-50%, -50%);
   visibility: hidden;
   z-index: 99999;
+
+  @include bp(medium){
+    flex-direction:row;
+    visibility: visible;
+    position:static;
+  }
 }
 .navItem {
   display: flex;
@@ -48,6 +59,8 @@
     }
   }
   @include bp(medium){
+    transform:none;
+    opacity:1;
     & + & {
       margin-left: spacing(7);
     }
@@ -99,6 +112,9 @@
   top:2%;
   left:2%;
   z-index: 9;
+  @include bp(medium){
+    display:none;
+  }
 
   .bar{
     display: block;
@@ -135,6 +151,10 @@
   left: -130%;
   background-color: $white;
   transition: background-position 0.5s, transform 0.5s 0.5s, visibility 0.5s 1s;
+
+  @include bp(medium){
+    display:none;
+  }
 }
 .top{
   transform: rotate(-45deg) translateY(-150%);

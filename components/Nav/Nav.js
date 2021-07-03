@@ -13,8 +13,12 @@ export default function Nav(){
             return styles.active
         }
     }
-    const handleNav = () => {        
-        setOpen(!open);
+    const handleNav = (navItem) => {
+        if(navItem){
+            setOpen(false)
+        }else{
+            setOpen(!open);
+        }      
     }
         return (
             <nav className={clsx(styles.nav, open ? styles.open : '')}>
@@ -24,8 +28,8 @@ export default function Nav(){
                     <i className={clsx(styles.menuBkgrnd, styles.middle)}></i>
                     <i className={clsx(styles.menuBkgrnd, styles.bottom)}></i>
                 <ul className={styles.navList}>
-                    <li className={clsx(pathCheck('/'), styles.navItem)}><Link href="/"><a onClick={() => handleNav()} className={styles.navLink}>Home</a></Link></li>
-                    <li className={clsx(pathCheck('/blog'), styles.navItem)}><Link href="/blog"><a onClick={() => handleNav()} className={styles.navLink}>Blog</a></Link></li>
+                    <li className={clsx(pathCheck('/'), styles.navItem)}><Link href="/"><a onClick={() => handleNav(true)} className={styles.navLink}>Home</a></Link></li>
+                    <li className={clsx(pathCheck('/blog'), styles.navItem)}><Link href="/blog"><a onClick={() => handleNav(true)} className={styles.navLink}>Blog</a></Link></li>
                 </ul>
                 </div>
             </nav>
