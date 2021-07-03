@@ -19,6 +19,7 @@ export default function Nav(){
         return (
             <nav className={clsx(styles.nav, open ? styles.open : '')}>
                     <span onClick={() => handleNav()} className={styles.iconToggle}><span className={styles.bar}></span></span>
+            <div className={styles.navWrapper}>
                     <i className={clsx(styles.menuBkgrnd, styles.top)}></i>
                     <i className={clsx(styles.menuBkgrnd, styles.middle)}></i>
                     <i className={clsx(styles.menuBkgrnd, styles.bottom)}></i>
@@ -26,6 +27,7 @@ export default function Nav(){
                     <li className={clsx(pathCheck('/'), styles.navItem)}><Link href="/"><a onClick={() => handleNav()} className={styles.navLink}>Home</a></Link></li>
                     <li className={clsx(pathCheck('/blog'), styles.navItem)}><Link href="/blog"><a onClick={() => handleNav()} className={styles.navLink}>Blog</a></Link></li>
                 </ul>
+                </div>
             </nav>
         )
     }
