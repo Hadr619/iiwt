@@ -40,7 +40,7 @@
 }
 
 @function spacing($numbers...) {
-  $space: 4;
+  $space: 5;
   $newList: ();
 
   @if length($numbers) == 0 {

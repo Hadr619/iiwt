@@ -22,7 +22,10 @@
 }
 .headerInner{
   display: flex;
-  flex-basis:0;
+  flex-basis:30px;
+  order:-1;
+  align-items: center;
+  padding-left: 4%;
   @include constrain();
   z-index:10;
   @include bp(medium){
@@ -33,10 +36,11 @@
 .logo {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   flex-basis: 100%;
-  padding-top: 25px;
+  padding-top: spacing(5);
+  padding-left: spacing(6);
   cursor: pointer;
   position: relative;
   z-index:1;
@@ -92,10 +96,9 @@
   left: 0;
   width: 500px;
   &:nth-child(1) {
-    top: 181px;
-    left: 16%;
+    top: 186px;
+    left: 4%;
     width: 159px;
-    -webkit-transform: rotate(12deg);
     transform: rotate(351deg);
     @include bp(medium){
       top: 50px;
@@ -105,10 +108,10 @@
     }
   }
   &:nth-child(2) {
-    width: 159px;
-    top: 200px;
-    left: 69%;
-    transform: rotate(12deg);
+    width: 183px;
+    top: 177px;
+    left: 16%;
+    transform: rotate(356deg);
     @include bp(medium){
       display:block;
       width:500px;
@@ -118,21 +121,27 @@
     }
   }
   &:nth-child(3) {
-    display:none;
-    top: 27px;
-    left: 71%;
-    transform: rotate(354deg);
+    width: 159px;
+    top: 200px;
+    left: 69%;
+    transform: rotate(12deg);
+
     @include bp(medium){
-      display:block;
+      top: 27px;
+      left: 71%;
+      transform: rotate(354deg);
     }
   }
   &:nth-child(4) {
-    display:none;
-    top: -37px;
+    width: 159px;
+    top: 175px;
     left: 92%;
-    transform: rotate(337deg);
+    transform: rotate(348deg);
     @include bp(medium){
-      display:block;
+      top: -37px;
+      left: 92%;
+      transform: rotate(337deg);
+
     }
   }
 }
