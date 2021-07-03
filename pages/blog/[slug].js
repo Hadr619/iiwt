@@ -1,5 +1,6 @@
 import { createClient} from 'contentful';
 import Image from 'next/image';
+import Skeleton from '../../components/Skeleton';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const client = createClient({
@@ -47,10 +48,10 @@ export async function getStaticProps({ params }) {
 
 export default function BlogDeets({ post }) {
 
-//   if(!recipe){
-//    return <Skeleton />
-//   }
-//   else{
+  if(!post){
+   return <Skeleton />
+  }
+  else{
 
   const { featuredImage, title, content } = post.fields;
 
@@ -63,5 +64,5 @@ export default function BlogDeets({ post }) {
         <div>{documentToReactComponents(content)}</div>
     </div>
   )
-//}
+}
 }
