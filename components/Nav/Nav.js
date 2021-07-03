@@ -12,6 +12,10 @@ export default function Nav(){
     }
         return (
             <nav className={styles.nav}>
+            <a href="#" class="menu-icon-toggle"><span></span></a>
+            <i class="menu-background top"></i>
+            <i class="menu-background middle"></i>
+            <i class="menu-background bottom"></i>
                 <ul className={styles.navList}>
                     <li className={clsx(pathCheck('/'), styles.navItem)}><Link  href="/"><a className={styles.navLink}>Home</a></Link></li>
                     <li className={clsx(pathCheck('/blog'), styles.navItem)}><Link href="/blog"><a className={styles.navLink}>Blog</a></Link></li>

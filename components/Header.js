@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Nav from './Nav';
+import Nav from './Nav/Nav';
 import Logo from './svg/Logo';
 import Palmtree from './svg/Palmtree';
 import styles from './Header.module.scss';
