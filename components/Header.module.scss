@@ -6,7 +6,7 @@
   display: flex;
   padding-left: spacing(11);
   height: 250px;
-  overflow: hidden;
+  // overflow: hidden;
   background: linear-gradient(
     160deg,
     rgba(4, 18, 5, 1) 3%,
@@ -52,4 +52,5 @@
   bottom: 0;
   width: 100%;
   height: 250px;
+  display:none;
 }

@@ -21,7 +21,6 @@ export async function getStaticProps() {
 
 export default function Home({ homePage }) {
   const {title, content} = homePage.fields;
-  console.log(homePage);
   return (
     <section className={clsx('inner')}>
       <div className={styles.homepageContent}>
