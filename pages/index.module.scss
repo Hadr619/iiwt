@@ -1,5 +1,19 @@
+@import '../styles/mixins';
+.homepageInner{
+  flex-direction:column;
+  position:relative;
+}
 .homepageContent {
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-top: 100px;;
+}
+.iframe{
+
+  @include bp(medium){
+    position:absolute;
+    top:-80px;
+    left:0;
+  }
 }

@@ -12,7 +12,8 @@ export async function getStaticProps() {
   const res = await client.getEntries({ content_type: 'homePage' }) //whatever content type is set up in content model
   return {
     props: {
-      homePage: res.items[0]
+      homePage: res.items[0],
+      
     },
     revalidate: 1
   }
@@ -22,10 +23,10 @@ export async function getStaticProps() {
 export default function Home({ homePage }) {
   const {title, content} = homePage.fields;
   return (
-    <section className={clsx('inner')}>
+    <section className={clsx(styles.homepageInner, 'inner')}>
+<iframe src="https://open.spotify.com/embed/show/1I7lI0F33YvpLuORxLp7Ar?theme=0" width="100%" height="152" frameBorder="0" allowtransparency="true" allow="encrypted-media" className={styles.iframe}></iframe>
       <div className={styles.homepageContent}>
-      <div>{documentToReactComponents(content)}</div>
-      <iframe src="https://open.spotify.com/embed/show/1I7lI0F33YvpLuORxLp7Ar?theme=0" width="100%" height="232" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        <div>{documentToReactComponents(content)}</div>
       </div>
     </section>
   )
