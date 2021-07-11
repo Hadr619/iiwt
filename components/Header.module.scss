@@ -43,6 +43,7 @@ $desktopPalmWidth: 1000px;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  align-self: flex-start;
   flex-basis: 100%;
   padding-top: spacing(5);
   padding-left: spacing(6);
@@ -52,7 +53,7 @@ $desktopPalmWidth: 1000px;
 
   svg {
     display:none;
-    width: 60%;
+    width: 35%;
     height: auto;
     fill: $amber;
 
@@ -73,10 +74,9 @@ $desktopPalmWidth: 1000px;
 
   @include bp(medium){
     position: absolute;
-    width: 175px;
-    margin-top: 8px;
+    width: 215px;
     transform: rotateZ(-6deg);
-    bottom: 103px;
+    bottom: -25px;
     left: 20px;
   }
 }
@@ -90,6 +90,56 @@ $desktopPalmWidth: 1000px;
   @include bp(medium){
     height:100%;
   }
+}
+.callToAction{
+  display:none;
+  flex-direction:column;
+  position: absolute;
+  top: 30%;
+  left:10%;
+  width:800px;
+  z-index: 1;
+  color:$white;
+  @include bp(medium){
+    display:flex;
+  }
+}
+.ctaTitle{
+  font-size:72px;
+  font-family:$rubik;
+  letter-spacing: -2px;
+  font-weight: 700;
+  line-height: 72px;
+}
+.ctaDescription{
+  margin-top:spacing(3);
+  white-space: normal;
+  text-align: left;
+  line-height: 27px;
+  letter-spacing: 0px;
+  font-family:$rubik;
+  font-weight: 400;
+  font-size: 20px;
+}
+.sites{
+  display:flex;
+}
+.siteCTA{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width:160px;
+  background-color:rgba(0,0,0,.7);
+  border-radius:30px;
+  color:$white;
+  text-decoration: none;
+
+  & + & {
+    margin-left:spacing(2);
+  }
+}
+.icon{
+  font-size:25px;
 }
 .palmtreeSvg {
   position: absolute;
