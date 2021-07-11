@@ -88,7 +88,7 @@ $desktopPalmWidth: 1000px;
   height: 250px;
 
   @include bp(medium){
-    height:500px;
+    height:100%;
   }
 }
 .palmtreeSvg {
@@ -102,7 +102,7 @@ $desktopPalmWidth: 1000px;
     width: 159px;
     transform: rotate(351deg);
     @include bp(medium){
-      top: -26px;
+      top: 279px;
       left: 19%;
       width:$desktopPalmWidth;
       transform: rotate(12deg);
@@ -116,7 +116,7 @@ $desktopPalmWidth: 1000px;
     @include bp(medium){
       display:block;
       width:$desktopPalmWidth;
-      top: -41px;
+      top: 263px;
       left:35%;
       transform: rotate(3deg);
     }
@@ -129,7 +129,7 @@ $desktopPalmWidth: 1000px;
 
     @include bp(medium){
       width:$desktopPalmWidth;
-      top: -80px;
+      top: 211px;
       left: 50%;
       transform: rotate(4deg);
     }
@@ -141,7 +141,7 @@ $desktopPalmWidth: 1000px;
     transform: rotate(348deg);
     @include bp(medium){
       width:$desktopPalmWidth;
-      top: 93px;
+      top: 369px;
       left: 55%;
       transform: rotate(18deg);
     }
@@ -153,7 +153,7 @@ $desktopPalmWidth: 1000px;
     transform: rotate(348deg);
     @include bp(medium){
       width:$desktopPalmWidth;
-      top: -100px;
+      top: 139px;
       left: 83%;
       transform: rotate(353deg);
     }

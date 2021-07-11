@@ -21,7 +21,7 @@ export default function Header() {
 		let palms = [];
 		for (let i=0; i < 5; i++){
 			palms.push(
-				<Palmtree className={styles.palmtreeSvg}/>
+				<Palmtree key={i} className={styles.palmtreeSvg}/>
 			)
 		}
 		return palms;
