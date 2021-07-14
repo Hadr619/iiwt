@@ -30,6 +30,7 @@ export async function getStaticProps({ params }) {
      content_type: 'blogPost',
      'fields.slug': params.slug
    })
+   console.log(items);
 
    if(!items.length){
      return {

@@ -28,7 +28,9 @@ export default function Nav(){
                     <i className={clsx(styles.menuBkgrnd, styles.bottom)}></i>
                 <ul className={styles.navList}>
                     <li className={clsx(pathCheck('/'), styles.navItem)}><Link href="/"><a onClick={() => handleNav(true)} className={styles.navLink}>Home</a></Link></li>
+                    <li className={clsx(pathCheck('/episodes'), styles.navItem)}><Link href="/episodes"><a onClick={() => handleNav(true)} className={styles.navLink}>Episodes</a></Link></li>
                     <li className={clsx(pathCheck('/blog'), styles.navItem)}><Link href="/blog"><a onClick={() => handleNav(true)} className={styles.navLink}>Blog</a></Link></li>
+                    
                 </ul>
                 </div>
             </nav>

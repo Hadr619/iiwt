@@ -26,11 +26,13 @@ export async function getStaticProps() {
 }
 
 export default function Home({ homePage, episodes }) {
+  console.log(episodes);
 
   const {title, content} = homePage.fields;
-  console.log(episodes.items);
+  // console.log(episodes.items[0].url);
   return (
     <section className={clsx(styles.homepageInner, 'inner')}>
+      {/* <iframe src={`${episodes.items[0].url}`} height="102px" width="400px" frameBorder="0" scrolling="no"></iframe> */}
 <iframe src="https://open.spotify.com/embed/show/1I7lI0F33YvpLuORxLp7Ar?theme=0" width="100%" height="152" frameBorder="0" allowtransparency="true" allow="encrypted-media" className={styles.iframe}></iframe>
       <div className={styles.homepageContent}>
         <div>{documentToReactComponents(content)}</div>
