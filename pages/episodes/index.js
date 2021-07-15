@@ -19,7 +19,7 @@ export default function Episodes({ episodes }) {
         <div>
         <h2>EPISODES</h2>  
         {episodes.items.map((ep, index) => (
-          <Link key={index} href={`/episodes/${ep.title.replace(/\s/g , "-")}`}>
+          <Link key={index} href={`/episodes/${ep.title.replace(/\./g,"").replace(/\s/g , "-")}`}>
             <div>{ep.title}</div>
           </Link>
         ))}

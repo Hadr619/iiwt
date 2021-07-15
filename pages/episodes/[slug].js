@@ -17,13 +17,9 @@ export const getStaticPaths = async () => {
     }
   }
   export async function getStaticProps({ params }) {
-    // const { items } = await client.getEntries({
-    //   content_type: 'blogPost',
-    //   'fields.slug': params.slug
-    // })
-    
 
     const rss = await Feed.load('https://anchor.fm/s/4041b370/podcast/rss');
+    const taco = JSON.stringify(rss, null, 3);
     const items = rss.items.filter(item => {
         return item.title.replace(/\s/g , "-") == params.slug;
     })
@@ -48,7 +44,8 @@ export default function Episode({episode}){
     return(
         <div>
         <div>{episode.title}</div>
-        <div>{episode.description}</div>
+        <div dangerouslySetInnerHTML={{__html:episode.description}}></div>
+        {/* <iframe src={`${episode.link}`} height="102px" width="400px" frameBorder="0" scrolling="no"></iframe> */}
         </div>
     )
 }
