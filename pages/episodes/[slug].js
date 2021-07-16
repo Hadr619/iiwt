@@ -39,17 +39,12 @@ export const getStaticPaths = async () => {
  }
 
 export default function Episode({episode}){
-    const buildIframe = (em)  => {
-        return (<iframe src="https://anchor.fm/isitworsethan/episodes/MID-WEEK-REVIEW---Inhaler---It-Wont-Always-Be-Like-This-e14fmbv" height="102px" width="400px" frameBorder="0" scrolling="no" allow="encrypted-media" allowtransparency="true"></iframe>);
-    }
     // console.log(episode);
-    const embed = 'https://anchor.fm/isitworsethan/episodes/MID-WEEK-REVIEW---Inhaler---It-Wont-Always-Be-Like-This-e14fmbv';
     return(
         <div>
-        <div>{episode.title}</div>
-        <div dangerouslySetInnerHTML={{__html:episode.description}}></div>
-        {/* <iframe src={`${embed}`} height="102px" width="400px" frameBorder="0" scrolling="no" allow="encrypted-media" allowtransparency="true"></iframe> */}
-        {buildIframe()}
+        {/* <div>{episode.title}</div>
+        <div dangerouslySetInnerHTML={{__html:episode.description}}></div> */}
+        {/* <iframe src="https://anchor.fm/isitworsethan/episodes/MID-WEEK-REVIEW---Inhaler---It-Wont-Always-Be-Like-This-e14fmbv'" height="102px" width="400px" frameBorder="0" scrolling="no" allow="encrypted-media" allowtransparency="true"></iframe> */}
         </div>
     )
 }
