@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useState } from 'react';
 import Feed from 'rss-to-json';
 
 export async function getStaticProps() {
@@ -14,7 +15,6 @@ export async function getStaticProps() {
   
   }
 export default function Episodes({ episodes }) {
-    console.log(episodes);
     return (
         <div>
         <h2>EPISODES</h2>  

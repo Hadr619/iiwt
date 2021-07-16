@@ -27,7 +27,6 @@ export async function getStaticProps() {
 
 export default function Home({ homePage, episodes }) {
   console.log(episodes);
-
   const {title, content} = homePage.fields;
   // console.log(episodes.items[0].url);
   return (
