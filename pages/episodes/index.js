@@ -1,6 +1,9 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import EpisodeCard from '../../components/Card/EpisodeCard';
 import Feed from 'rss-to-json';
 import styles from './episodes.module.scss';
+import clsx from 'clsx';
 
 export async function getStaticProps() {
 
@@ -15,14 +18,26 @@ export async function getStaticProps() {
   
   }
 export default function Episodes({ episodes }) {
+  console.log(episodes);
     return (
-        <div>
+        <div className={clsx(styles.episodePage, "inner")}>
         <h2>EPISODES</h2>  
         <div className={styles.episodeContainer}>
           {episodes.items.map((ep, index) => (
-            <Link key={index} href={`${ep.url}`}>
-              <a target="_blank">{ep.title}</a>
-            </Link>
+            // <div key={index}>
+            // <Link href={`${ep.url}`}>
+            //   <a target="_blank">
+            //     <Image 
+            //       src={ep.itunes_image}
+            //       width='30px'
+            //       height='30px'
+            //     />
+            //     {ep.title}
+            //     <span dangerouslySetInnerHTML={{__html:ep.description}}></span>           
+            //   </a>
+            // </Link>
+            // </div>
+            <EpisodeCard key={index} episode={ep}/>
           ))}
         </div>
       </div>

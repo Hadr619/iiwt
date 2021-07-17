@@ -27,7 +27,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ homePage, episodes }) {
-  console.log(episodes);
   const {content} = homePage.fields;
   return (
     <section className={clsx(styles.homepageInner, 'inner')}>
@@ -36,9 +35,10 @@ export default function Home({ homePage, episodes }) {
         <div>{documentToReactComponents(content)}</div>
         <div className={styles.episodes}>
           {episodes.map(ep => (
-            <Link href={ep.url}>
-              <a key={ep.id} target="_blank">
+            <Link key={ep.id} href={ep.url}>
+              <a target="_blank">
                 <div>
+
                 {ep.title}
                 </div>
               </a>
