@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from "next/image";
 import { createClient} from 'contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styles from './index.module.scss';
@@ -27,6 +28,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ homePage, episodes }) {
+  console.log(episodes);
   const {content} = homePage.fields;
   return (
     <section className={clsx(styles.homepageInner, 'inner')}>
@@ -36,8 +38,13 @@ export default function Home({ homePage, episodes }) {
         <div className={styles.episodes}>
           {episodes.map(ep => (
             <Link key={ep.id} href={ep.url}>
-              <a target="_blank">
-                <div>
+              <a target="_blank" className={styles.episode}>
+                <div className={styles.episodeInner}>
+                <div classname={styles.epsiodeImage}>
+                <Image src={ep.itunes_image}
+                       width="100%"
+                       height="100%" />
+                </div>
 
                 {ep.title}
                 </div>

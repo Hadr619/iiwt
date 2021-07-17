@@ -17,3 +17,24 @@
     left:0;
   }
 }
+.episodes{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 350px;
+  grid-gap: 30px;
+}
+.episode{
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 35px 0px rgb(22 12 96 / 9%);
+}
+.episodeInner{
+  display:flex;
+  flex-direction: column;
+  height:100%;
+  background-color:aqua;
+}
+.epsiodeImage{
+  width:100%;
+}
