@@ -1,4 +1,4 @@
-This is the Next.js starter site (and course files) for the Next.js & Contentful tutorial by the Net Ninja.
+This si the Is It Worse Than 311 podcast website, using Next Js and pullin gepisodes from Anchors RSS feed
 
 ## Getting Started
 

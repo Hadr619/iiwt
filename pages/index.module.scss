@@ -23,10 +23,11 @@
 
   @include bp(medium){
     position:absolute;
-    top:-80px;
+    top:-118px;
     left:0;
     padding-left:spacing(0);
     padding-right:spacing(0);
+    z-index:10;
   }
 }
 

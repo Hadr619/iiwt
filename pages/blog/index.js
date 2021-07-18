@@ -1,5 +1,7 @@
 import { createClient} from 'contentful';
-import BlogCard from '../../components/blogCard';
+import BlogCard from '../../components/Card/blogCard';
+import clsx from 'clsx';
+import styles from './blog.module.scss';
 
 export async function getStaticProps() {
   const client = createClient({
@@ -18,8 +20,9 @@ export async function getStaticProps() {
 
 }
 export default function BlogPage({ posts }) {
+  console.log(posts)
     return (
-      <div className="blog-list">
+      <div className="TACO">
         {posts.map(post => (
           <BlogCard key={post.sys.id} post={post}/>
         ))}

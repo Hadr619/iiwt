@@ -52,15 +52,17 @@ export default function Header() {
 		return (
 			<div className={styles.callToAction}>
 				<h2 className={styles.ctaTitle}>{title}</h2>
-				<p className={styles.ctaDescription}>We take that question to heart when reviewing musician's full discography to see how they stack up against the 
+				<p className={styles.ctaDescription}>We take that question to heart when reviewing a musician's full discography to see how they stack up against the 
 				boys from Omaha.
 				</p>
 				<div className={styles.sites}>
-					<a href="https://open.spotify.com/show/1I7lI0F33YvpLuORxLp7Ar" target="_blank" className={styles.siteCTA}>
-						<Image src="/spotify.png" width="162px" height="50px" />
+					<a href="https://open.spotify.com/show/1I7lI0F33YvpLuORxLp7Ar" target="_blank" className={clsx(styles.siteCTA, styles.spotify)}>
+						<i className={clsx(styles.icon, "fa fa-spotify")} aria-hidden="true"></i>
+						<div className={styles.siteName}>Listen on <span className={styles.podcastSource}>Spotify</span></div>
 					</a>
 					<a href="https://podcasts.apple.com/us/podcast/is-it-worse-than/id1541093380" target="_blank" className={styles.siteCTA}>
-						<Image src="/apple.png" width="162px" height="50px" />
+						<i className={clsx(styles.icon, styles.apple, "fa fa-apple")} aria-hidden="true"></i>
+						<div className={styles.siteName}>Listen on <span className={styles.podcastSource}>Apple Podcast</span></div>
 					</a>
 				</div>
 			</div>
