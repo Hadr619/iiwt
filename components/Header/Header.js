@@ -56,11 +56,11 @@ export default function Header() {
 				boys from Omaha.
 				</p>
 				<div className={styles.sites}>
-					<a href="https://open.spotify.com/show/1I7lI0F33YvpLuORxLp7Ar" target="_blank" className={clsx(styles.siteCTA, styles.spotify)}>
+					<a href="https://open.spotify.com/show/1I7lI0F33YvpLuORxLp7Ar" target="_blank" rel="noreferrer" className={clsx(styles.siteCTA, styles.spotify)}>
 						<i className={clsx(styles.icon, "fa fa-spotify")} aria-hidden="true"></i>
 						<div className={styles.siteName}>Listen on <span className={styles.podcastSource}>Spotify</span></div>
 					</a>
-					<a href="https://podcasts.apple.com/us/podcast/is-it-worse-than/id1541093380" target="_blank" className={styles.siteCTA}>
+					<a href="https://podcasts.apple.com/us/podcast/is-it-worse-than/id1541093380" target="_blank" rel="noreferrer" className={styles.siteCTA}>
 						<i className={clsx(styles.icon, styles.apple, "fa fa-apple")} aria-hidden="true"></i>
 						<div className={styles.siteName}>Listen on <span className={styles.podcastSource}>Apple Podcast</span></div>
 					</a>

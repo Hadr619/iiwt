@@ -32,7 +32,7 @@ export default function Home({ homePage, episodes }) {
     <section className={clsx(styles.homepageInner)}>
       <div className={styles.iframeContainer}>
         <h4>Latest Epsisode</h4>
-        <iframe src="https://open.spotify.com/embed/show/1I7lI0F33YvpLuORxLp7Ar?theme=0" width="100%" height="152" frameBorder="0" allowtransparency="true" allow="encrypted-media" className={styles.iframe}></iframe>
+        <iframe src="https://open.spotify.com/embed/show/1I7lI0F33YvpLuORxLp7Ar?theme=0" title="Newest Episode" width="100%" height="152" frameBorder="0" allowtransparency="true" allow="encrypted-media" className={styles.iframe}></iframe>
       </div>
       <div className={styles.homepageContent}>
         <div className={clsx(styles.homeInfo, "inner")}>{documentToReactComponents(content)}</div>
