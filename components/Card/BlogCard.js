@@ -6,7 +6,9 @@ export default function BlogCard({ post }) {
 
     return (
         <Link href={`/blog/${slug}`}>
-            <a>{title}</a>
+            
+            <a><figure className="POZOLE">{title}</figure></a>
+            
         </Link>
     )
 }

@@ -1,5 +1,5 @@
 import { createClient} from 'contentful';
-import BlogCard from '../../components/Card/blogCard';
+import BlogCard from '../../components/Card/BlogCard';
 import clsx from 'clsx';
 import styles from './blog.module.scss';
 
@@ -20,7 +20,7 @@ export async function getStaticProps() {
 
 }
 export default function BlogPage({ posts }) {
-  console.log(posts)
+  // console.log(posts)
     return (
       <div className="TACO">
         {posts.map(post => (
