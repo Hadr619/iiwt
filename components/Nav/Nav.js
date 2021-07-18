@@ -12,16 +12,17 @@ export default function Nav(){
             return styles.active
         }
     }
-    const handleNav = (navItem) => {
-        if(navItem){
-            setOpen(false)
-        }else{
-            setOpen(!open);
-        }      
+    const handleNav = () => {
+        setOpen(false);
+        document.body.classList.remove('navOpen');
+    }
+    const handleNavIcon = () => {
+        setOpen(!open);
+        document.body.classList.toggle('navOpen');
     }
         return (
             <nav className={clsx(styles.nav, open ? styles.open : '')}>
-                    <span onClick={() => handleNav()} className={styles.iconToggle}><span className={styles.bar}></span></span>
+                    <span onClick={() => handleNavIcon()} className={styles.iconToggle}><span className={styles.bar}></span></span>
             <div className={styles.navWrapper}>
                     <i className={clsx(styles.menuBkgrnd, styles.top)}></i>
                     <i className={clsx(styles.menuBkgrnd, styles.middle)}></i>

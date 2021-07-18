@@ -20,6 +20,7 @@ export default function Episodes({ episodes }) {
 
     return (
         <div className={clsx(styles.episodePage, "inner")}>
+          <h4>Check out our Episodes</h4>
         <div className={styles.episodeContainer}>
           {episodes.items.map((ep, index) => (
             <EpisodeCard key={index} episode={ep}/>

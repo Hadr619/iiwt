@@ -1,3 +1,4 @@
+@import '../../styles/mixins';
 
 .episode{
     padding: 20px;
@@ -26,7 +27,7 @@
   .imageContainer{
       position:relative;
       line-height:0;
-      width: 320px;
+      width: 100%;
   }
   .imageOverlay{
       position: absolute;

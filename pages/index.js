@@ -30,7 +30,10 @@ export default function Home({ homePage, episodes }) {
   const {content} = homePage.fields;
   return (
     <section className={clsx(styles.homepageInner)}>
-      <iframe src="https://open.spotify.com/embed/show/1I7lI0F33YvpLuORxLp7Ar?theme=0" width="100%" height="152" frameBorder="0" allowtransparency="true" allow="encrypted-media" className={styles.iframe}></iframe>
+      <div className={styles.iframeContainer}>
+        <h4>Latest Epsisode</h4>
+        <iframe src="https://open.spotify.com/embed/show/1I7lI0F33YvpLuORxLp7Ar?theme=0" width="100%" height="152" frameBorder="0" allowtransparency="true" allow="encrypted-media" className={styles.iframe}></iframe>
+      </div>
       <div className={styles.homepageContent}>
         <div className={clsx(styles.homeInfo, "inner")}>{documentToReactComponents(content)}</div>
         <div className={clsx(styles.episodes, 'inner')}>

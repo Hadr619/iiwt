@@ -11,6 +11,7 @@ export default function EpisodeCard({ episode }) {
           <div className={styles.episodeInner}>
           <div className={styles.imageContainer}>
           <Image src={episode.itunes_image}
+                layout="responsive"
                  width='320px'
                  height="320px" />
           <div className={styles.imageOverlay}>

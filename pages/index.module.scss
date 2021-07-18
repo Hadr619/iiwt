@@ -1,4 +1,6 @@
 @import '../styles/mixins';
+@import '../styles/variables';
+
 .homepageInner{
   flex-direction:column;
   position:relative;
@@ -8,23 +10,43 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-top: 100px;
+
+  @include bp(medium){
+    margin-top: spacing(20);
+  }
 }
-.iframe{
-  margin-top:spacing(10);
+.iframeContainer{
+  width:100%;
+  margin-top:spacing(5);
+  padding-left:spacing(3);
+  padding-right:spacing(3);
+
   @include bp(medium){
     position:absolute;
     top:-80px;
     left:0;
+    padding-left:spacing(0);
+    padding-right:spacing(0);
   }
+}
+
+.iframe{
+  margin-top:spacing(2);
 }
 .homeInfo{
   flex-direction:column;
-  padding: spacing(20, 0);
+  padding: spacing(10, 3);
+
+  @include bp(medium){
+    padding: spacing(20, 0);
+  }
 }
 .episodes{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 30px;
-  padding: spacing(20, 0);
+
+  @include bp(medium){
+    padding: spacing(20, 0);
+  }
 }
