@@ -19,8 +19,23 @@ $desktopPalmWidth: 1000px;
 
   @include bp(medium){
     height:800px;
-    padding-left: spacing(11);
   }
+}
+.header.subpage{
+  @include bp(medium){
+    height:400px;
+  }
+  .callToAction{
+    left:50%;
+    transform:translateX(-50%);
+  }
+  .wave{
+    display:none;
+  }
+  .ctaTitle,.ctaDescription{
+    text-align:center;
+  }
+
 }
 .headerInner{
   display: flex;
@@ -33,34 +48,40 @@ $desktopPalmWidth: 1000px;
   @include bp(medium){
     display:flex;
     flex-basis:100%;
-    align-items: flex-start;
+    align-items: center;
     order:0;
-    padding-top: spacing(10);
   }
+}
+.topNav{
+  display: flex;
+  width: 100%;
+  height: 100px;
 }
 .logo {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   align-self: flex-start;
   flex-basis: 100%;
-  padding-top: spacing(5);
-  padding-left: spacing(6);
+  height:100%;
   cursor: pointer;
   position: relative;
   z-index:1;
 
   svg {
     display:none;
-    width: 35%;
+    width: 20%;
     height: auto;
     fill: $amber;
 
     @include bp(medium){
-      display:block;
-      z-index: 1;
+      display:block;    
     }
+  }
+  @include bp(medium){
+    align-items: flex-start;
+    padding-left: spacing(10);
   }
 }
 .logoLink{
@@ -76,8 +97,9 @@ $desktopPalmWidth: 1000px;
     position: absolute;
     width: 215px;
     transform: rotateZ(-6deg);
-    bottom: -25px;
+    bottom: 6px;
     left: 20px;
+    font-size:15px;
   }
 }
 .scene {
@@ -123,23 +145,29 @@ $desktopPalmWidth: 1000px;
 }
 .sites{
   display:flex;
-}
-.siteCTA{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  width:160px;
-  background-color:rgba(0,0,0,.7);
-  border-radius:30px;
-  color:$white;
-  text-decoration: none;
+  margin-top:spacing(3);
+  font-family:$work;
 
+}
+
+.siteCTA{
   & + & {
     margin-left:spacing(2);
   }
 }
 .icon{
+  flex-basis:50%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
   font-size:25px;
+}
+.siteName{
+  display:flex;
+  flex-direction:column;
+  line-height: 1.3;
+  font-size: 12px;
+  font-weight: 500;
 }
 .palmtreeSvg {
   position: absolute;

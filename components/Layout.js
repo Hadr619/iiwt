@@ -1,4 +1,4 @@
-import Header from './Header';
+import Header from './Header/Header';
 import Script from 'next/script';
 
 export default function Layout({ children }) {

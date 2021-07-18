@@ -21,7 +21,6 @@ export default function Episodes({ episodes }) {
   console.log(episodes);
     return (
         <div className={clsx(styles.episodePage, "inner")}>
-        <h2>EPISODES</h2>  
         <div className={styles.episodeContainer}>
           {episodes.items.map((ep, index) => (
             <EpisodeCard key={index} episode={ep}/>
