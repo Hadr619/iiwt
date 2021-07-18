@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import Image from 'next/image';
+
 import EpisodeCard from '../../components/Card/EpisodeCard';
 import Feed from 'rss-to-json';
 import styles from './episodes.module.scss';
@@ -18,7 +17,7 @@ export async function getStaticProps() {
   
   }
 export default function Episodes({ episodes }) {
-  console.log(episodes);
+
     return (
         <div className={clsx(styles.episodePage, "inner")}>
         <div className={styles.episodeContainer}>
