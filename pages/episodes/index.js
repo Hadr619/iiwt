@@ -24,19 +24,6 @@ export default function Episodes({ episodes }) {
         <h2>EPISODES</h2>  
         <div className={styles.episodeContainer}>
           {episodes.items.map((ep, index) => (
-            // <div key={index}>
-            // <Link href={`${ep.url}`}>
-            //   <a target="_blank">
-            //     <Image 
-            //       src={ep.itunes_image}
-            //       width='30px'
-            //       height='30px'
-            //     />
-            //     {ep.title}
-            //     <span dangerouslySetInnerHTML={{__html:ep.description}}></span>           
-            //   </a>
-            // </Link>
-            // </div>
             <EpisodeCard key={index} episode={ep}/>
           ))}
         </div>

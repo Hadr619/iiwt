@@ -3,6 +3,8 @@
     flex-direction:column;
 }
 .episodeContainer {
-    display:flex;
-    flex-direction:column;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 30px;
+    padding: spacing(20, 0);
 }

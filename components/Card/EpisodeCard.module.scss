@@ -1,0 +1,36 @@
+
+.episode{
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 35px 0px rgb(22 12 96 / 9%);
+    text-decoration: none;
+  }
+  .episodeInner{
+    display:flex;
+    flex-direction: column;
+    height:100%;
+  }
+  .epsiodeImage{
+    width:100%;
+  }
+  .imageContainer{
+      position:relative;
+      line-height:0;
+      width: 320px;
+  }
+  .imageOverlay{
+      position: absolute;
+      top:0;
+      left:0;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,.5);
+  }
+  .icon{
+      font-size:100px;
+      color:rgba(255,255,255,.75);
+  }
