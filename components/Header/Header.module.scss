@@ -4,10 +4,14 @@
 $desktopPalmWidth: 1000px;
 
 .header {
-  position: relative;
+  position: fixed;
+  top:0;
+  left:0;
   display: flex;
+  width:100%;
   height: 80px;
   overflow: hidden;
+  box-shadow: 2px 4px 10px rgb(0 0 0 / 20%);
   background: linear-gradient(
     160deg,
     rgba(4, 18, 5, 1) 3%,
@@ -16,9 +20,12 @@ $desktopPalmWidth: 1000px;
     rgba(240, 146, 40, 1) 74%,
     rgba(245, 182, 27, 1) 100%
   );
+  z-index:10;
 
   @include bp(medium){
+    position:relative;
     height:800px;
+    box-shadow:none;
   }
 }
 .header.subpage{

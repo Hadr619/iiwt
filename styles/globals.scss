@@ -7,6 +7,11 @@
 .page-content {
   display: flex;
   justify-content: center;
+  margin-top: spacing(16);
+
+  @include bp(medium){
+    margin-top: spacing(0);
+  }
 }
 .inner {
   display: flex;
