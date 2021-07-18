@@ -10,14 +10,13 @@
   width: 100%;
   margin-top: 100px;
 }
-.iframe{
-
-  @include bp(medium){
-    position:absolute;
-    top:-80px;
-    left:0;
-  }
-}
+// .iframe{
+//   @include bp(medium){
+//     position:absolute;
+//     top:-80px;
+//     left:0;
+//   }
+// }
 .homeInfo{
   flex-direction:column;
   padding: spacing(20, 0);
