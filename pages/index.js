@@ -11,9 +11,7 @@ export async function getStaticProps() {
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
   });
-//   Feed.load('https://anchor.fm/s/4041b370/podcast/rss').then(rss => {
-//     console.log(JSON.stringify(rss, null, 3));
-// });
+
   const rss = await Feed.load('https://anchor.fm/s/4041b370/podcast/rss');
   const res = await client.getEntries({ content_type: 'homePage' }) //whatever content type is set up in content model
   return {
@@ -32,7 +30,7 @@ export default function Home({ homePage, episodes }) {
   const {content} = homePage.fields;
   return (
     <section className={clsx(styles.homepageInner)}>
-      <iframe src="https://open.spotify.com/embed/show/1I7lI0F33YvpLuORxLp7Ar?theme=0" width="100%" height="152" frameBorder="0" allowtransparency="true" allow="encrypted-media" className={styles.iframe}></iframe>
+      {/* <iframe src="https://open.spotify.com/embed/show/1I7lI0F33YvpLuORxLp7Ar?theme=0" width="100%" height="152" frameBorder="0" allowtransparency="true" allow="encrypted-media" className={styles.iframe}></iframe> */}
       <div className={styles.homepageContent}>
         <div className={clsx(styles.homeInfo, "inner")}>{documentToReactComponents(content)}</div>
         <div className={clsx(styles.episodes, 'inner')}>
