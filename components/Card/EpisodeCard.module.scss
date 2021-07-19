@@ -1,5 +1,5 @@
 @import '../../styles/mixins';
-
+@import '../../styles/variables';
 .episode{
     padding: 20px;
     background: #fff;
@@ -15,6 +15,9 @@
             transition: background-color .25s ease-in-out;
         }
     }
+  }
+  .figure{
+      height:100%;
   }
   .episodeInner{
     display:flex;
@@ -44,4 +47,15 @@
   .icon{
       font-size:100px;
       color:rgba(255,255,255,.75);
+  }
+  .caption{
+      display:flex;
+      flex-direction:column;
+      flex-grow:1;
+      margin-top:spacing(2);
+      color:$black;
+      font-family:$work;
+  }
+  .duration{
+      margin-top:auto;
   }

@@ -2,6 +2,10 @@
 const path = require('path')
 
 module.exports = {
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
     images: {
       domains: ['images.ctfassets.net', 'd3t3ozftmdmh3i.cloudfront.net'],
     },
