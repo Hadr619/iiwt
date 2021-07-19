@@ -48,6 +48,15 @@
       font-size:100px;
       color:rgba(255,255,255,.75);
   }
+  .midWeek{
+      position: absolute;
+      top: 52px;
+      left: 15px;
+      color:$white;
+      font-family:$rockSalt;
+      font-size:20px;
+      transform:rotateZ(349deg);
+  }
   .caption{
       display:flex;
       flex-direction:column;
