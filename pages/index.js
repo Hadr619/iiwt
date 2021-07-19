@@ -1,4 +1,4 @@
-
+import Head from 'next/head'
 import { createClient} from 'contentful';
 import EpisodeCard from '../components/Card/EpisodeCard';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
@@ -29,19 +29,25 @@ export default function Home({ homePage, episodes }) {
   console.log(episodes);
   const {content} = homePage.fields;
   return (
-    <section className={clsx(styles.homepageInner)}>
-      <div className={styles.iframeContainer}>
-        <h4>Latest Epsisode</h4>
-        <iframe src="https://open.spotify.com/embed/show/1I7lI0F33YvpLuORxLp7Ar?theme=0" title="Newest Episode" width="100%" height="152" frameBorder="0" allowtransparency="true" allow="encrypted-media" className={styles.iframe}></iframe>
-      </div>
-      <div className={styles.homepageContent}>
-        <div className={clsx(styles.homeInfo, "inner")}>{documentToReactComponents(content)}</div>
-        <div className={clsx(styles.episodes, 'inner')}>
-          {episodes.map((ep, index) => (
-            <EpisodeCard key={index} episode={ep}/>
-          ))}
+    <div className={clsx(styles.homepageInner)}>
+      <Head>
+          <title>Is It Worse Than</title>
+      </Head>
+      <section>
+        <div className={styles.iframeContainer}>
+          <h4>Latest Epsisode</h4>
+          <iframe src="https://open.spotify.com/embed/show/1I7lI0F33YvpLuORxLp7Ar?theme=0" title="Newest Episode" width="100%" height="152" frameBorder="0" allowtransparency="true" allow="encrypted-media" className={styles.iframe}></iframe>
         </div>
-      </div>
-    </section>
+        <div className={styles.homepageContent}>
+          <div className={clsx(styles.homeInfo, "inner")}>{documentToReactComponents(content)}</div>
+          <div className={clsx(styles.episodes, 'inner')}>
+            {episodes.map((ep, index) => (
+              <EpisodeCard key={index} episode={ep}/>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+
   )
 }

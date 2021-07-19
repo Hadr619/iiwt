@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { createClient} from 'contentful';
 import BlogCard from '../../components/Card/BlogCard';
 import clsx from 'clsx';
@@ -22,10 +23,16 @@ export async function getStaticProps() {
 export default function BlogPage({ posts }) {
   // console.log(posts)
     return (
-      <div className="TACO">
-        {posts.map(post => (
-          <BlogCard key={post.sys.id} post={post}/>
-        ))}
+      <div>
+        <Head>
+          <title>Is It Worse Than - Blog</title>
+        </Head>
+        
+        <div className="TACO">
+          {posts.map(post => (
+            <BlogCard key={post.sys.id} post={post}/>
+          ))}
+        </div>
       </div>
     )
   }
