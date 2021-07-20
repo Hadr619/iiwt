@@ -32,10 +32,10 @@ export default function Episodes({ episodes }) {
     const val = e.target.value;
     console.log(val);
     if(val.toLowerCase() == 'episodes'){
-      setItems(items => rawItems.filter(item => !item.title.toLowerCase().includes("mid-week")))
+      setItems(items => rawItems.filter(item => !item.title.toLowerCase().includes("review")))
     }
     else if(val.toLowerCase() == "mid-week"){
-      setItems(items => rawItems.filter(item => item.title.toLowerCase().includes("mid-week") || item.title.toLowerCase().includes("review")))
+      setItems(items => rawItems.filter(item => item.title.toLowerCase().includes("review")))
       console.log(rawItems);
     }
     else {
@@ -57,8 +57,7 @@ export default function Episodes({ episodes }) {
               <button className={styles.btn} value="all" onClick={handleClick}>All</button>
               <button className={styles.btn} value="episodes" onClick={handleClick}>Episodes</button>
               <button className={styles.btn} value="mid-week" onClick={handleClick}>Mid Week Reviews</button>
-            </div>
-            
+            </div>      
           <div className={styles.episodeContainer}>
             {items.map((ep, index) => (
               <EpisodeCard key={index} episode={ep}/>

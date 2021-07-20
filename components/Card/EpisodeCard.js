@@ -11,13 +11,13 @@ export default function EpisodeCard({ episode }) {
     let albumCTA;
     const albumReview = "Mid-Week Review";
     
-    if(epTitle.includes(stringCheck)){
+    if(epTitle.includes(stringCheck) || epTitle.toLowerCase().includes('review')){
         newEpTitle = epTitle.replace(stringCheck, "");
+        newEpTitle = newEpTitle.toLowerCase().replace('review', "");
         albumCTA = albumReview;
     }
     else{
         newEpTitle = epTitle;
-        albumCTA = "";
     }
     return (
         <Link key={episode.id} href={episode.url}>
@@ -36,7 +36,7 @@ export default function EpisodeCard({ episode }) {
           </div>
           </div>
           <figcaption className={styles.caption}>
-            <div>{newEpTitle}</div>
+            <div className={styles.title}>{newEpTitle}</div>
             <div className={styles.duration}>Episode Length: {epLength}</div>
           </figcaption>
           </div>  
