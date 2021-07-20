@@ -1,4 +1,6 @@
-import Head from 'next/head'
+
+import { NextSeo } from 'next-seo';
+import Header from "../components/Header/Header";
 import { createClient} from 'contentful';
 import EpisodeCard from '../components/Card/EpisodeCard';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
@@ -24,20 +26,28 @@ export async function getStaticProps() {
   }
 
 }
+const props = {
+  title: "311 can't be the worst band, can they?",
+  description: "We take that question to heart when reviewing a musician's full discography to see how they stack up against the boys from Omaha."
+}
 
 export default function Home({ homePage, episodes }) {
   console.log(episodes);
   const {content} = homePage.fields;
   return (
-    <div className={clsx(styles.homepageInner)}>
-      <Head>
-          <title>Is It Worse Than</title>
-      </Head>
-      <section>
+    <>
+      <NextSeo 
+      title="Is It Worse Than"
+      description="The only site that asks the real question about bands, are they worse than 311?"
+    />
+    <Header props={props}/>
+      <section className={clsx(styles.homepageInner)}>
         <div className={styles.iframeContainer}>
-          <h4>Latest Epsisode</h4>
-          <iframe src="https://open.spotify.com/embed/show/1I7lI0F33YvpLuORxLp7Ar?theme=0" title="Newest Episode" width="100%" height="152" frameBorder="0" allowtransparency="true" allow="encrypted-media" className={styles.iframe}></iframe>
-        </div>
+          <div className={clsx(styles.iframeWrapper, "inner")}>
+            <h4>Latest Epsisode</h4>
+            <iframe src="https://open.spotify.com/embed/show/1I7lI0F33YvpLuORxLp7Ar?theme=0" title="Newest Episode" width="100%" height="152" frameBorder="0" allowtransparency="true" allow="encrypted-media" className={styles.iframe}></iframe>
+          </div>
+          </div>
         <div className={styles.homepageContent}>
           <div className={clsx(styles.homeInfo, "inner")}>{documentToReactComponents(content)}</div>
           <div className={clsx(styles.episodes, 'inner')}>
@@ -47,7 +57,7 @@ export default function Home({ homePage, episodes }) {
           </div>
         </div>
       </section>
-    </div>
+    </>
 
   )
 }

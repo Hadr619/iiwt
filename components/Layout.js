@@ -6,11 +6,7 @@ export default function Layout({ children }) {
 	
   return (
     <div className="layout">
-      <Header />
-  	  <div className="page-content">
         { children }
-      </div>
-
       <footer>
 		<div>
         	<p>Copyright 2021 Is It Worse Than...</p>

@@ -1,4 +1,5 @@
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
+import Header from '../../components/Header/Header';
 import { createClient} from 'contentful';
 import BlogCard from '../../components/Card/BlogCard';
 import clsx from 'clsx';
@@ -20,19 +21,27 @@ export async function getStaticProps() {
   }
 
 }
+const props = {
+  title: "Blog",
+  description: "A blog page description"
+}
+
 export default function BlogPage({ posts }) {
-  // console.log(posts)
+
     return (
       <div>
-        <Head>
-          <title>Is It Worse Than - Blog</title>
-        </Head>
-        
-        <div className="TACO">
+      <Header props={props}/>
+      <NextSeo 
+      title="Is It Worse Than - Blog"
+      description="The only site that asks the real question about bands, are they worse than 311?"
+      />
+        <section className={styles.blogWrapper}>
+        <div className={clsx(styles.blogContainer, "inner")}>
           {posts.map(post => (
             <BlogCard key={post.sys.id} post={post}/>
           ))}
-        </div>
+          </div>
+        </section>
       </div>
     )
   }

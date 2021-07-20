@@ -1,3 +1,5 @@
+import { NextSeo } from 'next-seo';
+import Header from '../../components/Header/Header';
 import { createClient} from 'contentful';
 import Image from 'next/image';
 import Skeleton from '../../components/Skeleton';
@@ -30,7 +32,6 @@ export async function getStaticProps({ params }) {
      content_type: 'blogPost',
      'fields.slug': params.slug
    })
-   console.log(items);
 
    if(!items.length){
      return {
@@ -54,15 +55,38 @@ export default function BlogDeets({ post }) {
   }
   else{
 
-  const { featuredImage, title, content } = post.fields;
+  const { slug, featuredImage, title, description, content } = post.fields;
+  const props = {
+    title: `${title}`,
+    description: `${description}`
+  }
 
   return (
     <div>
-    <Image src={`https:${featuredImage.fields.file.url}`}
-        width={featuredImage.fields.file.details.image.width} 
-        height={featuredImage.fields.file.details.image.height}/>
-    <h2>{title}</h2>
-        <div>{documentToReactComponents(content)}</div>
+    <Header props={props} />
+      <NextSeo 
+      title={`Is It Worse Than - ${title}`}
+      description={``}
+      openGraph={{
+        type: 'website',
+        url: `https://www.isitworsethan.com/blog/${slug}`,
+        title: `${title}`,
+        description: `${description}`,
+        images: [
+          {
+            url: `https:${featuredImage.fields.file.url}`,
+            width: `${featuredImage.fields.file.details.image.width}`,
+            height: `${featuredImage.fields.file.details.image.width}`,
+            alt: 'Blog Featured Image',
+          },
+        ],
+      }}
+      />
+      <Image src={`https:${featuredImage.fields.file.url}`}
+          width={featuredImage.fields.file.details.image.width} 
+          height={featuredImage.fields.file.details.image.height}/>
+      <h2>{title}</h2>
+      <div>{documentToReactComponents(content)}</div>
     </div>
   )
 }

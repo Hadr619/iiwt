@@ -1,9 +1,14 @@
-@import '../styles/mixins';
-@import '../styles/variables';
+@import "../styles/mixins";
+@import "../styles/variables";
 
-.homepageInner{
-  flex-direction:column;
-  position:relative;
+.homepageInner {
+  flex-direction: column;
+  position: relative;
+  margin-top: spacing(16);
+
+  @include bp(medium) {
+    margin-top: spacing(0);
+  }
 }
 .homepageContent {
   display: flex;
@@ -11,43 +16,50 @@
   align-items: center;
   width: 100%;
 
-  @include bp(medium){
-    margin-top: spacing(20);
+  @include bp(medium) {
+    padding-top: spacing(15);
   }
 }
-.iframeContainer{
-  width:100%;
-  margin-top:spacing(5);
-  padding-left:spacing(3);
-  padding-right:spacing(3);
+.iframeContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-left: spacing(3);
+  padding-right: spacing(3);
 
-  @include bp(medium){
-    position:absolute;
-    top:-118px;
-    left:0;
-    padding-left:spacing(0);
-    padding-right:spacing(0);
-    z-index:10;
+  @include bp(medium) {
+    position: absolute;
+    top: -85px;
+    left: 0;
+    padding-left: spacing(0);
+    padding-right: spacing(0);
+    z-index: 10;
   }
 }
-
-.iframe{
-  margin-top:spacing(2);
+.iframeWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: spacing(0);
 }
-.homeInfo{
-  flex-direction:column;
+
+.iframe {
+  margin-top: spacing(2);
+}
+.homeInfo {
+  flex-direction: column;
   padding: spacing(10, 3);
 
-  @include bp(medium){
+  @include bp(medium) {
     padding: spacing(20, 0);
   }
 }
-.episodes{
+.episodes {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 30px;
 
-  @include bp(medium){
+  @include bp(medium) {
     padding: spacing(20, 0);
   }
 }

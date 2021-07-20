@@ -1,16 +1,26 @@
-@import '../../styles/mixins';
-.episodePage{
-    display:flex;
-    flex-direction:column;
-    padding-top:spacing(3);
+@import "../../styles/mixins";
+.epsiodesSection {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: spacing(16);
+
+  @include bp(medium) {
+    margin-top: spacing(0);
+  }
+}
+.episodePage {
+  display: flex;
+  flex-direction: column;
+  padding-top: spacing(3);
 }
 .episodeContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 30px;
-    margin-top:spacing(4);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 30px;
+  margin-top: spacing(4);
 
-    @include bp(medium){
-        padding: spacing(10, 0);
-    }
+  @include bp(medium) {
+    padding: spacing(10, 0);
+  }
 }
