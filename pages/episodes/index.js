@@ -1,5 +1,6 @@
 
 import { NextSeo } from 'next-seo';
+import { useState } from 'react';
 import Header from '../../components/Header/Header';
 import EpisodeCard from '../../components/Card/EpisodeCard';
 import Feed from 'rss-to-json';
@@ -24,6 +25,23 @@ export async function getStaticProps() {
   }
   
 export default function Episodes({ episodes }) {
+  const rawItems = episodes.items;
+  const [items, setItems] = useState(rawItems);
+
+  const handleClick = (e) => {
+    const val = e.target.value;
+    console.log(val);
+    if(val.toLowerCase() == 'episodes'){
+      setItems(items => rawItems.filter(item => !item.title.toLowerCase().includes("mid-week")))
+    }
+    else if(val.toLowerCase() == "mid-week"){
+      setItems(items => rawItems.filter(item => item.title.toLowerCase().includes("mid-week") || item.title.toLowerCase().includes("review")))
+      console.log(rawItems);
+    }
+    else {
+      setItems(rawItems);
+    }
+  }
 
     return (
       <div>
@@ -35,8 +53,14 @@ export default function Episodes({ episodes }) {
         <section className={styles.epsiodesSection}>
           <div className={clsx(styles.episodePage, "inner")}>
             <h4>Check out our Episodes</h4>
+            <div className={styles.btnContainer}>
+              <button className={styles.btn} value="all" onClick={handleClick}>All</button>
+              <button className={styles.btn} value="episodes" onClick={handleClick}>Episodes</button>
+              <button className={styles.btn} value="mid-week" onClick={handleClick}>Mid Week Reviews</button>
+            </div>
+            
           <div className={styles.episodeContainer}>
-            {episodes.items.map((ep, index) => (
+            {items.map((ep, index) => (
               <EpisodeCard key={index} episode={ep}/>
             ))}
           </div>
