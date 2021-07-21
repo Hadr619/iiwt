@@ -27,22 +27,24 @@ export async function getStaticProps() {
 export default function Episodes({ episodes }) {
   const rawItems = episodes.items;
   const [items, setItems] = useState(rawItems);
+  const [activeBtn, setActiveBtn] = useState('all');
+  console.log(episodes);
 
   const handleClick = (e) => {
     const val = e.target.value;
-    console.log(val);
+    e.preventDefault();
     if(val.toLowerCase() == 'episodes'){
       setItems(items => rawItems.filter(item => !item.title.toLowerCase().includes("review")))
+      
     }
-    else if(val.toLowerCase() == "mid-week"){
+    if(val.toLowerCase() == "mid-week"){
       setItems(items => rawItems.filter(item => item.title.toLowerCase().includes("review")))
-      console.log(rawItems);
     }
-    else {
+    if(val.toLowerCase() == "all") {
       setItems(rawItems);
     }
+    setActiveBtn(val);
   }
-
     return (
       <div>
         <NextSeo 
@@ -54,9 +56,9 @@ export default function Episodes({ episodes }) {
           <div className={clsx(styles.episodePage, "inner")}>
             <h4>Check out our Episodes</h4>
             <div className={styles.btnContainer}>
-              <button className={styles.btn} value="all" onClick={handleClick}>All</button>
-              <button className={styles.btn} value="episodes" onClick={handleClick}>Episodes</button>
-              <button className={styles.btn} value="mid-week" onClick={handleClick}>Mid Week Reviews</button>
+              <button className={clsx(styles.btn, activeBtn == 'all' ? styles.activeBtn : "")} value="all" onClick={handleClick}>All</button>
+              <button className={clsx(styles.btn, activeBtn == 'episodes' ? styles.activeBtn : "")} value="episodes" onClick={handleClick}>Episodes</button>
+              <button className={clsx(styles.btn, activeBtn == 'mid-week' ? styles.activeBtn : "")} value="mid-week" onClick={handleClick}>Mid Week Reviews</button>
             </div>      
           <div className={styles.episodeContainer}>
             {items.map((ep, index) => (
