@@ -44,6 +44,10 @@
   transition: background-color 0.25s ease-in-out;
   line-height: 1;
 
+  @include bp(medium) {
+    padding: spacing(2, 3);
+  }
+
   & + & {
     margin-left: spacing(2);
   }

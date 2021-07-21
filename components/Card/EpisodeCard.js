@@ -15,10 +15,15 @@ export default function EpisodeCard({ episode }) {
         newEpTitle = epTitle.replace(stringCheck, "");
         newEpTitle = newEpTitle.toLowerCase().replace('review', "");
         albumCTA = albumReview;
+    } else if(epTitle.toLowerCase().includes('ep')){
+        newEpTitle = epTitle.split(":").pop();
+        if(episode.itunes_episode)
+        albumCTA = `Episode ${episode.itunes_episode}`;
     }
     else{
         newEpTitle = epTitle;
     }
+    console.log(episode);
     return (
         <Link key={episode.id} href={episode.url}>
         <a target="_blank" rel="noreferrer" className={styles.episode}>
