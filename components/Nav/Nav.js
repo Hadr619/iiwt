@@ -14,7 +14,7 @@ export default function Nav(){
     }
     const handleNav = () => {
         setOpen(!open);
-        document.body.classList.remove('navOpen');
+        document.body.classList.toggle('navOpen');
     }
     const handleNavIcon = () => {
         setOpen(!open);
