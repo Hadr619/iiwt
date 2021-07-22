@@ -12,17 +12,16 @@ export default function Nav(){
             return styles.active
         }
     }
-    const handleNav = () => {
-        setOpen(!open);
-        document.body.classList.toggle('navOpen');
-    }
-    const handleNavIcon = () => {
-        setOpen(!open);
-        document.body.classList.toggle('navOpen');
+    const handleNav = (navItem) => {
+        if(navItem){
+            setOpen(false)
+        }else{
+            setOpen(!open);
+        }      
     }
         return (
             <nav className={clsx(styles.nav, open ? styles.open : '')}>
-                    <span onClick={() => handleNavIcon()} className={styles.iconToggle}><span className={styles.bar}></span></span>
+                    <span onClick={() => handleNav()} className={styles.iconToggle}><span className={styles.bar}></span></span>
             <div className={styles.navWrapper}>
                     <i className={clsx(styles.menuBkgrnd, styles.top)}></i>
                     <i className={clsx(styles.menuBkgrnd, styles.middle)}></i>
@@ -31,7 +30,7 @@ export default function Nav(){
                     <li className={clsx(pathCheck('/'), styles.navItem)}><Link href="/"><a onClick={() => handleNav(true)} className={styles.navLink}>Home</a></Link></li>
                     <li className={clsx(pathCheck('/episodes'), styles.navItem)}><Link href="/episodes"><a onClick={() => handleNav(true)} className={styles.navLink}>Episodes</a></Link></li>
                     <li className={clsx(pathCheck('/blog'), styles.navItem)}><Link href="/blog"><a onClick={() => handleNav(true)} className={styles.navLink}>Blog</a></Link></li>
-                    <li className={styles.navItem}><Link href="https://trashpitcity.threadless.com/"><a target="_blank" rel="noreferrer" onClick={() => handleNav(true)} className={styles.navLink}>Shop</a></Link></li>
+                    <li className={styles.navItem}><Link href="https://trashpitcity.threadless.com/"><a target="_blank" onClick={() => handleNav(true)} className={styles.navLink}>Shop</a></Link></li>
                 </ul>
                 </div>
             </nav>
