@@ -19,17 +19,11 @@ export async function getStaticProps() {
     }
   
   }
-  const props = {
-    title: "Episodes",
-    description: "An epsiode page description"
-  }
-  
+
 export default function Episodes({ episodes }) {
   const rawItems = episodes.items;
   const [items, setItems] = useState(rawItems);
   const [activeBtn, setActiveBtn] = useState('all');
-  console.log(episodes);
-
   const handleClick = (e) => {
     const val = e.target.value;
     e.preventDefault();
@@ -50,8 +44,7 @@ export default function Episodes({ episodes }) {
         <NextSeo 
           title="Is It Worse Than - Episodes"
           description="The only site that asks the real question about bands, are they worse than 311?"
-        />
-        <Header props={props}/>     
+        />  
         <section className={styles.epsiodesSection}>
           <div className={clsx(styles.episodePage, "inner")}>
             <h4>Check out our Episodes</h4>

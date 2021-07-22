@@ -23,7 +23,6 @@ export default function EpisodeCard({ episode }) {
     else{
         newEpTitle = epTitle;
     }
-    console.log(episode);
     return (
         <Link key={episode.id} href={episode.url}>
         <a target="_blank" rel="noreferrer" className={styles.episode}>

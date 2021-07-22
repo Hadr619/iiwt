@@ -25,8 +25,6 @@ const pageData = {
 
 export default function Header({props}) {
 	const router = useRouter();
-	console.log(props);
-
     const renderLogo = () => {
 		return (
 			<div className={styles.logo}>
@@ -56,23 +54,22 @@ export default function Header({props}) {
 		return palms;
 	}
 	const renderContent = () => {
-		// let title;
-		// let description;
-		// if(router.pathname == '/episodes'){
-		// 	title = pageData.episodePage.title;
-		// 	description = pageData.episodePage.description;
-		// } else if(router.pathname == '/blog'){
-		// 	title = pageData.blogPage.title;
-		// 	description = pageData.blogPage.description;
-		// }
-		// else{
-		// 	title = pageData.homePage.title;
-		// 	description = pageData.homePage.description;
-		// }
+		let title;
+		let description;
+		 if(router.pathname == '/'){
+			title = pageData.homePage.title;
+			description = pageData.homePage.description;
+		} else if(router.pathname == '/episodes'){
+			title = pageData.episodePage.title;
+			description = pageData.episodePage.description;
+		}else{
+			title = pageData.blogPage.title;
+			description = pageData.blogPage.description;	
+		}
 		return (
 			<div className={styles.callToAction}>
-				<h2 className={styles.ctaTitle}>{props.title}</h2>
-				<p className={styles.ctaDescription}>{props.description}</p>
+				<h2 className={styles.ctaTitle}>{title}</h2>
+				<p className={styles.ctaDescription}>{description}</p>
 				<div className={styles.sites}>
 					<a href="https://open.spotify.com/show/1I7lI0F33YvpLuORxLp7Ar" target="_blank" rel="noreferrer" className={clsx(styles.siteCTA, styles.spotify)}>
 						<i className={clsx(styles.icon, "fa fa-spotify")} aria-hidden="true"></i>

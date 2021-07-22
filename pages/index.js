@@ -26,13 +26,7 @@ export async function getStaticProps() {
   }
 
 }
-const props = {
-  title: "311 can't be the worst band, can they?",
-  description: "We take that question to heart when reviewing a musician's full discography to see how they stack up against the boys from Omaha."
-}
-
 export default function Home({ homePage, episodes }) {
-  console.log(episodes);
   const {content} = homePage.fields;
   return (
     <>
@@ -40,7 +34,6 @@ export default function Home({ homePage, episodes }) {
       title="Is It Worse Than"
       description="The only site that asks the real question about bands, are they worse than 311?"
     />
-    <Header props={props}/>
       <section className={clsx(styles.homepageInner)}>
         <div className={styles.iframeContainer}>
           <div className={clsx(styles.iframeWrapper, "inner")}>

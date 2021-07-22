@@ -1,9 +1,10 @@
 import { NextSeo } from 'next-seo';
-import Header from '../../components/Header/Header';
 import { createClient} from 'contentful';
+import clsx from 'clsx';
 import Image from 'next/image';
 import Skeleton from '../../components/Skeleton';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import styles from './slug.module.scss';
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -56,14 +57,9 @@ export default function BlogDeets({ post }) {
   else{
 
   const { slug, featuredImage, title, description, content } = post.fields;
-  const props = {
-    title: `${title}`,
-    description: `${description}`
-  }
 
   return (
     <div>
-    <Header props={props} />
       <NextSeo 
       title={`Is It Worse Than - ${title}`}
       description={``}
@@ -82,11 +78,15 @@ export default function BlogDeets({ post }) {
         ],
       }}
       />
+      <section className={styles.slugPage}>
+      <div className={clsx(styles.slugContainer, "inner")}>
+      <h2>{title}</h2>
       <Image src={`https:${featuredImage.fields.file.url}`}
           width={featuredImage.fields.file.details.image.width} 
           height={featuredImage.fields.file.details.image.height}/>
-      <h2>{title}</h2>
       <div>{documentToReactComponents(content)}</div>
+      </div>
+      </section>
     </div>
   )
 }

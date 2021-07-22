@@ -21,16 +21,11 @@ export async function getStaticProps() {
   }
 
 }
-const props = {
-  title: "Blog",
-  description: "A blog page description"
-}
 
 export default function BlogPage({ posts }) {
 
     return (
       <div>
-      <Header props={props}/>
       <NextSeo 
       title="Is It Worse Than - Blog"
       description="The only site that asks the real question about bands, are they worse than 311?"
