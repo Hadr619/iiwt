@@ -13,7 +13,7 @@ export default function Nav(){
         }
     }
     const handleNav = () => {
-        setOpen(false);
+        setOpen(!open);
         document.body.classList.remove('navOpen');
     }
     const handleNavIcon = () => {
