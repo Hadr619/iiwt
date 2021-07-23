@@ -1,0 +1,30 @@
+.scrollBtn {
+  //   position: fixed;
+  //   min-width: 2.5em;
+  //   min-height: 2.5em;
+  //   bottom: 1em;
+  //   right: 1em;
+  //   display: flex;
+  //   flex-flow: column nowrap;
+  //   justify-content: center;
+  //   color: white;
+  //   border-radius: 50%;
+  //   font-size: 1.4em;
+  //   background-color: #27a56b;
+  //   box-shadow: 0.2em 0.4em 0.6em rgb(0 0 0 / 40%);
+  //   opacity: 1;
+  //   transition: box-shadow 0.2s, bottom 0.5s, opacity 0.5s;
+  background-color: white;
+  right: 40px;
+  bottom: 40px;
+  position: fixed;
+  z-index: 2;
+  cursor: pointer;
+  border-radius: 7px;
+  width: 40px;
+  height: 40px;
+  transition: opacity 1s ease-in-out;
+  box-shadow: 0 9px 25px 0 rgb(132 128 177 / 28%);
+  border: none;
+  outline: none;
+}
