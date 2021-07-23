@@ -10,9 +10,9 @@ export default function Layout({ children }) {
     <Header />
         { children }
       <footer>
-		<div>
-        	<p>Copyright 2021 Is It Worse Than...</p>
-		</div>
+        <div className="inner">
+              <p>Copyright 2021 Is It Worse Than...</p>
+        </div>
       </footer>
       <ScrollToTop />
 		<Script src="https://kit.fontawesome.com/e5a98a2ef3.js" crossOrigin="anonymous"></Script>

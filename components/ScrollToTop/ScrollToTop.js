@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Logo from '../svg/Logo';
 import styles from './ScrollToTop.module.scss';
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -32,7 +33,7 @@ export default function ScrollToTop() {
     <>
       {isVisible && (
         <button className={styles.scrollBtn} onClick={scrollToTop}>
-          <h3>Go up!</h3>
+          <Logo className={styles.svg}/>
         </button>
       )}
     </>
