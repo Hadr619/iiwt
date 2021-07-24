@@ -81,9 +81,11 @@ export default function BlogDeets({ post }) {
       <section className={styles.slugPage}>
       <div className={clsx(styles.slugContainer, "inner")}>
       <h2>{title}</h2>
+      <div className={styles.image}>
       <Image src={`https:${featuredImage.fields.file.url}`}
           width={featuredImage.fields.file.details.image.width} 
-          height={featuredImage.fields.file.details.image.height}/>
+          height={featuredImage.fields.file.details.image.height} />
+          </div>
       <div>{documentToReactComponents(content)}</div>
       </div>
       </section>
