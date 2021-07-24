@@ -1,0 +1,119 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+.footer{
+    display: flex;
+    justify-content: center;
+    margin-top:spacing(4);
+    padding: spacing(10, 0, 0);
+    background-color:#161F2C;
+    color:$white;
+ 
+    font-family:$openSans;
+
+    @include bp(medium){
+        margin-top:spacing(0);
+    }
+}
+.footerInner{
+    display:flex;
+    flex-direction:column;
+}
+.footerLinks{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap: 20px;
+    padding-top:spacing(6);
+    padding-bottom:spacing(12);
+    border-top: solid 1px #2E3743;
+    border-bottom: solid 1px #2E3743;
+    color:$white;
+
+    @include bp(medium){
+        flex-direction:row;
+        gap:0;
+    }
+    h4{
+        font-size:16px;
+        font-weight:100;
+        letter-spacing: 1.5px;;
+    }
+
+    a{
+        color:#667687;
+        font-family:$openSans;
+        transition:color .25s ease-in-out;
+        &:hover{
+            color:$amber;
+            transition:color .25s ease-in-out;
+        }
+    }
+}
+.logo{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    flex-basis:25%;
+    @include bp(medium){
+        align-items: flex-start;
+        height:100%;
+    }
+    svg{
+        width:20%;
+        height:auto;
+        fill:$white;
+    }
+    .slogan{
+        margin-top:spacing(2);
+        color:#667687;
+    }
+}
+.logoName{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include bp(medium){
+        justify-content: flex-start;
+    }
+
+    p{
+        font-family:$rockSalt;
+    }
+}
+.links{
+    display: flex;
+    flex-direction:column;
+    margin-top:spacing(3);
+
+
+    @include bp(medium){
+        flex-direction:row;
+        gap:spacing(24);
+        margin-top:spacing(0);
+        margin-left:spacing(auto);
+
+        & > div:nth-child(2){
+            margin-top:spacing(0);
+        }
+    }
+}
+.list{
+    padding:0;
+
+    li{
+        text-align:center;
+        list-style: none;
+        line-height: 28px;
+        @include bp(medium){
+            text-align:left;
+        }
+        a{
+            text-decoration:none;
+        }
+    }
+}
+
+.copyright{
+    text-align:center;
+    padding:spacing(4, 0);
+}

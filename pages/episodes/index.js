@@ -47,7 +47,7 @@ export default function Episodes({ episodes }) {
         />  
         <section className={styles.epsiodesSection}>
           <div className={clsx(styles.episodePage, "inner")}>
-            <h4>Check out our Episodes</h4>
+            <h4 className="h4">Check out our Episodes</h4>
             <div className={styles.btnContainer}>
               <button className={clsx(styles.btn, activeBtn == 'all' ? styles.activeBtn : "")} value="all" onClick={handleClick}>All</button>
               <button className={clsx(styles.btn, activeBtn == 'episodes' ? styles.activeBtn : "")} value="episodes" onClick={handleClick}>Episodes</button>

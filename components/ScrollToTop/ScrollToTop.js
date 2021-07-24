@@ -34,7 +34,7 @@ export default function ScrollToTop() {
     <>
       {isVisible && (
         <button className={styles.scrollBtn} onClick={scrollToTop}>
-          <Logo className={styles.svg}/>
+          <i className="fa fa-chevron-up" aria-hidden="true"></i>
         </button>
       )}
     </>
