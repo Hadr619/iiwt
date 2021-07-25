@@ -1,11 +1,74 @@
 @import "../../styles/mixins";
+@import "../../styles/variables";
 
 .blogWrapper {
   display: flex;
+  flex-direction:column;
+  align-items:center;
   justify-content: center;
   margin-top: spacing(16);
+  padding: spacing(3);
 
   @include bp(medium) {
     margin-top: spacing(0);
+    padding:spacing(0, 0, 16, 0);
   }
+}
+.blogGrid{
+  display: grid; 
+  grid-template-columns: 1fr; 
+  gap: spacing(8, 0); 
+  padding:spacing(0);
+
+  @include bp(medium){
+    grid-template-columns: 750px 1fr; 
+    gap: spacing(0,8); 
+    margin-top:spacing(16);
+
+  }
+}
+.blogContainer{
+  padding:0;
+}
+.aside{
+  display:none;
+
+  @include bp(medium){
+    display:flex;
+    flex-direction:column;
+  }
+}
+.asideTitle{
+  text-align:left;
+}
+.latestPosts{
+  display: flex;
+  flex-direction: column;
+  margin-top:spacing(3);
+}
+.latestLink{
+  align-self: flex-start;
+  cursor:pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family:$openSans;
+  color:#6d727c;
+  transition:color .25s ease-in-out;
+
+  &:hover{
+    color:$amber;
+    transition:color .25s ease-in-out;
+  }
+
+  & + & {
+    margin-top:spacing(2);
+  }
+}
+.blogPost{
+  & + & {
+    margin-top:spacing(8);
+  }
+}
+.cardWrapper{
+  list-style: none;
 }

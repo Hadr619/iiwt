@@ -1,7 +1,6 @@
 
 import { NextSeo } from 'next-seo';
 import { useState } from 'react';
-import Header from '../../components/Header/Header';
 import EpisodeCard from '../../components/Card/EpisodeCard';
 import Feed from 'rss-to-json';
 import styles from './episodes.module.scss';

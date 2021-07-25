@@ -16,7 +16,7 @@ export default function Footer() {
                     <Logo />
                     <p>Is It Worse Than...</p>
                 </div>
-                <div className={styles.slogan}>Comparing bands to 311 since 1642</div>
+                <div className={styles.slogan}>Comparing bands to 311 since 1988</div>
             </div>
             <div className={styles.links}>
             <div>

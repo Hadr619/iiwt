@@ -56,7 +56,7 @@ export default function BlogDeets({ post }) {
   }
   else{
 
-  const { slug, featuredImage, title, description, content } = post.fields;
+  const { slug, featuredImage, title, metaDescription, postDescription, content } = post.fields;
 
   return (
     <div>
@@ -67,7 +67,7 @@ export default function BlogDeets({ post }) {
         type: 'website',
         url: `https://www.isitworsethan.com/blog/${slug}`,
         title: `${title}`,
-        description: `${description}`,
+        description: `${metaDescription}`,
         images: [
           {
             url: `https:${featuredImage.fields.file.url}`,

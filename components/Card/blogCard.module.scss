@@ -1,0 +1,11 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.card{
+    display:flex;
+    flex-direction:column;
+    color:$black;
+}
+.image{
+    border-radius:spacing(2);
+}
