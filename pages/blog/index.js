@@ -1,5 +1,6 @@
 import { NextSeo } from 'next-seo';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { createClient} from 'contentful';
 import BlogCard from '../../components/Card/BlogCard';
@@ -17,20 +18,56 @@ export async function getStaticProps() {
   return {
     props: {
       posts: res.items,
-      latest: res.items.length > 5 ? res.items.splice(4) : res.items
     },
     revalidate: 1
   }
 
 }
 
-export default function BlogPage({ posts, latest }) {
+export default function BlogPage({ posts }) {
+  console.log(posts);
+  const rawItems = posts;
+  const [items, setItems] = useState(rawItems);
 
-  const taco = [];
+  const labelList = [];
+  const albumReviews = [];
+  const artistReviews = [];
+  const shitPost = [];
+
+  const upsert = (array, item) => { // (1)
+    const i = array.findIndex(_item => _item === item);
+    if (i > -1) array[i] = item; // (2)
+    else array.push(item);
+  }
+  posts.map(post => {
+    upsert(labelList, post.fields.blogType )
+  })
 
   posts.map(post => {
-    taco.push(post.fields.blogType);
+    if(post.fields.blogType.toLowerCase() == 'artist review'){
+      artistReviews.push(post.fields.blogType)
+    }else if(post.fields.blogType.toLowerCase() == 'album review'){
+      albumReviews.push(post.fields.blogType)
+    } else if(post.fields.blogType.toLowerCase() == 'shit post'){
+      shitPost.push(post.fields.blogType)
+    }
   })
+  
+  const handleClick = (label) => {
+    const newLabel = label ? label.toLowerCase() : "";
+    if(newLabel == 'shit post'){
+      setItems(items => rawItems.filter(item => item.fields.blogType.toLowerCase().includes("shit post")))
+    } else if(newLabel == 'artist review'){
+      console.log(items);
+      setItems(items => rawItems.filter(item => item.fields.blogType.toLowerCase().includes("artist review")))
+
+    } else if(newLabel == 'album review'){
+      setItems(items => rawItems.filter(item => item.fields.blogType.toLowerCase().includes("album review")))
+    }
+    else{
+      setItems(rawItems);
+    }
+  }
 
     return (
       <div className={styles.blogPage}>
@@ -43,21 +80,41 @@ export default function BlogPage({ posts, latest }) {
           <div className={clsx(styles.blogGrid, "inner")}>
           
             <div className={clsx(styles.blogContainer)}>
-            {posts.map(post => (
-              <BlogCard key={post.sys.id} post={post} className={styles.blogPost}/>
+            {items.map(item => (
+              <BlogCard key={item.sys.id} post={item} className={styles.blogPost}/>
             ))}
             </div>
             <aside className={styles.aside}>
+              <section className={styles.asideSection}>
+              <h4 className={styles.asideTitle}>Categories</h4>
+              <div className={styles.latestPosts}>
+                <div onClick={() => handleClick()} className={styles.catItems}>All</div>
+                {labelList.map(label => {
+                  return <div key={label} onClick={() => handleClick(label)} className={styles.catItems}>{label}</div>
+                })}
+              
+              </div>
+              </section>
+              <section className={styles.asideSection}>
               <h4 className={styles.asideTitle}>Latest Posts</h4>
               <div className={styles.latestPosts}>
-              {latest.map((post) => (
-                <Link key={post.sys.id} href={`/blog/${post.fields.slug}`}>
-                  <a className={styles.latestLink}>
-                    {post.fields.title}
-                  </a>
-                </Link>
-              ))}
+                {posts.slice(0,2).map(ep => {
+                  return (<Link key={ep.sys.id} href={`/blog/${ep.fields.slug}`}>
+						<div>
+                              <div className={styles.imageWrapper}>
+                                <Image 
+									src={`https:${ep.fields.featuredImage.fields.file.url}`}
+									width="150px"
+									height="100px"
+								/>
+                              </div>
+                              <div>{ep.fields.title}</div>
+							  </div>
+                          </Link>)
+                })}
+              
               </div>
+              </section>
             </aside>
           </div>
         </section>
