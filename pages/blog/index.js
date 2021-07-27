@@ -96,19 +96,20 @@ export default function BlogPage({ posts }) {
               </div>
               </section>
               <section className={styles.asideSection}>
-              <h4 className={styles.asideTitle}>Latest Posts</h4>
+              <h4 className={styles.asideTitle}>Recent Posts</h4>
               <div className={styles.latestPosts}>
                 {posts.slice(0,2).map(ep => {
                   return (<Link key={ep.sys.id} href={`/blog/${ep.fields.slug}`}>
-						<div>
+						<div className={styles.postCard}>
                               <div className={styles.imageWrapper}>
                                 <Image 
 									src={`https:${ep.fields.featuredImage.fields.file.url}`}
 									width="150px"
 									height="100px"
+									className={styles.image}
 								/>
                               </div>
-                              <div>{ep.fields.title}</div>
+                              <div className={styles.textWrap}>{ep.fields.title}</div>
 							  </div>
                           </Link>)
                 })}
