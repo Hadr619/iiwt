@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import Skeleton from '../../components/Skeleton';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import styles from './slug.module.scss';
 
 const client = createClient({
@@ -50,7 +51,12 @@ export async function getStaticProps({ params }) {
 }
 
 export default function BlogDeets({ post }) {
-
+  const options = {
+    renderNode: {
+        [BLOCKS.EMBEDDED_ASSET]: ({ data: { target: { fields }}}) =>
+            <img src={`https:${fields.file.url}`} height={`${fields.file.details.image.height}`} width={`${fields.file.details.image.width}`} alt={`${fields.description}`}/>,
+    },
+};
   if(!post){
    return <Skeleton />
   }
@@ -86,7 +92,7 @@ export default function BlogDeets({ post }) {
           width={featuredImage.fields.file.details.image.width} 
           height={featuredImage.fields.file.details.image.height} />
           </div>
-      <div>{documentToReactComponents(content)}</div>
+      <div>{documentToReactComponents(content, options)}</div>
       </div>
       </section>
     </div>
