@@ -29,14 +29,6 @@
 .blogContainer {
   padding: 0;
 }
-.aside {
-  display: none;
-
-  @include bp(medium) {
-    display: flex;
-    flex-direction: column;
-  }
-}
 .asideSection {
   padding-bottom: spacing(8);
   border-bottom: 1px solid #e4e9ec;
@@ -76,6 +68,9 @@
     margin-top: spacing(2);
   }
 }
+.active {
+  color: red;
+}
 .catItems {
   align-self: flex-start;
   cursor: pointer;
@@ -87,6 +82,11 @@
   transition: color 0.25s ease-in-out;
   & + & {
     margin-top: spacing(3);
+  }
+
+  &:hover {
+    color: $amber;
+    transition: color 0.25s ease-in-out;
   }
 }
 .blogPost {
@@ -106,13 +106,28 @@
   & + & {
     margin-top: spacing(3);
   }
+
+  &:hover {
+    .textWrap {
+      color: $amber;
+      transition: color 0.25s ease-in-out;
+    }
+    .image {
+      filter: blur(1px);
+      transition: filter 0.25s ease-in-out;
+    }
+  }
 }
 .imageWrapper {
+  display: flex;
+  align-items: center;
   position: relative;
   left: -29px;
+  background-color: transparent;
 }
 .image {
   clip-path: circle(35% at 50% 50%);
+  transition: filter 0.25s ease-in-out;
 }
 .textWrap {
   position: relative;
@@ -124,4 +139,5 @@
   color: #061020;
   font-weight: 500;
   line-height: 20px;
+  transition: color 0.25s ease-in-out;
 }

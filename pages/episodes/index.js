@@ -27,8 +27,7 @@ export default function Episodes({ episodes }) {
     const val = e.target.value;
     e.preventDefault();
     if(val.toLowerCase() == 'episodes'){
-      setItems(items => rawItems.filter(item => !item.title.toLowerCase().includes("review")))
-      
+      setItems(items => rawItems.filter(item => !item.title.toLowerCase().includes("review")))    
     }
     if(val.toLowerCase() == "mid-week"){
       setItems(items => rawItems.filter(item => item.title.toLowerCase().includes("review")))
