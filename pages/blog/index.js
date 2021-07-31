@@ -25,7 +25,7 @@ export async function getStaticProps() {
 }
 
 export default function BlogPage({ posts }) {
-  console.log(posts);
+
   const rawItems = posts;
   const [items, setItems] = useState(rawItems);
 
@@ -62,7 +62,7 @@ export default function BlogPage({ posts }) {
     if(newLabel == "hadr's hideout"){
       setItems(items => rawItems.filter(item => item.fields.blogType.toLowerCase().includes("hadr's hideout")))
     } else if(newLabel == 'full ep'){
-      console.log(items);
+
       setItems(items => rawItems.filter(item => item.fields.blogType.toLowerCase().includes("full ep")))
 
     } else if(newLabel == 'mid-week'){
@@ -81,7 +81,7 @@ export default function BlogPage({ posts }) {
       description="The only site that asks the real question about bands, are they worse than 311?"
       />
         <section className={styles.blogWrapper}>
-        <h4 className="h4">Shit we Sometimes write about</h4>
+        <h4 className="h4">Blog Posts</h4>
           <div className={clsx(styles.blogGrid, "inner")}>
           
             <div className={clsx(styles.blogContainer)}>

@@ -5,6 +5,9 @@
 body {
   font-family: $rubik;
 }
+::-webkit-scrollbar {
+  width: 5px;
+}
 .navOpen {
   overflow: hidden;
 }

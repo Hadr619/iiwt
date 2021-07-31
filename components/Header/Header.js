@@ -15,11 +15,11 @@ const pageData = {
 	},
 	episodePage: {
 		title: 'Episodes',
-		description: 'This is the episodes description'
+		description: 'A list of all of our episodes'
 	},
 	blogPage: {
-		title: "blog",
-		description: 'Blog description'
+		title: "Blog",
+		description: 'A place for us to complain about things'
 	}
 }
 

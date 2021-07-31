@@ -2,7 +2,9 @@ import { NextSeo } from 'next-seo';
 import { createClient} from 'contentful';
 import clsx from 'clsx';
 import Image from 'next/image';
+import Link from 'next/link';
 import Skeleton from '../../components/Skeleton';
+import Pill from "../../components/Pill/Pill";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import styles from './slug.module.scss';
@@ -34,6 +36,7 @@ export async function getStaticProps({ params }) {
      content_type: 'blogPost',
      'fields.slug': params.slug
    })
+   const res = await client.getEntries({ content_type: 'blogPost' })
 
    if(!items.length){
      return {
@@ -45,12 +48,14 @@ export async function getStaticProps({ params }) {
    }
 
    return {
-     props: { post: items[0] },
+     props: { post: items[0],
+              posts: res.items },
      revalidate: 1
    }
 }
 
-export default function BlogDeets({ post }) {
+export default function BlogDeets({ post, posts }) {
+
   const options = {
     renderNode: {
         [BLOCKS.EMBEDDED_ASSET]: ({ data: { target: { fields }}}) =>
@@ -62,7 +67,7 @@ export default function BlogDeets({ post }) {
   }
   else{
 
-  const { slug, featuredImage, title, metaDescription, postDescription, content } = post.fields;
+  const { slug, featuredImage, title, metaDescription, blogType, author, content } = post.fields;
 
   return (
     <div>
@@ -85,15 +90,46 @@ export default function BlogDeets({ post }) {
       }}
       />
       <section className={styles.slugPage}>
-      <div className={clsx(styles.slugContainer, "inner")}>
-      <h2>{title}</h2>
-      <div className={styles.image}>
-      <Image src={`https:${featuredImage.fields.file.url}`}
-          width={featuredImage.fields.file.details.image.width} 
-          height={featuredImage.fields.file.details.image.height} />
-          </div>
-      <div>{documentToReactComponents(content, options)}</div>
+
+      <div className={clsx(styles.slugContainer, "inner")}>   
+      <div className={styles.slugGrid}>
+      <main>
+        <div className={styles.banner}>
+          <Pill content={blogType}/>
+          <h2 className={styles.title}>{title}</h2>
+          <p className={styles.author}>{author}</p>
+        </div>
+        <div className={styles.content}>{documentToReactComponents(content, options)}</div>
+      </main>
+      <aside className={styles.aside}>
+              <section className={styles.asideSection}>
+                <Link href={'/blog'}><a className={styles.link}><i className="fa fa-arrow-left" aria-hidden="true"></i> Back to blogs</a></Link>
+              </section>
+              <section className={styles.asideSection}>
+              <h4 className={styles.asideTitle}>Recent Posts</h4>
+              <div className={styles.latestPosts}>
+                {posts.slice(0,2).map(ep => {
+                  return (<Link key={ep.sys.id} href={`/blog/${ep.fields.slug}`}>
+						                  <div className={styles.postCard}>
+                                <div className={styles.imageWrapper}>
+                                  <Image 
+                                    src={`https:${ep.fields.featuredImage.fields.file.url}`}
+                                    width="150px"
+                                    height="100px"
+                                    className={styles.image}
+                                  />
+                                </div>
+                                <div className={styles.textWrap}>{ep.fields.title}</div>
+							                </div>
+                              </Link>)
+                })}
+              
+              </div>
+              </section>
+            </aside>
+            </div>
       </div>
+
       </section>
     </div>
   )

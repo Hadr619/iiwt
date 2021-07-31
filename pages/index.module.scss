@@ -49,9 +49,27 @@
 .homeInfo {
   flex-direction: column;
   padding: spacing(10, 3);
+  font-family: $rubik;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  line-height: 30px;
+  text-transform: none;
+  color: #6d727c;
 
   @include bp(medium) {
     padding: spacing(20, 0);
+  }
+  h2, h3, h4{
+    margin-bottom: spacing(4);
+    text-align: left;
+    font-family: "Rubik", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 42px;
+    text-transform: none;
+    color: #061020;
   }
 }
 .episodes {
@@ -60,6 +78,6 @@
   grid-gap: 30px;
 
   @include bp(medium) {
-    padding: spacing(20, 0);
+    padding: spacing(10, 0, 20, 0);
   }
 }

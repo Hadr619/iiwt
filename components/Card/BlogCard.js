@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Card from './Card';
 import clsx from 'clsx';
+import Pill from "../Pill/Pill";
 import styles from './blogCard.module.scss';
 
 export default function BlogCard({ post, className }) {
@@ -22,7 +23,7 @@ export default function BlogCard({ post, className }) {
                         className={styles.image}/>
                     </div>
                 <figcaption className={styles.info}>
-                <div className={styles.blogPill}>{blogType}</div>
+                <Pill content={blogType}/>
                 <div className={styles.author}>{author}</div>
                 <h4 className={styles.title}>{title}</h4>
                 <p className={styles.description}>{postDescription}</p>

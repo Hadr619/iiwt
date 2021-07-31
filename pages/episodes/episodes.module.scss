@@ -19,16 +19,16 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 30px;
-  margin-top: spacing(4);
 
-  @include bp(medium) {
-    padding: spacing(10, 0);
-  }
 }
 .btnContainer {
   display: flex;
   justify-content: center;
-  margin-top: spacing(2);
+  margin-bottom:spacing(6);
+
+  @include bp(medium){
+    padding:spacing(10, 0);
+  }
 }
 .btn {
   display: flex;
