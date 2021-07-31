@@ -1,8 +1,9 @@
 
 import { NextSeo } from 'next-seo';
-import Header from "../components/Header/Header";
+import Image from 'next/image';
 import { createClient} from 'contentful';
 import EpisodeCard from '../components/Card/EpisodeCard';
+import Logo from "../components/svg/Logo";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styles from './index.module.scss';
 import clsx from 'clsx';
@@ -27,6 +28,7 @@ export async function getStaticProps() {
 
 }
 export default function Home({ homePage, episodes }) {
+  console.log(episodes);
   const {content} = homePage.fields;
   return (
     <>
@@ -47,6 +49,20 @@ export default function Home({ homePage, episodes }) {
             {episodes.map((ep, index) => (
               <EpisodeCard key={index} episode={ep}/>
             ))}
+          </div>
+          <div className={styles.donate}>
+            <Image 
+              className={styles.donateImage}
+              src="/donate.jpg"
+              layout="fill"
+              objectFit="cover"
+              alt="Podcast image from useproof.com"
+              />
+              <div className={styles.donateText}>
+                <h2 className={styles.donateTitle}>Support the show</h2>
+                <p className={styles.donateDescription}>if you would like to support the show so that we may keep comparing bands, that'd be great mmkay</p>
+                <a href="https://anchor.fm/isitworsethan/support" target="_blank" className={styles.donateBtn}><Logo /> Donate</a>
+              </div>
           </div>
         </div>
       </section>

@@ -1,0 +1,39 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.author{
+    display:flex;
+    align-items: center;
+    font-size: 11px;
+    line-height: 24px;
+    display: flex;
+    align-self: flex-start;
+    color: #6d727c;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+.avatarSvg{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:40px;
+    height:40px;
+    margin-right:spacing(2);
+    border-radius:50%;
+    background: linear-gradient(
+      160deg,
+      rgba(4, 18, 5, 1) 3%,
+      rgba(193, 45, 69, 1) 37%,
+      rgba(227, 59, 72, 1) 56%,
+      rgba(240, 146, 40, 1) 74%,
+      rgba(245, 182, 27, 1) 100%
+    );
+    svg {
+      width:20px;
+      fill:$amber;
+    }
+  }
+  .avatar{
+    margin-right:spacing(2);
+    border-radius:50%;
+  }

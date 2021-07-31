@@ -45,6 +45,12 @@
   text-transform: uppercase;
   color: #061020;
 }
+.categories{
+  width:70%;
+}
+.count{
+  margin-left:auto;
+}
 .latestPosts {
   display: flex;
   flex-direction: column;
@@ -72,7 +78,9 @@
   color: red;
 }
 .catItems {
+  display:flex;
   align-self: flex-start;
+  width:100%;
   cursor: pointer;
   text-decoration: none;
   text-transform: uppercase;

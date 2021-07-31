@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Skeleton from '../../components/Skeleton';
 import Pill from "../../components/Pill/Pill";
+import Avatar from '../../components/Avatar/Avatar';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import styles from './slug.module.scss';
@@ -55,7 +56,7 @@ export async function getStaticProps({ params }) {
 }
 
 export default function BlogDeets({ post, posts }) {
-
+console.log(post);
   const options = {
     renderNode: {
         [BLOCKS.EMBEDDED_ASSET]: ({ data: { target: { fields }}}) =>
@@ -97,7 +98,7 @@ export default function BlogDeets({ post, posts }) {
         <div className={styles.banner}>
           <Pill content={blogType}/>
           <h2 className={styles.title}>{title}</h2>
-          <p className={styles.author}>{author}</p>
+          <Avatar author={author}/>
         </div>
         <div className={styles.content}>{documentToReactComponents(content, options)}</div>
       </main>

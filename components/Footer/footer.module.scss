@@ -3,16 +3,11 @@
 .footer{
     display: flex;
     justify-content: center;
-    margin-top:spacing(4);
     padding: spacing(10, 0, 0);
     background-color:#161F2C;
     color:$white;
  
     font-family:$openSans;
-
-    @include bp(medium){
-        margin-top:spacing(0);
-    }
 }
 .footerInner{
     display:flex;

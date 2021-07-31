@@ -10,6 +10,7 @@
   border-radius: spacing(2);
 }
 .title {
+  margin-top:spacing(4);
   text-align: left;
   font-family: $rubik;
   font-size: 30px;
@@ -44,8 +45,36 @@
   font-size: 11px;
   border-radius: 20px;
 }
+
 .author {
-  color: #ea6639;
+  display:flex;
+  align-items: center;
+  color: #602024;
+}
+.avatarSvg{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width:40px;
+  height:40px;
+  margin-right:spacing(2);
+  border-radius:50%;
+  background: linear-gradient(
+    160deg,
+    rgba(4, 18, 5, 1) 3%,
+    rgba(193, 45, 69, 1) 37%,
+    rgba(227, 59, 72, 1) 56%,
+    rgba(240, 146, 40, 1) 74%,
+    rgba(245, 182, 27, 1) 100%
+  );
+  svg {
+    width:20px;
+    fill:$amber;
+  }
+}
+.avatar{
+  margin-right:spacing(2);
+  border-radius:50%;
 }
 .description {
   margin-top: spacing(4);

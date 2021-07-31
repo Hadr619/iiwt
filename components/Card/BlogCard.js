@@ -3,11 +3,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Card from './Card';
 import clsx from 'clsx';
+import Logo from '../svg/Logo';
+import Avatar from '../Avatar/Avatar';
 import Pill from "../Pill/Pill";
 import styles from './blogCard.module.scss';
 
 export default function BlogCard({ post, className }) {
+
     const {title, slug, featuredImage, postDescription, blogType, author} = post.fields;
+
 
     return (
         <Card className={className}>
@@ -24,7 +28,7 @@ export default function BlogCard({ post, className }) {
                     </div>
                 <figcaption className={styles.info}>
                 <Pill content={blogType}/>
-                <div className={styles.author}>{author}</div>
+                <Avatar author={author}/>
                 <h4 className={styles.title}>{title}</h4>
                 <p className={styles.description}>{postDescription}</p>
                 </figcaption>

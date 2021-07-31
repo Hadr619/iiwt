@@ -72,7 +72,17 @@ export default function BlogPage({ posts }) {
       setItems(rawItems);
     }
   }
-
+const displayPostCount = (blogType) => {
+  if(blogType.toLowerCase() == 'mid-week'){
+    return albumReviews.length
+  }
+  else if(blogType.toLowerCase() == 'full ep'){
+    return artistReviews.length
+  }
+  else if(blogType.toLowerCase() == "hadr's hideout"){
+    return shitPost.length
+  }
+}
 
     return (
       <div className={styles.blogPage}>
@@ -92,10 +102,10 @@ export default function BlogPage({ posts }) {
             <aside className={styles.aside}>
               <section className={styles.asideSection}>
               <h4 className={styles.asideTitle}>Categories</h4>
-              <div className={styles.latestPosts}>
-                <div onClick={(e) => handleClick(e)} className={clsx(styles.catItems)}>All</div>
+              <div className={clsx(styles.latestPosts, styles.categories)}>
+                <div onClick={(e) => handleClick(e)} className={clsx(styles.catItems)}>All <span className={styles.count}>({items.length})</span></div>
                 {labelList.map(label => {
-                  return <div key={label} onClick={(e) => handleClick(e,label)} className={clsx(styles.catItems)}>{label}</div>
+                  return <div key={label} onClick={(e) => handleClick(e,label)} className={clsx(styles.catItems)}>{label} <span className={styles.count}>({displayPostCount(label)})</span></div>
                 })}   
               </div>
               </section>
