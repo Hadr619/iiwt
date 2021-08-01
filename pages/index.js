@@ -61,7 +61,7 @@ export default function Home({ homePage, episodes }) {
               <div className={styles.donateText}>
                 <h2 className={styles.donateTitle}>Support the show</h2>
                 <p className={styles.donateDescription}>if you would like to support the show so that we may keep comparing bands, that'd be great mmkay</p>
-                <a href="https://anchor.fm/isitworsethan/support" target="_blank" className={styles.donateBtn}><Logo /> Donate</a>
+                <a href="https://anchor.fm/isitworsethan/support" target="_blank" rel="noreferrer" className={styles.donateBtn}><Logo /> Donate</a>
               </div>
           </div>
         </div>
