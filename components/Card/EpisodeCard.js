@@ -33,7 +33,8 @@ export default function EpisodeCard({ episode }) {
                 layout="responsive"
                  width='320px'
                  height="320px" 
-                 alt="Is It Worse Than logo"/>
+                 alt="Is It Worse Than logo"
+                 className={styles.image}/>
           <div className={styles.imageOverlay}>
             <i className={clsx(styles.icon, "fa fa-play-circle-o")} aria-hidden="true"></i>
             <div className={styles.midWeek}>{albumCTA}</div>
