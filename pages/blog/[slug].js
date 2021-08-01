@@ -56,7 +56,7 @@ export async function getStaticProps({ params }) {
 }
 
 export default function BlogDeets({ post, posts }) {
-console.log(post);
+
   const options = {
     renderNode: {
         [BLOCKS.EMBEDDED_ASSET]: ({ data: { target: { fields }}}) =>
@@ -69,6 +69,16 @@ console.log(post);
   else{
 
   const { slug, featuredImage, title, metaDescription, blogType, author, content } = post.fields;
+
+  const stringCheck = "MID-WEEK REVIEW";
+  const newTitle = () => {
+      if(title.includes(stringCheck)){
+          return title.replace(stringCheck, "")
+      } else {
+          return title
+      }
+  }
+
 
   return (
     <div>
@@ -97,7 +107,7 @@ console.log(post);
       <main>
         <div className={styles.banner}>
           <Pill content={blogType}/>
-          <h2 className={styles.title}>{title}</h2>
+          <h2 className={styles.title}>{newTitle()}</h2>
           <Avatar author={author}/>
         </div>
         <div className={styles.content}>{documentToReactComponents(content, options)}</div>

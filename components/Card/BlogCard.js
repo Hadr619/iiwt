@@ -12,6 +12,15 @@ export default function BlogCard({ post, className }) {
 
     const {title, slug, featuredImage, postDescription, blogType, author} = post.fields;
 
+    const stringCheck = "MID-WEEK REVIEW";
+    const newTitle = () => {
+        if(title.includes(stringCheck)){
+            return title.replace(stringCheck, "")
+        } else {
+            return title
+        }
+    }
+
 
     return (
         <Card className={className}>
@@ -29,7 +38,7 @@ export default function BlogCard({ post, className }) {
                 <figcaption className={styles.info}>
                 <Pill content={blogType}/>
                 <Avatar author={author}/>
-                <h4 className={styles.title}>{title}</h4>
+                <h4 className={styles.title}>{newTitle()}</h4>
                 <p className={styles.description}>{postDescription}</p>
                 </figcaption>
                 <div>Read More</div>
