@@ -2,6 +2,7 @@ import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { useFlip } from 'react-easy-flip'
 import { createClient} from 'contentful';
 import BlogCard from '../../components/Card/BlogCard';
 import clsx from 'clsx';
@@ -25,6 +26,7 @@ export async function getStaticProps() {
 }
 
 export default function BlogPage({ posts }) {
+  console.log(posts);
 
   const rawItems = posts;
   const [items, setItems] = useState(rawItems);
@@ -83,6 +85,11 @@ const displayPostCount = (blogType) => {
     return shitPost.length
   }
 }
+const blogItemsId = "flip-blog-items";
+useFlip(blogItemsId, {
+  duration: 800,
+});
+
 
     return (
       <div className={styles.blogPage}>
@@ -94,9 +101,9 @@ const displayPostCount = (blogType) => {
         <h4 className="h4">Blog Posts</h4>
           <div className={clsx(styles.blogGrid, "inner")}>
           
-            <div className={clsx(styles.blogContainer)}>
+            <div className={clsx(styles.blogContainer)} data-flip-root-id={blogItemsId}>
             {items.map(item => (
-              <BlogCard key={item.sys.id} post={item} className={styles.blogPost}/>
+              <BlogCard key={item.sys.id} post={item} flipId={`flip-id-${item.sys.id}`} className={styles.blogPost}/>
             ))}
             </div>
             <aside className={styles.aside}>

@@ -2,6 +2,7 @@ import '../styles/globals.scss'
 import Layout from '../components/Layout'
 import ProgressBar from "@badrap/bar-of-progress";
 import Router from "next/router";
+import { FlipProvider } from 'react-easy-flip'
 
 const progress = new ProgressBar({
   size: 2,
@@ -15,9 +16,11 @@ Router.events.on("routeChangeError", progress.finish);
 
 function MyApp({ Component, pageProps }) {
   return (
+    <FlipProvider>
     <Layout>
       <Component {...pageProps} />
     </Layout>
+    </FlipProvider>
   )
 }
 

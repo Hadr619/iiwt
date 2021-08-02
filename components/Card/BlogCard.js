@@ -8,7 +8,7 @@ import Avatar from '../Avatar/Avatar';
 import Pill from "../Pill/Pill";
 import styles from './blogCard.module.scss';
 
-export default function BlogCard({ post, className }) {
+export default function BlogCard({ post, className, flipId }) {
 
     const {title, slug, featuredImage, postDescription, blogType, author} = post.fields;
 
@@ -23,7 +23,7 @@ export default function BlogCard({ post, className }) {
 
 
     return (
-        <Card className={className}>
+        <Card className={className} flipId={flipId}>
             <Link key={post.sys.id} href={`/blog/${slug}`}>
                 <a className={styles.card}>
                 <figure>

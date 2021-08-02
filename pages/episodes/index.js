@@ -1,6 +1,7 @@
 
 import { NextSeo } from 'next-seo';
 import { useState } from 'react';
+import { useFlip } from 'react-easy-flip'
 import EpisodeCard from '../../components/Card/EpisodeCard';
 import Feed from 'rss-to-json';
 import styles from './episodes.module.scss';
@@ -37,6 +38,12 @@ export default function Episodes({ episodes }) {
     }
     setActiveBtn(val);
   }
+  const epItemsId = "flip-ep-items";
+  useFlip(epItemsId, {
+    duration: 800,
+  });
+
+  
     return (
       <div>
         <NextSeo 
@@ -51,9 +58,9 @@ export default function Episodes({ episodes }) {
               <button className={clsx(styles.btn, activeBtn == 'episodes' ? styles.activeBtn : "")} value="episodes" onClick={handleClick}>Episodes</button>
               <button className={clsx(styles.btn, activeBtn == 'mid-week' ? styles.activeBtn : "")} value="mid-week" onClick={handleClick}>Mid Week Reviews</button>
             </div>      
-          <div className={styles.episodeContainer}>
+          <div className={styles.episodeContainer} data-flip-root-id={epItemsId}>
             {items.map((ep, index) => (
-              <EpisodeCard key={index} episode={ep}/>
+              <EpisodeCard key={ep.id} flipId={`flip-id-${ep.id}`} episode={ep}/>
             ))}
           </div>
         </div>
