@@ -110,7 +110,7 @@ useFlip(blogItemsId, {
               <section className={styles.asideSection}>
               <h4 className={styles.asideTitle}>Categories</h4>
               <div className={clsx(styles.latestPosts, styles.categories)}>
-                <div onClick={(e) => handleClick(e)} className={clsx(styles.catItems)}>All <span className={styles.count}>({items.length})</span></div>
+                <div onClick={(e) => handleClick(e)} className={clsx(styles.catItems)}>All <span className={styles.count}>({rawItems.length})</span></div>
                 {labelList.map(label => {
                   return <div key={label} onClick={(e) => handleClick(e,label)} className={clsx(styles.catItems)}>{label} <span className={styles.count}>({displayPostCount(label)})</span></div>
                 })}   
