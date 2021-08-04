@@ -45,11 +45,11 @@
   text-transform: uppercase;
   color: #061020;
 }
-.categories{
-  width:70%;
+.categories {
+  width: 70%;
 }
-.count{
-  margin-left:auto;
+.count {
+  margin-left: auto;
 }
 .latestPosts {
   display: flex;
@@ -78,9 +78,9 @@
   color: red;
 }
 .catItems {
-  display:flex;
+  display: flex;
   align-self: flex-start;
-  width:100%;
+  width: 100%;
   cursor: pointer;
   text-decoration: none;
   text-transform: uppercase;
@@ -107,13 +107,10 @@
 }
 .postCard {
   display: flex;
+  gap: spacing(0, 5);
   overflow: hidden;
   cursor: pointer;
   font-family: $rubik;
-
-  & + & {
-    margin-top: spacing(3);
-  }
 
   &:hover {
     .textWrap {
@@ -130,7 +127,9 @@
   display: flex;
   align-items: center;
   position: relative;
-  left: -29px;
+  left: -13px;
+  width: 100px;
+  height: 100px;
   background-color: transparent;
 }
 .image {
@@ -143,7 +142,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  flex-basis:60%;
+  flex-basis: 60%;
   font-size: 18px;
   color: #061020;
   font-weight: 500;
