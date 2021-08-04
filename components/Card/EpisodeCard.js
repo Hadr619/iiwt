@@ -3,7 +3,7 @@ import Image from "next/image";
 import clsx from 'clsx';
 import styles from './EpisodeCard.module.scss';
 
-export default function EpisodeCard({ episode }) {
+export default function EpisodeCard({ episode, flipId }) {
     const epLength = new Date (episode.itunes_duration * 1000).toISOString().substr(11,8);
     const stringCheck = "MID-WEEK REVIEW - ";
     const epTitle = episode.title;
@@ -25,7 +25,7 @@ export default function EpisodeCard({ episode }) {
     }
     return (
         <Link key={episode.id} href={episode.url}>
-        <a target="_blank" rel="noreferrer" className={styles.episode}>
+        <a target="_blank" rel="noreferrer" className={styles.episode} data-flip-id={flipId}>
         <figure className={styles.figure}>
           <div className={styles.episodeInner}>
           <div className={styles.imageContainer}>
@@ -33,7 +33,8 @@ export default function EpisodeCard({ episode }) {
                 layout="responsive"
                  width='320px'
                  height="320px" 
-                 alt="Is It Worse Than logo"/>
+                 alt="Is It Worse Than logo"
+                 className={styles.image}/>
           <div className={styles.imageOverlay}>
             <i className={clsx(styles.icon, "fa fa-play-circle-o")} aria-hidden="true"></i>
             <div className={styles.midWeek}>{albumCTA}</div>

@@ -49,9 +49,27 @@
 .homeInfo {
   flex-direction: column;
   padding: spacing(10, 3);
+  font-family: $rubik;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  line-height: 30px;
+  text-transform: none;
+  color: #6d727c;
 
   @include bp(medium) {
     padding: spacing(20, 0);
+  }
+  h2, h3, h4{
+    margin-bottom: spacing(4);
+    text-align: left;
+    font-family: "Rubik", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 42px;
+    text-transform: none;
+    color: #061020;
   }
 }
 .episodes {
@@ -60,6 +78,108 @@
   grid-gap: 30px;
 
   @include bp(medium) {
-    padding: spacing(20, 0);
+    padding: spacing(10, 0, 20, 0);
+  }
+}
+.donate{
+  width:100%;
+  height:300px;
+  position:relative;
+  margin-top:spacing(8);
+
+  @include bp(medium){
+    height:500px;
+  }
+}
+.donateImage{
+  z-index:0;
+
+}
+.donateText{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index:1;
+  background: rgba(0,0,0,.50);
+  height:100%;
+  color: $white;
+
+}
+.donateTitle{
+  font-family: $rubik;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 72px;
+
+  @include bp(medium){
+    font-size: 68px;
+    line-height: 72px;
+  }
+}
+.donateDescription{
+  width: 90%;
+  margin-top:spacing(4);
+
+  @include bp(medium){
+    width: 20%;
+  }
+}
+.donateBtn{
+  position:relative;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  margin-top:spacing(5);
+  font-family: "Rubik", Sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: 18px;
+  text-shadow: 0px 0px 0px rgb(0 0 0 / 30%);
+  color: #FFFFFF;
+  background: linear-gradient(
+    160deg,
+    rgba(4, 18, 5, 1) 3%,
+    rgba(193, 45, 69, 1) 37%,
+    rgba(227, 59, 72, 1) 56%,
+    rgba(240, 146, 40, 1) 74%,
+    rgba(245, 182, 27, 1) 100%
+  );
+  border-radius: 25px 25px 25px 25px;
+  cursor:pointer;
+  padding:spacing(2.5, 0);
+  z-index:1;
+  svg{
+    width:15%;
+    margin-right:spacing(3);
+    fill:$amber;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(
+      to bottom,
+      hsl(344, 100%, 50%),
+      hsl(31, 100%, 40%)
+    );
+    z-index: -1;
+    transition: opacity 0.5s linear;
+    opacity: 0;
+    border-radius: 25px 25px 25px 25px;
+  }
+
+  &:hover{
+    &:before{
+      opacity:1;
+    }
   }
 }

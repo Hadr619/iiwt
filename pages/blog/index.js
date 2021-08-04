@@ -2,6 +2,7 @@ import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { useFlip } from 'react-easy-flip'
 import { createClient} from 'contentful';
 import BlogCard from '../../components/Card/BlogCard';
 import clsx from 'clsx';
@@ -26,6 +27,7 @@ export async function getStaticProps() {
 
 export default function BlogPage({ posts }) {
   console.log(posts);
+
   const rawItems = posts;
   const [items, setItems] = useState(rawItems);
 
@@ -62,7 +64,7 @@ export default function BlogPage({ posts }) {
     if(newLabel == "hadr's hideout"){
       setItems(items => rawItems.filter(item => item.fields.blogType.toLowerCase().includes("hadr's hideout")))
     } else if(newLabel == 'full ep'){
-      console.log(items);
+
       setItems(items => rawItems.filter(item => item.fields.blogType.toLowerCase().includes("full ep")))
 
     } else if(newLabel == 'mid-week'){
@@ -72,6 +74,21 @@ export default function BlogPage({ posts }) {
       setItems(rawItems);
     }
   }
+const displayPostCount = (blogType) => {
+  if(blogType.toLowerCase() == 'mid-week'){
+    return albumReviews.length
+  }
+  else if(blogType.toLowerCase() == 'full ep'){
+    return artistReviews.length
+  }
+  else if(blogType.toLowerCase() == "hadr's hideout"){
+    return shitPost.length
+  }
+}
+const blogItemsId = "flip-blog-items";
+useFlip(blogItemsId, {
+  duration: 800,
+});
 
 
     return (
@@ -81,21 +98,21 @@ export default function BlogPage({ posts }) {
       description="The only site that asks the real question about bands, are they worse than 311?"
       />
         <section className={styles.blogWrapper}>
-        <h4 className="h4">Shit we Sometimes write about</h4>
+        <h4 className="h4">Blog Posts</h4>
           <div className={clsx(styles.blogGrid, "inner")}>
           
-            <div className={clsx(styles.blogContainer)}>
+            <div className={clsx(styles.blogContainer)} data-flip-root-id={blogItemsId}>
             {items.map(item => (
-              <BlogCard key={item.sys.id} post={item} className={styles.blogPost}/>
+              <BlogCard key={item.sys.id} post={item} flipId={`flip-id-${item.sys.id}`} className={styles.blogPost}/>
             ))}
             </div>
             <aside className={styles.aside}>
               <section className={styles.asideSection}>
               <h4 className={styles.asideTitle}>Categories</h4>
-              <div className={styles.latestPosts}>
-                <div onClick={(e) => handleClick(e)} className={clsx(styles.catItems)}>All</div>
+              <div className={clsx(styles.latestPosts, styles.categories)}>
+                <div onClick={(e) => handleClick(e)} className={clsx(styles.catItems)}>All <span className={styles.count}>({rawItems.length})</span></div>
                 {labelList.map(label => {
-                  return <div key={label} onClick={(e) => handleClick(e,label)} className={clsx(styles.catItems)}>{label}</div>
+                  return <div key={label} onClick={(e) => handleClick(e,label)} className={clsx(styles.catItems)}>{label} <span className={styles.count}>({displayPostCount(label)})</span></div>
                 })}   
               </div>
               </section>

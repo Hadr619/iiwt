@@ -3,13 +3,27 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Card from './Card';
 import clsx from 'clsx';
+import Logo from '../svg/Logo';
+import Avatar from '../Avatar/Avatar';
+import Pill from "../Pill/Pill";
 import styles from './blogCard.module.scss';
 
-export default function BlogCard({ post, className }) {
+export default function BlogCard({ post, className, flipId }) {
+
     const {title, slug, featuredImage, postDescription, blogType, author} = post.fields;
 
+    const stringCheck = "MID-WEEK REVIEW";
+    const newTitle = () => {
+        if(title.includes(stringCheck)){
+            return title.replace(stringCheck, "")
+        } else {
+            return title
+        }
+    }
+
+
     return (
-        <Card className={className}>
+        <Card className={className} flipId={flipId}>
             <Link key={post.sys.id} href={`/blog/${slug}`}>
                 <a className={styles.card}>
                 <figure>
@@ -22,9 +36,9 @@ export default function BlogCard({ post, className }) {
                         className={styles.image}/>
                     </div>
                 <figcaption className={styles.info}>
-                <div className={styles.blogPill}>{blogType}</div>
-                <div className={styles.author}>{author}</div>
-                <h4 className={styles.title}>{title}</h4>
+                <Pill content={blogType}/>
+                <Avatar author={author}/>
+                <h4 className={styles.title}>{newTitle()}</h4>
                 <p className={styles.description}>{postDescription}</p>
                 </figcaption>
                 <div>Read More</div>
