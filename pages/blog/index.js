@@ -127,6 +127,7 @@ useFlip(blogItemsId, {
                                     src={`https:${ep.fields.featuredImage.fields.file.url}`}
                                     layout="fill"
                                     objectFit="cover"
+                                    objectPosition="center"
                                     className={styles.image}
                                   />
                                 </div>
