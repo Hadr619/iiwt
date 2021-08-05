@@ -17,9 +17,11 @@ export async function getStaticProps() {
 
   const rss = await Feed.load('https://anchor.fm/s/4041b370/podcast/rss');
   const res = await client.getEntries({ content_type: 'homePage' }) //whatever content type is set up in content model
+  const blogRes = await client.getEntries({ content_type: 'blogPost' })
   return {
     props: {
       homePage: res.items[0],
+      blog: blogRes.items[0],
       episodes: rss.items.splice(0,3)
       
     },
@@ -27,8 +29,8 @@ export async function getStaticProps() {
   }
 
 }
-export default function Home({ homePage, episodes }) {
-  console.log(episodes);
+export default function Home({ homePage, episodes, blog }) {
+  console.log(blog);
   const {content} = homePage.fields;
   return (
     <>
