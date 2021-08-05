@@ -101,13 +101,43 @@
   text-decoration: none;
   transition: box-shadow 0.25s ease-in-out;
   cursor: pointer;
+
+  &:hover {
+    .info {
+      background-color: rgba(0, 0, 0, 0.45);
+      transition: background-color 0.25s ease-in-out;
+    }
+  }
 }
 .image {
   border-radius: spacing(2);
 }
 .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
+  height: 100%;
+  padding: spacing(4, 5);
+  background-color: rgba(0, 0, 0, 0.25);
   z-index: 1;
+  border-radius: spacing(2);
+  transition: background-color 0.25s ease-in-out;
+  color: $white;
+}
+.blogPill {
+  align-self: flex-end;
+}
+.blogTitle {
+  margin-bottom: spacing(5);
+  font-family: $rubik;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: -0.025em;
+}
+.blogAvatar {
+  color: $white;
 }
 .donate {
   width: 100%;

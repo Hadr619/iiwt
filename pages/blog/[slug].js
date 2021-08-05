@@ -125,8 +125,9 @@ export default function BlogDeets({ post, posts }) {
                                 <div className={styles.imageWrapper}>
                                   <Image 
                                     src={`https:${ep.fields.featuredImage.fields.file.url}`}
-                                    width="150px"
-                                    height="100px"
+                                    layout="fill"
+                                    objectFit="cover"
+                                    objectPosition="center"
                                     className={styles.image}
                                   />
                                 </div>

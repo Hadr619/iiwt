@@ -1,7 +1,8 @@
+import clsx from 'clsx';
 import styles from './Pill.module.scss';
 
-export default function Pill({content}) {
+export default function Pill({content, className}) {
     return (
-        <div className={styles.pill}>{content}</div>
+        <div className={clsx(styles.pill, className)}>{content}</div>
     )
 }

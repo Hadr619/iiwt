@@ -11,7 +11,7 @@
   flex-direction: column;
   align-items: center;
 }
-.slugGrid{
+.slugGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: spacing(8, 0);
@@ -23,16 +23,16 @@
     margin-top: spacing(16);
   }
 }
-.banner{
-  margin-top:spacing(16);
+.banner {
+  margin-top: spacing(16);
   position: relative;
   padding-bottom: spacing(6.4);
 
-  @include bp(medium){
-    margin-top:spacing(0);
+  @include bp(medium) {
+    margin-top: spacing(0);
   }
 }
-.title{
+.title {
   font-family: $rubik;
   font-size: 30px;
   font-weight: 700;
@@ -42,15 +42,14 @@
   color: #061020;
   margin-bottom: spacing(6);
 
-  @include bp(medium){
+  @include bp(medium) {
     font-size: 68px;
     line-height: 72px;
   }
 }
 
-
-.content{
-  margin-bottom:spacing(12);
+.content {
+  margin-bottom: spacing(12);
   font-family: $rubik;
   font-size: 18px;
   font-weight: 400;
@@ -59,11 +58,11 @@
   text-transform: none;
   color: #6d727c;
 
-  img{
-    border-radius:spacing(2);
-    margin-top:spacing(8);
-    margin-bottom:spacing(8);
-    max-width:100%;
+  img {
+    border-radius: spacing(2);
+    margin-top: spacing(8);
+    margin-bottom: spacing(8);
+    max-width: 100%;
   }
 }
 
@@ -75,17 +74,17 @@
     margin-top: spacing(8);
   }
 }
-.link{
+.link {
   font-size: 18px;
   color: #061020;
   font-weight: 500;
   line-height: 20px;
   text-decoration: none;
-  transition: color .25s ease-in-out;
+  transition: color 0.25s ease-in-out;
 
-  &:hover{
-    color:$amber;
-    transition: color .25s ease-in-out;
+  &:hover {
+    color: $amber;
+    transition: color 0.25s ease-in-out;
   }
 }
 .asideTitle {
@@ -130,13 +129,10 @@
 }
 .postCard {
   display: flex;
+  gap: spacing(0, 5);
   overflow: hidden;
   cursor: pointer;
   font-family: $rubik;
-
-  & + & {
-    margin-top: spacing(3);
-  }
 
   &:hover {
     .textWrap {
@@ -153,7 +149,9 @@
   display: flex;
   align-items: center;
   position: relative;
-  left: -29px;
+  left: -13px;
+  width: 100px;
+  height: 100px;
   background-color: transparent;
 }
 .image {
@@ -166,7 +164,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  flex-basis:60%;
+  flex-basis: 60%;
   font-size: 18px;
   color: #061020;
   font-weight: 500;

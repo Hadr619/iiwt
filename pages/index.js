@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { createClient} from 'contentful';
 import EpisodeCard from '../components/Card/EpisodeCard';
 import Logo from "../components/svg/Logo";
+import Avatar from '../components/Avatar/Avatar';
+import Pill from '../components/Pill/Pill';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styles from './index.module.scss';
 import clsx from 'clsx';
@@ -59,7 +61,13 @@ export default function Home({ homePage, episodes, blogs }) {
 								objectFit="cover"
 								className={styles.image}
 								/>
-								<div className={styles.info}>{blog.fields.title}</div>
+								<div className={styles.info}>
+								<Pill content={blog.fields.blogType} className={styles.blogPill}/>
+								<div>
+									<div className={styles.blogTitle}>{blog.fields.title}</div>
+									<div><Avatar author={blog.fields.author} className={styles.blogAvatar}/></div>
+								</div>
+								</div>
 						</div>
 					</Link>
 				)
