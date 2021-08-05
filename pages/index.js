@@ -1,6 +1,7 @@
 
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
+import Link from 'next/link';
 import { createClient} from 'contentful';
 import EpisodeCard from '../components/Card/EpisodeCard';
 import Logo from "../components/svg/Logo";
@@ -21,7 +22,7 @@ export async function getStaticProps() {
   return {
     props: {
       homePage: res.items[0],
-      blog: blogRes.items[0],
+      blogs: blogRes.items.length > 3 ? blogRes.items.splice(0,3) : blogRes.items,
       episodes: rss.items.splice(0,3)
       
     },
@@ -29,8 +30,8 @@ export async function getStaticProps() {
   }
 
 }
-export default function Home({ homePage, episodes, blog }) {
-  console.log(blog);
+export default function Home({ homePage, episodes, blogs }) {
+  console.log(blogs);
   const {content} = homePage.fields;
   return (
     <>
@@ -47,6 +48,24 @@ export default function Home({ homePage, episodes, blog }) {
           </div>
         <div className={styles.homepageContent}>
           <div className={clsx(styles.homeInfo, "inner")}>{documentToReactComponents(content)}</div>
+          <div className={clsx(styles.blogPosts, "inner")}>
+			{blogs.map( blog => {
+				return (
+					<Link href={`/blog/${blog.fields.slug}`}>
+						<div className={styles.blogCard}>
+								<Image 
+								src={`https:${blog.fields.featuredImage.fields.file.url}`}
+								layout="fill"
+								objectFit="cover"
+								className={styles.image}
+								/>
+								<div className={styles.info}>{blog.fields.title}</div>
+						</div>
+					</Link>
+				)
+			})}
+          </div>
+
           <div className={clsx(styles.episodes, 'inner')}>
             {episodes.map((ep, index) => (
               <EpisodeCard key={index} episode={ep}/>
