@@ -50,7 +50,9 @@ export default function Home({ homePage, episodes, blogs }) {
           </div>
         <div className={styles.homepageContent}>
           <div className={clsx(styles.homeInfo, "inner")}>{documentToReactComponents(content)}</div>
-          <div className={clsx(styles.blogPosts, "inner")}>
+          <div className={clsx(styles.blogPosts)}>
+		  <div>Latest posts</div>
+			<div className={clsx(styles.blogGrid, "inner")}>
 			{blogs.map( blog => {
 				return (
 					<Link href={`/blog/${blog.fields.slug}`}>
@@ -72,6 +74,7 @@ export default function Home({ homePage, episodes, blogs }) {
 					</Link>
 				)
 			})}
+			</div>
           </div>
 
           <div className={clsx(styles.episodes, 'inner')}>
