@@ -1,9 +1,12 @@
 
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
+import Link from 'next/link';
 import { createClient} from 'contentful';
-import EpisodeCard from '../components/Card/EpisodeCard';
+import EpisodeCard from '../components/Card/HomepageEp/HomepageEpCard';
 import Logo from "../components/svg/Logo";
+import Avatar from '../components/Avatar/Avatar';
+import Pill from '../components/Pill/Pill';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styles from './index.module.scss';
 import clsx from 'clsx';
@@ -17,9 +20,11 @@ export async function getStaticProps() {
 
   const rss = await Feed.load('https://anchor.fm/s/4041b370/podcast/rss');
   const res = await client.getEntries({ content_type: 'homePage' }) //whatever content type is set up in content model
+  const blogRes = await client.getEntries({ content_type: 'blogPost' })
   return {
     props: {
       homePage: res.items[0],
+      blogs: blogRes.items.length > 3 ? blogRes.items.splice(0,3) : blogRes.items,
       episodes: rss.items.splice(0,3)
       
     },
@@ -27,8 +32,8 @@ export async function getStaticProps() {
   }
 
 }
-export default function Home({ homePage, episodes }) {
-  console.log(episodes);
+export default function Home({ homePage, episodes, blogs }) {
+  console.log(blogs);
   const {content} = homePage.fields;
   return (
     <>
@@ -45,10 +50,46 @@ export default function Home({ homePage, episodes }) {
           </div>
         <div className={styles.homepageContent}>
           <div className={clsx(styles.homeInfo, "inner")}>{documentToReactComponents(content)}</div>
-          <div className={clsx(styles.episodes, 'inner')}>
+          <div className={clsx(styles.blogPosts)}>
+		  <div className={clsx(styles.latestContainer, "inner")}>
+        <span className={styles.latestCTA}>Latest Posts</span>
+        <Link href={"/blog"}><a className={styles.latestLink}>Browse All <i className="fa fa-chevron-right" aria-hidden="true"></i></a></Link>
+      </div>
+			<div className={clsx(styles.blogGrid, "inner")}>
+			{blogs.map( blog => {
+				return (
+					<Link href={`/blog/${blog.fields.slug}`} key={blog.sys.id}>
+						<div className={styles.blogCard}>
+								<Image 
+								src={`https:${blog.fields.featuredImage.fields.file.url}`}
+								layout="fill"
+								objectFit="cover"
+								className={styles.image}
+								/>
+								<div className={styles.info}>
+								<Pill content={blog.fields.blogType} className={styles.blogPill}/>
+								<div>
+									<div className={styles.blogTitle}>{blog.fields.title}</div>
+									<div><Avatar author={blog.fields.author} className={styles.blogAvatar}/></div>
+								</div>
+								</div>
+						</div>
+					</Link>
+				)
+			})}
+			</div>
+          </div>
+
+          <div className={styles.episodes}>
+              <div className={clsx(styles.latestContainer, "inner")}>
+              <span className={styles.latestCTA}>All Epsisodes</span>
+              <Link href={"/episodes"}><a className={styles.latestLink}>Browse All <i className="fa fa-chevron-right" aria-hidden="true"></i></a></Link>
+              </div>
+            <div className={styles.flexGrid}>
             {episodes.map((ep, index) => (
               <EpisodeCard key={index} episode={ep}/>
             ))}
+          </div>  
           </div>
           <div className={styles.donate}>
             <Image 

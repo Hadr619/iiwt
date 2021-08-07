@@ -156,7 +156,7 @@ $desktopPalmWidth: 1000px;
   top: 20%;
   left: 10%;
   width: 800px;
-  margin-left:spacing(8);
+  margin-left: spacing(8);
   z-index: 1;
   color: $white;
   @include bp(medium) {
@@ -268,7 +268,7 @@ $desktopPalmWidth: 1000px;
   }
   &:nth-child(3) {
     width: 159px;
-    top: 178px;
+    top: 203px;
     left: 69%;
     transform: rotate(12deg);
 

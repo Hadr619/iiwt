@@ -60,7 +60,9 @@
   @include bp(medium) {
     padding: spacing(20, 0);
   }
-  h2, h3, h4{
+  h2,
+  h3,
+  h4 {
     margin-bottom: spacing(4);
     text-align: left;
     font-family: "Rubik", sans-serif;
@@ -73,66 +75,166 @@
   }
 }
 .episodes {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 30px;
-
-  @include bp(medium) {
-    padding: spacing(10, 0, 20, 0);
-  }
-}
-.donate{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
   width:100%;
-  height:300px;
-  position:relative;
   margin-top:spacing(8);
 
   @include bp(medium){
-    height:500px;
+    margin-top:spacing(0);
   }
 }
-.donateImage{
-  z-index:0;
-
-}
-.donateText{
+.flexGrid{
   display:flex;
+  flex-direction: column;
+  gap: spacing(8,0);
+  width: 100%;
+  margin-top:spacing(8);
+  padding: spacing(0,3,0,3);
+
+  @include bp(medium){
+    flex-direction:row;
+    gap: spacing(0, 8);
+    margin-top:spacing(0);
+    padding: spacing(10,5,20,5);
+  }
+}
+.latestContainer{
+  display:flex;
+  flex-direction: column;
+}
+.latestCTA{
+  color: #061020;
+  font-family: $rubik;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 42px;
+  text-transform: none;
+}
+.latestLink{
+  align-self:flex-start;
+  margin-top:spacing(2);
+  font-family: $rubik;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #908dab;
+  text-decoration: none;
+
+  @include bp(medium){
+    margin-top:spacing(0);
+  }
+}
+.blogGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 450px;
+  grid-gap: 30px;
+  margin-top:spacing(8);
+
+  @include bp(medium) {
+    margin-top:spacing(0);
+    padding: spacing(10, 0, 20, 0);
+  }
+}
+.blogCard {
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+  text-decoration: none;
+  transition: box-shadow 0.25s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    .info {
+      background-color: rgba(0, 0, 0, 0.45);
+      transition: background-color 0.25s ease-in-out;
+    }
+  }
+}
+.image {
+  border-radius: spacing(2);
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  height: 100%;
+  padding: spacing(4, 5);
+  background-color: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+  border-radius: spacing(2);
+  transition: background-color 0.25s ease-in-out;
+  color: $white;
+}
+.blogPill {
+  align-self: flex-end;
+}
+.blogTitle {
+  margin-bottom: spacing(5);
+  font-family: $rubik;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: -0.025em;
+}
+.blogAvatar {
+  color: $white;
+}
+.donate {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  margin-top: spacing(8);
+
+  @include bp(medium) {
+    height: 500px;
+  }
+}
+.donateImage {
+  z-index: 0;
+}
+.donateText {
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  z-index:1;
-  background: rgba(0,0,0,.50);
-  height:100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
   color: $white;
-
 }
-.donateTitle{
+.donateTitle {
   font-family: $rubik;
   font-size: 30px;
   font-weight: 700;
   line-height: 72px;
 
-  @include bp(medium){
+  @include bp(medium) {
     font-size: 68px;
     line-height: 72px;
   }
 }
-.donateDescription{
+.donateDescription {
   width: 90%;
-  margin-top:spacing(4);
+  margin-top: spacing(4);
 
-  @include bp(medium){
+  @include bp(medium) {
     width: 20%;
   }
 }
-.donateBtn{
-  position:relative;
-  display:flex;
+.donateBtn {
+  position: relative;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 150px;
-  margin-top:spacing(5);
+  margin-top: spacing(5);
   font-family: "Rubik", Sans-serif;
   font-size: 13px;
   font-weight: 500;
@@ -140,7 +242,7 @@
   text-decoration: none;
   line-height: 18px;
   text-shadow: 0px 0px 0px rgb(0 0 0 / 30%);
-  color: #FFFFFF;
+  color: #ffffff;
   background: linear-gradient(
     160deg,
     rgba(4, 18, 5, 1) 3%,
@@ -150,13 +252,13 @@
     rgba(245, 182, 27, 1) 100%
   );
   border-radius: 25px 25px 25px 25px;
-  cursor:pointer;
-  padding:spacing(2.5, 0);
-  z-index:1;
-  svg{
-    width:15%;
-    margin-right:spacing(3);
-    fill:$amber;
+  cursor: pointer;
+  padding: spacing(2.5, 0);
+  z-index: 1;
+  svg {
+    width: 15%;
+    margin-right: spacing(3);
+    fill: $amber;
   }
 
   &::before {
@@ -177,9 +279,9 @@
     border-radius: 25px 25px 25px 25px;
   }
 
-  &:hover{
-    &:before{
-      opacity:1;
+  &:hover {
+    &:before {
+      opacity: 1;
     }
   }
 }
