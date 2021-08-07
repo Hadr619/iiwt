@@ -3,7 +3,7 @@ import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 import Link from 'next/link';
 import { createClient} from 'contentful';
-import EpisodeCard from '../components/Card/EpisodeCard';
+import EpisodeCard from '../components/Card/HomepageEp/HomepageEpCard';
 import Logo from "../components/svg/Logo";
 import Avatar from '../components/Avatar/Avatar';
 import Pill from '../components/Pill/Pill';
@@ -51,7 +51,10 @@ export default function Home({ homePage, episodes, blogs }) {
         <div className={styles.homepageContent}>
           <div className={clsx(styles.homeInfo, "inner")}>{documentToReactComponents(content)}</div>
           <div className={clsx(styles.blogPosts)}>
-		  <div>Latest posts</div>
+		  <div className={clsx(styles.latestContainer, "inner")}>
+        <span className={styles.latestCTA}>Latest Posts</span>
+        <Link href={"/blog"}><a className={styles.latestLink}>Browse All <i className="fa fa-chevron-right" aria-hidden="true"></i></a></Link>
+      </div>
 			<div className={clsx(styles.blogGrid, "inner")}>
 			{blogs.map( blog => {
 				return (
@@ -77,10 +80,16 @@ export default function Home({ homePage, episodes, blogs }) {
 			</div>
           </div>
 
-          <div className={clsx(styles.episodes, 'inner')}>
+          <div className={clsx(styles.episodes)}>
+              <div className={clsx(styles.latestContainer, "inner")}>
+              <span className={styles.latestCTA}>All Epsisodes</span>
+              <Link href={"/episodes"}><a className={styles.latestLink}>Browse All <i className="fa fa-chevron-right" aria-hidden="true"></i></a></Link>
+              </div>
+            <div className={styles.flexGrid}>
             {episodes.map((ep, index) => (
               <EpisodeCard key={index} episode={ep}/>
             ))}
+          </div>  
           </div>
           <div className={styles.donate}>
             <Image 
