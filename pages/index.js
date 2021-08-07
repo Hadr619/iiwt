@@ -58,7 +58,7 @@ export default function Home({ homePage, episodes, blogs }) {
 			<div className={clsx(styles.blogGrid, "inner")}>
 			{blogs.map( blog => {
 				return (
-					<Link href={`/blog/${blog.fields.slug}`}>
+					<Link href={`/blog/${blog.fields.slug}`} key={blog.sys.id}>
 						<div className={styles.blogCard}>
 								<Image 
 								src={`https:${blog.fields.featuredImage.fields.file.url}`}
@@ -80,7 +80,7 @@ export default function Home({ homePage, episodes, blogs }) {
 			</div>
           </div>
 
-          <div className={clsx(styles.episodes)}>
+          <div className={styles.episodes}>
               <div className={clsx(styles.latestContainer, "inner")}>
               <span className={styles.latestCTA}>All Epsisodes</span>
               <Link href={"/episodes"}><a className={styles.latestLink}>Browse All <i className="fa fa-chevron-right" aria-hidden="true"></i></a></Link>
