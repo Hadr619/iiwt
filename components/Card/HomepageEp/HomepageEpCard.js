@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import styles from './HomepageEpCard.module.scss';
 
 export default function EpisodeCard({ episode, flipId }) {
+    console.log(episode);
     const epLength = new Date (episode.itunes_duration * 1000).toISOString().substr(11,8);
     const stringCheck = "MID-WEEK REVIEW - ";
     const epTitle = episode.title;
@@ -42,6 +43,7 @@ export default function EpisodeCard({ episode, flipId }) {
           </div>
           <figcaption className={styles.caption}>
             <div className={styles.title}>{newEpTitle}</div>
+            <div className={styles.description}>{episode.description}</div>
             <div className={styles.duration}>Episode Length: {epLength}</div>
           </figcaption>
           </div>  
