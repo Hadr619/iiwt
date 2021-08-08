@@ -6,13 +6,15 @@ import styles from './EpisodeCard.module.scss';
 export default function EpisodeCard({ episode, flipId }) {
     const epLength = new Date (episode.itunes_duration * 1000).toISOString().substr(11,8);
     const stringCheck = "MID-WEEK REVIEW - ";
+    const updateStrCheck = "MID WEEK ̶R̶E̶V̶I̶E̶W̶ ROUND UP!!!";
     const epTitle = episode.title;
     let newEpTitle;
     let albumCTA;
-    const albumReview = "Mid-Week Review";
+    const albumReview = "Mid-Week";
     
-    if(epTitle.includes(stringCheck) || epTitle.toLowerCase().includes('review')){
+    if(epTitle.includes(stringCheck) || epTitle.toLowerCase().includes('review') || epTitle.includes(updateStrCheck)){
         newEpTitle = epTitle.replace(stringCheck, "");
+        newEpTitle = epTitle.replace(updateStrCheck, "");
         newEpTitle = newEpTitle.toLowerCase().replace('review', "");
         albumCTA = albumReview;
     } else if(epTitle.toLowerCase().includes('ep')){

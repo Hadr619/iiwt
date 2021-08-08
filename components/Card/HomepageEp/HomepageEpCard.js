@@ -2,18 +2,23 @@ import Link from 'next/link';
 import Image from "next/image";
 import clsx from 'clsx';
 import styles from './HomepageEpCard.module.scss';
+import { parse } from 'node-html-parser';
 
 export default function EpisodeCard({ episode, flipId }) {
     console.log(episode);
     const epLength = new Date (episode.itunes_duration * 1000).toISOString().substr(11,8);
     const stringCheck = "MID-WEEK REVIEW - ";
+    const updateStrCheck = "MID WEEK ̶R̶E̶V̶I̶E̶W̶ ROUND UP!!!";
     const epTitle = episode.title;
     let newEpTitle;
     let albumCTA;
-    const albumReview = "Mid-Week Review";
-    
-    if(epTitle.includes(stringCheck) || epTitle.toLowerCase().includes('review')){
+    const albumReview = "Mid-Week";
+    let doc = parse(episode.description);
+    const newDescription = doc.querySelector('p').textContent;
+
+    if(epTitle.includes(stringCheck) || epTitle.toLowerCase().includes('review') || epTitle.includes(updateStrCheck)){
         newEpTitle = epTitle.replace(stringCheck, "");
+        newEpTitle = epTitle.replace(updateStrCheck, "");
         newEpTitle = newEpTitle.toLowerCase().replace('review', "");
         albumCTA = albumReview;
     } else if(epTitle.toLowerCase().includes('ep')){
@@ -43,7 +48,7 @@ export default function EpisodeCard({ episode, flipId }) {
           </div>
           <figcaption className={styles.caption}>
             <div className={styles.title}>{newEpTitle}</div>
-            <div className={styles.description}>{episode.description}</div>
+            <div className={styles.description}>{newDescription}</div>
             <div className={styles.duration}>Episode Length: {epLength}</div>
           </figcaption>
           </div>  

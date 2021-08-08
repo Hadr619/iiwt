@@ -33,7 +33,6 @@ export async function getStaticProps() {
 
 }
 export default function Home({ homePage, episodes, blogs }) {
-  console.log(blogs);
   const {content} = homePage.fields;
   return (
     <>
