@@ -26,12 +26,8 @@ export async function getStaticProps() {
 }
 
 export default function BlogPage({ posts }) {
-  console.log(posts);
-
   const rawItems = posts;
   const [items, setItems] = useState(rawItems);
-
-
   const albumReviews = [];
   const artistReviews = [];
   const shitPost = [];
