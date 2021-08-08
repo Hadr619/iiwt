@@ -16,7 +16,7 @@
     }
   }
   @include bp(medium){
-    height:287px;
+    height:305px;
   }
 }
 .figure {
@@ -105,7 +105,18 @@
 }
 .description{
   @include lineClamp(5);
+  font-size: 18px;
+  line-height: 30px;
+  color: #6d727c;
 }
 .duration{
-  margin-top:spacing(auto);
+  margin-top:spacing(2);
+  font-size: 11px;
+  color: #908dab;
+  text-transform: uppercase;
+  font-weight: 500;
+
+  @include bp(medium){
+    margin-top:spacing(auto);
+  }
 }
