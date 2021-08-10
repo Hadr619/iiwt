@@ -7,9 +7,8 @@ export default function ScrollToTop() {
   // Top: 0 takes us all the way back to the top of the page
   // Behavior: smooth keeps it smooth!
   const scrollToTop = () => {
-    setTimeout(window.scrollTo({
+    setTimeout(window.scroll({
       top: 0,
-      left:0,
       behavior: "smooth"
     }),100)
   };
