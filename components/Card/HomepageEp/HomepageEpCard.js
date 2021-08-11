@@ -5,9 +5,8 @@ import styles from './HomepageEpCard.module.scss';
 import { parse } from 'node-html-parser';
 
 export default function EpisodeCard({ episode, flipId }) {
-    console.log(episode);
     const epLength = new Date (episode.itunes_duration * 1000).toISOString().substr(11,8);
-    const stringCheck = "MID-WEEK REVIEW - ";
+    const stringCheck = "MID";
     const updateStrCheck = "MID WEEK ̶R̶E̶V̶I̶E̶W̶ ROUND UP!!!";
     const epTitle = episode.title;
     let newEpTitle;
@@ -55,6 +54,5 @@ export default function EpisodeCard({ episode, flipId }) {
         </figure>
         </a>
       </Link>
-
     )
 }

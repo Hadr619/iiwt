@@ -81,7 +81,7 @@ export default function Home({ homePage, episodes, blogs }) {
 
           <div className={styles.episodes}>
               <div className={clsx(styles.latestContainer, "inner")}>
-              <span className={styles.latestCTA}>All Epsisodes</span>
+              <span className={styles.latestCTA}>All Episodes</span>
               <Link href={"/episodes"}><a className={styles.latestLink}>Browse All <i className="fa fa-chevron-right" aria-hidden="true"></i></a></Link>
               </div>
             <div className={styles.flexGrid}>
