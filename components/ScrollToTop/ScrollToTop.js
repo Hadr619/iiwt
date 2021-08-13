@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
 import Logo from '../svg/Logo';
 import styles from './ScrollToTop.module.scss';
+import { animateScroll as scroll } from "react-scroll";
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
   // Top: 0 takes us all the way back to the top of the page
   // Behavior: smooth keeps it smooth!
   const scrollToTop = () => {
-    setTimeout(window.scroll({
-      top: 0,
-      behavior: "smooth"
-    }),100)
+    scroll.scrollToTop();
   };
 
   useEffect(() => {
