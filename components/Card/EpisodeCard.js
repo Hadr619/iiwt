@@ -5,7 +5,7 @@ import styles from './EpisodeCard.module.scss';
 
 export default function EpisodeCard({ episode, flipId }) {
     const epLength = new Date (episode.itunes_duration * 1000).toISOString().substr(11,8);
-    const stringCheck = "MID-WEEK REVIEW - ";
+    const stringCheck = "MID-WEEK";
     const updateStrCheck = "MID WEEK ̶R̶E̶V̶I̶E̶W̶ ROUND UP!!!";
     const epTitle = episode.title;
     let newEpTitle;
