@@ -31,6 +31,7 @@ export default function Nav(){
                     <li className={clsx(pathCheck('/episodes'), styles.navItem)}><Link href="/episodes"><a onClick={() => handleNav(true)} className={styles.navLink}>Episodes</a></Link></li>
                     <li className={clsx(pathCheck('/blog'), styles.navItem)}><Link href="/blog"><a onClick={() => handleNav(true)} className={styles.navLink}>Blog</a></Link></li>
                     <li className={styles.navItem}><Link href="https://trashpitcity.threadless.com/"><a rel="noreferrer" target="_blank" onClick={() => handleNav(true)} className={styles.navLink}>Shop</a></Link></li>
+                    <li className={styles.navItem}><Link href="https://twitter.com/isitworsethn311"><a rel="noreferrer" target="_blank" onClick={() => handleNav(true)} className={styles.navLink}><i className="fa fa-twitter" aria-hidden="true"></i></a></Link></li>
                 </ul>
                 </div>
             </nav>
