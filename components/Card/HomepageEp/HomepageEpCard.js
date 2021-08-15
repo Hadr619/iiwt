@@ -4,10 +4,11 @@ import clsx from 'clsx';
 import styles from './HomepageEpCard.module.scss';
 import { parse } from 'node-html-parser';
 
-export default function EpisodeCard({ episode, flipId }) {
+export default function EpisodeCard({ episode, flipId }) {  
     const epLength = new Date (episode.itunes_duration * 1000).toISOString().substr(11,8);
     const stringCheck = "MID";
     const updateStrCheck = "MID WEEK ̶R̶E̶V̶I̶E̶W̶ ROUND UP!!!";
+    const newStrCheck = "MID-WEEK ROUND UP!!!"
     const epTitle = episode.title;
     let newEpTitle;
     let albumCTA;
@@ -15,19 +16,24 @@ export default function EpisodeCard({ episode, flipId }) {
     let doc = parse(episode.description);
     const newDescription = doc.querySelector('p').textContent;
 
-    if(epTitle.includes(stringCheck) || epTitle.toLowerCase().includes('review') || epTitle.includes(updateStrCheck)){
+    if(epTitle.includes(stringCheck)){
         newEpTitle = epTitle.replace(stringCheck, "");
+      } else if(epTitle.includes(updateStrCheck)){
         newEpTitle = epTitle.replace(updateStrCheck, "");
-        newEpTitle = newEpTitle.toLowerCase().replace('review', "");
+      }else if(epTitle.includes(newStrCheck)){
+        newEpTitle = epTitle.replace(newStrCheck, "");
+      }else{
+        newEpTitle = epTitle;
+      }
+
+    if(epTitle.includes(stringCheck) || epTitle.includes(updateStrCheck) || epTitle.includes(newStrCheck)){
         albumCTA = albumReview;
     } else if(epTitle.toLowerCase().includes('ep')){
         newEpTitle = epTitle.split(":").pop();
         if(episode.itunes_episode)
         albumCTA = `Episode ${episode.itunes_episode}`;
     }
-    else{
-        newEpTitle = epTitle;
-    }
+    
     return (
         <Link key={episode.id} href={episode.url}>
         <a target="_blank" rel="noreferrer" className={styles.episode} data-flip-id={flipId}>
