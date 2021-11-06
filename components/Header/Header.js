@@ -30,7 +30,9 @@ export default function Header({props}) {
 			<div className={styles.logo}>
 			<Link href="/">
 			<a className={styles.logoLink}>
-			  <Logo />
+			  <div className={styles.logoInner}>
+			  	<Logo />
+			  </div>
 			  <p className={styles.sublogo}>Is It Worse Than...</p>
 			  </a>
 			</Link>
