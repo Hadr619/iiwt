@@ -4,10 +4,12 @@ import clsx from 'clsx';
 import styles from './EpisodeCard.module.scss';
 
 export default function EpisodeCard({ episode, flipId }) {
-    const epLength = new Date (episode.itunes_duration * 1000).toISOString().substr(11,8);
+    const epLength = episode.itunes_duration
     const stringCheck = "MID-WEEK REVIEW - ";
     const updateStrCheck = "MID WEEK ̶R̶E̶V̶I̶E̶W̶ ROUND UP!!!";
-    const newStrCheck = "MID-WEEK ROUND UP!!!"
+    const newStrCheck = "MID-WEEK ROUND UP!!!";
+    const endOfMonth = "END OF THE MONTH ROUND UP!!!";
+    const midMonth = "MID-MONTH AMBER ALERT!!!";
     const epTitle = episode.title;
     let newEpTitle;
     let albumCTA;
@@ -19,6 +21,10 @@ export default function EpisodeCard({ episode, flipId }) {
       newEpTitle = epTitle.replace(updateStrCheck, "");
     }else if(epTitle.includes(newStrCheck)){
       newEpTitle = epTitle.replace(newStrCheck, "");
+    }else if(epTitle.includes(endOfMonth)){
+      newEpTitle = epTitle.replace(endOfMonth, "");
+    }else if(epTitle.includes(midMonth)){
+      newEpTitle = epTitle.replace(midMonth, "");
     }else{
       newEpTitle = epTitle;
     }
@@ -30,7 +36,6 @@ export default function EpisodeCard({ episode, flipId }) {
         if(episode.itunes_episode)
         albumCTA = `Episode ${episode.itunes_episode}`;
     }
-
     return (
         <Link key={episode.id} href={episode.url}>
         <a target="_blank" rel="noreferrer" className={styles.episode} data-flip-id={flipId}>

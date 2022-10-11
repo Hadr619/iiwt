@@ -5,7 +5,7 @@ import styles from './HomepageEpCard.module.scss';
 import { parse } from 'node-html-parser';
 
 export default function EpisodeCard({ episode, flipId }) {  
-    const epLength = new Date (episode.itunes_duration * 1000).toISOString().substr(11,8);
+    const epLength = episode.itunes_duration;
     const stringCheck = "MID-WEEK REVIEW - ";
     const updateStrCheck = "MID WEEK ̶R̶E̶V̶I̶E̶W̶ ROUND UP!!!";
     const newStrCheck = "MID-WEEK ROUND UP!!!"
@@ -15,7 +15,6 @@ export default function EpisodeCard({ episode, flipId }) {
     const albumReview = "Mid-Week";
     let doc = parse(episode.description);
     const newDescription = doc.querySelector('p').textContent;
-
     if(epTitle.includes(stringCheck)){
         newEpTitle = epTitle.replace(stringCheck, "");
       } else if(epTitle.includes(updateStrCheck)){
@@ -41,7 +40,6 @@ export default function EpisodeCard({ episode, flipId }) {
           <div className={styles.episodeInner}>
           <div className={styles.imageContainer}>
           <Image src={episode.itunes_image}
-                layout="responsive"
                 layout="fill"
                 objectFit="cover"
                  alt="Is It Worse Than logo"
