@@ -6,6 +6,10 @@
   flex-direction: column;
   color: $black;
 }
+.imageWrapper {
+  height: 325px;
+  position: relative;
+}
 .image {
   border-radius: spacing(2);
 }

@@ -12,14 +12,18 @@
     font-weight: 500;
     text-transform: uppercase;
   }
+.avatar {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width:40px;
+  height:40px;
+  margin-right:spacing(2);
+  border-radius:50%;
+  overflow:hidden;
+}
 .avatarSvg{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    width:40px;
-    height:40px;
-    margin-right:spacing(2);
-    border-radius:50%;
     background: linear-gradient(
       160deg,
       rgba(4, 18, 5, 1) 3%,
@@ -32,8 +36,4 @@
       width:20px;
       fill:$amber;
     }
-  }
-  .avatar{
-    margin-right:spacing(2);
-    border-radius:50%;
   }
