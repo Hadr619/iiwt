@@ -29,9 +29,8 @@ export default function BlogCard({ post, className, flipId }) {
                 <figure>
                 <div className={styles.imageWrapper}>
                     <Image src={`https:${featuredImage.fields.file.url}`}
-                        layout="responsive"
-                        width={featuredImage.fields.file.details.image.width}
-                        height={featuredImage.fields.file.details.image.height}
+                        layout="fill"
+                        objectFit="cover"
                         alt="Is It Worse Than blog image"
                         className={styles.image}/>
                     </div>

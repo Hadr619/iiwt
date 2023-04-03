@@ -27,6 +27,9 @@
   }
 }
 .blogContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: spacing(4);
   padding: 0;
 }
 .asideSection {
@@ -95,11 +98,6 @@
   &:hover {
     color: $amber;
     transition: color 0.25s ease-in-out;
-  }
-}
-.blogPost {
-  & + & {
-    margin-top: spacing(8);
   }
 }
 .cardWrapper {

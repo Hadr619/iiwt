@@ -1,3 +1,4 @@
+
 @import "../styles/variables";
 @import "../styles/mixins";
 
@@ -11,26 +12,15 @@ $desktopPalmWidth: 1000px;
   width: 100%;
   height: 80px;
   box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
-  // background: linear-gradient(
-  //   160deg,
-  //   rgba(4, 18, 5, 1) 3%,
-  //   rgba(193, 45, 69, 1) 37%,
-  //   rgba(227, 59, 72, 1) 56%,
-  //   rgba(240, 146, 40, 1) 74%,
-  //   rgba(245, 182, 27, 1) 100%
-  // );
-  background: rgb(12,48,80);
-  background: linear-gradient(43deg, rgba(12,48,80,1) 0%, rgba(84,96,112,1) 47%, rgba(199,128,71,1) 79%);
+  background: linear-gradient(
+    160deg,
+    rgba(4, 18, 5, 1) 3%,
+    rgba(193, 45, 69, 1) 37%,
+    rgba(227, 59, 72, 1) 56%,
+    rgba(240, 146, 40, 1) 74%,
+    rgba(245, 182, 27, 1) 100%
+  );
   z-index: 10;
-  &:before{
-    content:'';
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background-image:url("/stars.png");
-  }
 
   @include bp(medium) {
     position: relative;
@@ -39,20 +29,9 @@ $desktopPalmWidth: 1000px;
     overflow: hidden;
   }
 }
-
-// HEADER ON SUBPAGES
 .header.subpage {
   @include bp(medium) {
-    height: 240px;
-  }
-  .callToAction{
-    flex-direction: row;
-    align-items:center;
-    width:auto;
-
-    .ctaDescription{
-      margin-left:spacing(4);
-    }
+    height: 200px;
   }
   .wave,
   .sites {
@@ -108,52 +87,9 @@ $desktopPalmWidth: 1000px;
   display: flex;
   width: 100%;
   height: 80px;
-  position:relative;
+
   @include bp(medium) {
     margin-top: spacing(5);
-  }
-}
-.logoInner{
-  position:relative;
-  display:none;
-  justify-content: center;
-  width:150px;
-  height:150px;
-  background-color:#340D6A;
-  background-image:url("/dottedhex.svg");
-  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  z-index:1;
-  box-shadow: 0px 0px 115px 70px rgba(255,255,255,0.58);
-
-  @include bp(large){
-    display:flex;
-  }
-
-  &:after{
-    content:'';
-    width: 137px;
-    height: 135px;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-    background-color:#9BE0E2;
-    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  }
-  &:before{
-    content:'';
-    width: 128px;
-    height: 128px;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-    background-color:#340D6A;
-    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    z-index:1;
   }
 }
 .logo {
@@ -170,10 +106,9 @@ $desktopPalmWidth: 1000px;
 
   svg {
     display: none;
-    width: 50%;
+    width: 20%;
     height: auto;
     fill: $amber;
-    z-index:1;
 
     @include bp(medium) {
       display: block;
@@ -186,56 +121,21 @@ $desktopPalmWidth: 1000px;
 }
 .logoLink {
   text-decoration: none;
-  width:100px;
-  position: absolute;
-  top:0;
-  left:05%;
 }
 .sublogo {
   position: relative;
-  top: spacing(2);
-  left: spacing(8.5);
-  color: $amber;
-  font-family: $neon;
-  width: 195px;
-  padding: spacing(2,4);
-  font-size: spacing(4);
-  background-color: #340D6A;
-  border:solid 5px #9BE0E2;
-  border-radius:spacing(3);
-  text-align:center;
-  z-index:2;
-  text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
-  box-shadow: 0px 0px 115px 22px rgba(255,255,255,0.44);
-
-  &:before{
-    content:'';
-    width:100%;
-    height:100%;
-    position:absolute;
-    top:0;
-    left:0;
-    border:solid 5px #FEC888;
-    border-radius:spacing(1.8);
-  }
-
-  &:after{
-    content:'';
-    width:calc(100% + 10px);
-    height:calc(100% + 10px);
-    position:absolute;
-    top:-5px;
-    left:-5px;
-    border:solid 2px #fff;
-    border-radius:spacing(2.2);
-  }
+  left: spacing(-3);
+  color: #f2ce3f;
+  font-size: 20px;
+  font-family: $rockSalt;
 
   @include bp(medium) {
     position: absolute;
-    top: calc(100% - 29px);
-    left: spacing(-2);
-    width: 173px;
-    padding: spacing(2);
+    width: 215px;
+    transform: rotateZ(-6deg);
+    bottom: -4px;
+    left: 20px;
+    font-size: 15px;
   }
 }
 .scene {
@@ -255,52 +155,21 @@ $desktopPalmWidth: 1000px;
   flex-direction: column;
   position: absolute;
   top: 20%;
-  left: 15%;
+  left: 10%;
   width: 800px;
   margin-left: spacing(8);
-  padding: spacing(6);
-  background-color:rgba(#340D6A,.8);
-  border-radius: spacing(10);
-  border: solid 5px #9BE0E2;
-  box-shadow: 0px 0px 115px 70px rgba(155,224,226,0.58);
   z-index: 1;
   color: $white;
-  &:before {
-    content: '';
-    position:absolute;
-    top: -10px;
-    left:-10px;
-    width: calc(100% + 20px);
-    height: calc(100% + 20px);
-    border:solid 5px #fff;
-    border-radius:spacing(11);
-    box-shadow: 0px 0px 130px 80px rgba(255,255,255,0.48);
-  }
-  &:after{
-    content:'';
-    position: absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    border:solid 10px #FEC888;
-    border-radius:spacing(8.8);
-    box-shadow: 0px 0px 104px 11px rgba(254,201,136,0.32);
-  }
   @include bp(medium) {
     display: flex;
   }
 }
 .ctaTitle {
   font-size: 72px;
-  font-family: $neon;
+  font-family: $rubik;
   letter-spacing: -2px;
   font-weight: 700;
   line-height: 72px;
-  // animation: pulsate 0.11s ease-in-out infinite alternate; 
-  text-shadow:
-  0 0 7px #fff,
-  0 0 10px #fff;
 }
 .ctaDescription {
   margin-top: spacing(3);
@@ -311,9 +180,6 @@ $desktopPalmWidth: 1000px;
   font-family: $rubik;
   font-weight: 400;
   font-size: 20px;
-  text-shadow:
-  0 0 7px #fff,
-  0 0 10px #fff;
 }
 .sites {
   display: flex;
@@ -331,8 +197,6 @@ $desktopPalmWidth: 1000px;
   text-decoration: none;
   padding: spacing(2, 3);
   transition: background-color 0.25s ease-in-out;
-  text-shadow:
-  0 0 7px #fff;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.5);
@@ -450,20 +314,4 @@ $desktopPalmWidth: 1000px;
   @include bp(medium) {
     display: block;
   }
-}
-
-
-@keyframes pulsate {
-    
-  100% {
-
-    text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
-  
-  }
-  
-  0% {
-
-    text-shadow: 0 0 20px rgba(255,255,255,.5), 0 0 20px rgba(255,255,255,.5);
-
-}
 }
