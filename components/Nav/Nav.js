@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
+const ThemeToggle = dynamic(() => import("../ThemeToggle/ThemeToggle"), {
+    ssr: false,
+  });
 import clsx from 'clsx';
 import styles from './Nav.module.scss'
 
@@ -32,6 +36,7 @@ export default function Nav(){
                     <li className={clsx(pathCheck('/blog'), styles.navItem)}><Link href="/blog"><a onClick={() => handleNav(true)} className={styles.navLink}>Blog</a></Link></li>
                     <li className={styles.navItem}><Link href="https://trashpitcity.threadless.com/"><a rel="noreferrer" target="_blank" onClick={() => handleNav(true)} className={styles.navLink}>Shop</a></Link></li>
                     <li className={styles.navItem}><Link href="https://twitter.com/isitworsethn311"><a rel="noreferrer" target="_blank" onClick={() => handleNav(true)} className={styles.navLink}><i className="fa fa-twitter" aria-hidden="true"></i></a></Link></li>
+                    <li className={styles.navItem}><ThemeToggle /></li>
                 </ul>
                 </div>
             </nav>
