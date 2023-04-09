@@ -2,19 +2,32 @@
 @import "_mixins";
 @import "_variables";
 
+:root {
+  --color-white: #fff;
+  --color-purple: #340D6A;
+}
+
 body,
 body[data-theme="light"] {
-  --color-text-primary: #27201a;
-  --color-text-secondary: #076963;
+  --color-text-primary: #061020;
+  --color-text-secondary: #6d727c;
   --color-bg-primary: #fff;
-  --color-bg-toggle: #1e90ff;
-}
+  --color-bg-card:var(--color-bg-primary);
+  --color-bg-scroll: var(--color-bg-primary);
+  --color-bg-pill: var(--color-purple);
+  --color-text-pill: var(--color-bg-primary);
+} 
 
 body[data-theme="dark"] {
   --color-text-primary: #e3e3e3;
-  --color-text-secondary: #ff6b00;
-  --color-bg-primary: #161f2c;
-  --color-bg-toggle: #a9a9a9;
+  --color-text-secondary: #95acc5;
+  --color-bg-primary: hsl(215 33% 13%);
+  --color-bg-light:hsl(215 33% 18%);
+  --color-bg-lighter: hsl(215 33% 28%);
+  --color-bg-card: var(--color-bg-light);
+  --color-bg-scroll: var(--color-bg-lighter);
+  --color-bg-pill: var(--color-white);
+  --color-text-pill: var(--color-bg-primary);
 }
 body {
   background: var(--color-bg-primary);
