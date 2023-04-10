@@ -101,6 +101,10 @@ $navItems: 6;
     transform: translateX(-50%);
     background-color: var(--color-yellow);
     transition: width 0.25s ease-in-out;
+
+    @include bp(medium){
+      background-color: var(--color-white);
+    }
   }
   @include bp(medium) {
     color: $white;
