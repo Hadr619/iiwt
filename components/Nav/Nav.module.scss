@@ -1,5 +1,7 @@
 @import "../styles/mixins";
 @import "../styles/variables";
+
+$navItems: 6;
 .nav {
   @include bp(medium) {
     margin-left: spacing(22);
@@ -51,7 +53,7 @@
   transition: all 0.3s;
 
   $time-offset-close: 0;
-  @for $i from 5 through 1 {
+  @for $i from $navItems through 1 {
     &:nth-child(#{$i}) {
       $time-offset-close: $time-offset-close + 0.1;
       transition-delay: #{$time-offset-close}s;
@@ -106,7 +108,9 @@
 }
 
 .themeToggle {
-  align-self:center;
+  @include bp(medium){
+    align-self:center;
+  }
 }
 
 // NAV MOBILE
@@ -229,7 +233,7 @@
     transform: translateX(0);
     backface-visibility: hidden;
     $time-offset-open: 1;
-    @for $i from 1 through 5 {
+    @for $i from 1 through $navItems {
       &:nth-child(#{$i}) {
         $time-offset-open: $time-offset-open + 0.1;
         transition-delay: #{$time-offset-open}s;

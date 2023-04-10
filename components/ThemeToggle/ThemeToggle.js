@@ -3,7 +3,7 @@ import clsx from "clsx";
 import styles from "./ThemeToggle.module.scss";
 
 
-export default function ThemeToggle() {
+export default function ThemeToggle({className}) {
 
     const [activeTheme, setActiveTheme] = useState(document.body.dataset.theme);
     const inactiveTheme = activeTheme === 'light' ? 'dark' : 'light';
@@ -18,6 +18,6 @@ export default function ThemeToggle() {
       }, [activeTheme]);
 
     return (
-        <div className={clsx(styles.toggle, activeTheme === 'light' ? styles.light : styles.dark)} onClick={()=> handleClick()}></div>
+        <div className={clsx(styles.toggle, activeTheme === 'light' ? styles.light : styles.dark, className)} onClick={()=> handleClick()}></div>
     )
 }
