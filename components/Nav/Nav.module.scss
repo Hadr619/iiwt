@@ -99,7 +99,7 @@ $navItems: 6;
     width: 0;
     height: 2px;
     transform: translateX(-50%);
-    background-color: $white;
+    background-color: var(--color-yellow);
     transition: width 0.25s ease-in-out;
   }
   @include bp(medium) {
@@ -168,17 +168,17 @@ $navItems: 6;
 }
 .top {
   transform: rotate(-45deg) translateY(-150%);
-  background: linear-gradient(to top, $amber 50%, $white 50%);
+  background: linear-gradient(to top, $amber 50%, var(--color-bg-primary) 50%);
   background-size: 100% 200%;
   background-position: -100% 100%;
 }
 .middle {
   transform: rotate(-45deg) translateY(50%) scaleY(0);
-  background: $white;
+  background: var(--color-bg-primary);
 }
 .bottom {
   transform: rotate(-45deg) translateY(250%);
-  background: linear-gradient(to bottom, $white 50%, $amber 50%);
+  background: linear-gradient(to bottom, var(--color-bg-primary) 50%, $amber 50%);
   background-size: 100% 200%;
   background-position: 0 -100%;
 }
