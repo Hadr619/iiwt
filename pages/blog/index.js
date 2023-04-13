@@ -40,7 +40,7 @@ export default function BlogPage({ posts }) {
   const labelList = [
 	  "Full Ep",
 	  "Mid-Week",
-	  "HADR's Hideout"
+	  "Movie Night"
   ]
 
   posts.map(post => {
@@ -48,7 +48,7 @@ export default function BlogPage({ posts }) {
       artistReviews.push(post.fields.blogType)
     }else if(post.fields.blogType.toLowerCase() == 'mid-week'){
       albumReviews.push(post.fields.blogType)
-    } else if(post.fields.blogType.toLowerCase() == "hadr's hideout"){
+    } else if(post.fields.blogType.toLowerCase() == "movie night"){
       shitPost.push(post.fields.blogType)
     }
   })
@@ -57,8 +57,8 @@ export default function BlogPage({ posts }) {
     
     const newLabel = label ? label.toLowerCase() : "";
 
-    if(newLabel == "hadr's hideout"){
-      setItems(items => rawItems.filter(item => item.fields.blogType.toLowerCase().includes("hadr's hideout")))
+    if(newLabel == "movie night"){
+      setItems(items => rawItems.filter(item => item.fields.blogType.toLowerCase().includes("movie night")))
     } else if(newLabel == 'full ep'){
 
       setItems(items => rawItems.filter(item => item.fields.blogType.toLowerCase().includes("full ep")))
@@ -77,7 +77,7 @@ const displayPostCount = (blogType) => {
   else if(blogType.toLowerCase() == 'full ep'){
     return artistReviews.length
   }
-  else if(blogType.toLowerCase() == "hadr's hideout"){
+  else if(blogType.toLowerCase() == "movie night"){
     return shitPost.length
   }
 }

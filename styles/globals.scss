@@ -72,7 +72,7 @@ h3{
  color:$white;
 }
 h4,
-h3 {
+h3:not(.footer-h3) {
   font-family: $rubik;
   font-size: 30px;
   font-weight: 700;
@@ -80,6 +80,8 @@ h3 {
   line-height: 42px;
   text-transform: none;
   text-align:center;
+}
+h3:not(.footer-h3){
   color: var(--color-text-primary);
 }
 .h4 {

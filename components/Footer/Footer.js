@@ -20,7 +20,7 @@ export default function Footer() {
             </div>
             <div className={styles.links}>
             <div>
-                <h3>Where to Listen</h3>
+                <h3 className="footer-h3">Where to Listen</h3>
                 <ul className={styles.list}>
                     <li><Link href="https://anchor.fm/isitworsethan"><a rel="noreferrer" target="_blank">Anchor</a></Link></li>
                     <li><Link href="https://open.spotify.com/show/1I7lI0F33YvpLuORxLp7Ar"><a rel="noreferrer" target="_blank">Spotify</a></Link></li>
@@ -31,13 +31,13 @@ export default function Footer() {
                 </ul>
                 </div>
                 <div>
-                    <h3>Get In Touch</h3>
+                    <h3 className="footer-h3">Get In Touch</h3>
                     <ul className={styles.list}>
                     <li><Link href="mailto:isitworsethan311@gmail.com"><a>Email</a></Link></li>           
                 </ul>
                 </div>
                 <div>
-                <h3>Affiliated Links</h3>
+                <h3 className="footer-h3">Affiliated Links</h3>
                 <ul className={styles.list}>
                     <li><Link href="https://trashpitcity.threadless.com/"><a rel="noreferrer" target="_blank">Apparel</a></Link></li>
                     <li><Link href="https://trashpitcity.bigcartel.com/"><a rel="noreferrer" target="_blank">Trash Pit City</a></Link></li>
