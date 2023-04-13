@@ -1,0 +1,20 @@
+@import "../../styles/mixins";
+
+.svg {
+    fill: var(--color-fill-lines);
+    @include bp(medium){
+        fill: var(--color-white);
+    }
+}
+.moon {
+    fill: var(--color-fill-moon);
+    @include bp(medium){
+        fill: var(--color-white);
+    }
+}
+.lines {
+    stroke: var(--color-fill-lines);
+    @include bp(medium){
+        stroke: var(--color-white);
+    }
+}

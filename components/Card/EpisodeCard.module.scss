@@ -2,7 +2,7 @@
 @import "../../styles/variables";
 .episode {
   padding: 20px;
-  background: #fff;
+  background: var(--color-bg-card);
   border-radius: 10px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
   text-decoration: none;
@@ -70,7 +70,9 @@
 }
 .title {
   text-transform: capitalize;
+  color: var(--color-text-primary)
 }
 .duration {
   margin-top: auto;
+  color: var(--color-text-secondary)
 }

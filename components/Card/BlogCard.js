@@ -40,7 +40,7 @@ export default function BlogCard({ post, className, flipId }) {
                 <h4 className={styles.title}>{newTitle()}</h4>
                 <p className={styles.description}>{postDescription}</p>
                 </figcaption>
-                <div>Read More</div>
+                <div className={styles.readMore}>Read More</div>
                 </figure>
                 </a>   
             </Link>

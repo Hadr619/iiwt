@@ -5,7 +5,6 @@ import clsx from "clsx";
 export default function Avatar({author, className}) {
     const cleanName = author.split(' ').join('').toLowerCase();
     const displayAvatar = () => {
-        console.log(cleanName == 'rcro' ? 'jpg' : 'jpeg')
             return (
             <div className={clsx(styles.avatar)}>
                 <Image 

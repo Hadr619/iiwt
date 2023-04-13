@@ -2,8 +2,45 @@
 @import "_mixins";
 @import "_variables";
 
+:root {
+  --color-white: #fff;
+  --color-purple: #340D6A;
+  --color-yellow: #f2ce3f;
+  --color-black: #061020;
+}
+
+body,
+body[data-theme="light"] {
+  --color-text-primary: #061020;
+  --color-text-secondary: #6d727c;
+  --color-bg-primary: #fff;
+  --color-bg-card:var(--color-bg-primary);
+  --color-bg-scroll: var(--color-bg-primary);
+  --color-bg-pill: var(--color-purple);
+  --color-text-pill: var(--color-bg-primary);
+  --color-fill-moon: var(--color-yellow);
+  --color-fill-lines: var(--color-yellow);
+
+} 
+
+body[data-theme="dark"] {
+  --color-text-primary: #e3e3e3;
+  --color-text-secondary: #95acc5;
+  --color-bg-primary: hsl(215 33% 13%);
+  --color-bg-light:hsl(215 33% 18%);
+  --color-bg-lighter: hsl(215 33% 28%);
+  --color-bg-card: var(--color-bg-light);
+  --color-bg-scroll: var(--color-bg-lighter);
+  --color-bg-pill: var(--color-white);
+  --color-text-pill: var(--color-bg-primary);
+  --color-fill-moon: var(--color-yellow);
+  --color-fill-lines: var(--color-yellow);
+}
 body {
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
   font-family: $rubik;
+  transition: background 0.25s ease-in-out;
 }
 ::-webkit-scrollbar {
   width: 5px;
@@ -12,7 +49,7 @@ body {
   overflow: hidden;
 }
 .layout {
-  background-color: #f6fafc;
+  background-color: var(--color-bg-primary);
 }
 .page-content {
   display: flex;
@@ -35,7 +72,7 @@ h3{
  color:$white;
 }
 h4,
-h3 {
+h3:not(.footer-h3) {
   font-family: $rubik;
   font-size: 30px;
   font-weight: 700;
@@ -43,6 +80,9 @@ h3 {
   line-height: 42px;
   text-transform: none;
   text-align:center;
+}
+h3:not(.footer-h3){
+  color: var(--color-text-primary);
 }
 .h4 {
   margin: spacing(8, 0, 6, 0);

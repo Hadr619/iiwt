@@ -22,7 +22,7 @@
   letter-spacing: -0.025em;
   line-height: 42px;
   text-transform: none;
-  color: #061020;
+  color: var(--color-text-primary);
 }
 .info {
   margin-top: spacing(8);
@@ -32,7 +32,7 @@
   letter-spacing: 0px;
   line-height: 28px;
   text-transform: none;
-  color: #6d727c;
+  color: var(--color-text-secondary);
 }
 .blogPill {
   align-self: flex-start;
@@ -87,4 +87,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin-bottom: spacing(2);
+}
+.readMore {
+  color: var(--color-text-secondary)
 }

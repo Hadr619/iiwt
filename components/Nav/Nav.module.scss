@@ -1,5 +1,7 @@
 @import "../styles/mixins";
 @import "../styles/variables";
+
+$navItems: 6;
 .nav {
   @include bp(medium) {
     margin-left: spacing(22);
@@ -23,7 +25,8 @@
 }
 .navList {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap:wrap;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -36,6 +39,7 @@
 
   @include bp(medium) {
     flex-direction: row;
+    flex-wrap:nowrap;
     visibility: visible;
     position: static;
     top: 0;
@@ -51,7 +55,7 @@
   transition: all 0.3s;
 
   $time-offset-close: 0;
-  @for $i from 5 through 1 {
+  @for $i from $navItems through 1 {
     &:nth-child(#{$i}) {
       $time-offset-close: $time-offset-close + 0.1;
       transition-delay: #{$time-offset-close}s;
@@ -97,12 +101,20 @@
     width: 0;
     height: 2px;
     transform: translateX(-50%);
-    background-color: $white;
+    background-color: var(--color-yellow);
     transition: width 0.25s ease-in-out;
+
+    @include bp(medium){
+      background-color: var(--color-white);
+    }
   }
   @include bp(medium) {
     color: $white;
   }
+}
+
+.themeToggle {
+    align-self:center;
 }
 
 // NAV MOBILE
@@ -160,17 +172,17 @@
 }
 .top {
   transform: rotate(-45deg) translateY(-150%);
-  background: linear-gradient(to top, $amber 50%, $white 50%);
+  background: linear-gradient(to top, $amber 50%, var(--color-bg-primary) 50%);
   background-size: 100% 200%;
   background-position: -100% 100%;
 }
 .middle {
   transform: rotate(-45deg) translateY(50%) scaleY(0);
-  background: $white;
+  background: var(--color-bg-primary);
 }
 .bottom {
   transform: rotate(-45deg) translateY(250%);
-  background: linear-gradient(to bottom, $white 50%, $amber 50%);
+  background: linear-gradient(to bottom, var(--color-bg-primary) 50%, $amber 50%);
   background-size: 100% 200%;
   background-position: 0 -100%;
 }
@@ -221,11 +233,12 @@
     visibility: visible;
   }
   .navItem {
+    flex-basis: 100%;
     opacity: 1;
     transform: translateX(0);
     backface-visibility: hidden;
     $time-offset-open: 1;
-    @for $i from 1 through 5 {
+    @for $i from 1 through $navItems {
       &:nth-child(#{$i}) {
         $time-offset-open: $time-offset-open + 0.1;
         transition-delay: #{$time-offset-open}s;
@@ -234,5 +247,15 @@
         }
       }
     }
+    &.icons{
+      flex-basis:30%;
+    }
+  }
+}
+
+.twitter {
+  font-size: 25px;
+  @include bp (medium){
+    font-size: 30px;
   }
 }
