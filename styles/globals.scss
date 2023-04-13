@@ -6,6 +6,7 @@
   --color-white: #fff;
   --color-purple: #340D6A;
   --color-yellow: #f2ce3f;
+  --color-black: #061020;
 }
 
 body,
@@ -17,6 +18,9 @@ body[data-theme="light"] {
   --color-bg-scroll: var(--color-bg-primary);
   --color-bg-pill: var(--color-purple);
   --color-text-pill: var(--color-bg-primary);
+  --color-fill-moon: var(--color-yellow);
+  --color-fill-lines: var(--color-yellow);
+
 } 
 
 body[data-theme="dark"] {
@@ -29,6 +33,8 @@ body[data-theme="dark"] {
   --color-bg-scroll: var(--color-bg-lighter);
   --color-bg-pill: var(--color-white);
   --color-text-pill: var(--color-bg-primary);
+  --color-fill-moon: var(--color-yellow);
+  --color-fill-lines: var(--color-yellow);
 }
 body {
   background: var(--color-bg-primary);
