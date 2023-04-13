@@ -25,7 +25,8 @@ $navItems: 6;
 }
 .navList {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap:wrap;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -38,6 +39,7 @@ $navItems: 6;
 
   @include bp(medium) {
     flex-direction: row;
+    flex-wrap:nowrap;
     visibility: visible;
     position: static;
     top: 0;
@@ -112,9 +114,7 @@ $navItems: 6;
 }
 
 .themeToggle {
-  @include bp(medium){
     align-self:center;
-  }
 }
 
 // NAV MOBILE
@@ -233,6 +233,7 @@ $navItems: 6;
     visibility: visible;
   }
   .navItem {
+    flex-basis: 100%;
     opacity: 1;
     transform: translateX(0);
     backface-visibility: hidden;
@@ -246,5 +247,15 @@ $navItems: 6;
         }
       }
     }
+    &.icons{
+      flex-basis:30%;
+    }
+  }
+}
+
+.twitter {
+  font-size: 25px;
+  @include bp (medium){
+    font-size: 30px;
   }
 }
