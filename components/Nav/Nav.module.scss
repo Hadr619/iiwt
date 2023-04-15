@@ -49,6 +49,7 @@ $navItems: 6;
 .navItem {
   display: flex;
   align-self: flex-start;
+  flex-basis:100%;
   opacity: 0;
   margin-bottom: 5px;
   transform: translateX(20px);
@@ -71,6 +72,9 @@ $navItems: 6;
     & + & {
       margin-left: spacing(7);
     }
+  }
+  &.icons {
+    flex-basis:30%;
   }
 }
 .active {
