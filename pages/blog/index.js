@@ -2,11 +2,14 @@ import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from "framer-motion";
 import { useFlip } from 'react-easy-flip'
+import Filter from "../../components/Filter/Filter";
 import { createClient} from 'contentful';
 import BlogCard from '../../components/Card/BlogCard';
 import clsx from 'clsx';
 import styles from './blog.module.scss';
+
 
 export async function getStaticProps() {
   const client = createClient({
@@ -26,66 +29,33 @@ export async function getStaticProps() {
 }
 
 export default function BlogPage({ posts }) {
-  const rawItems = posts;
-  const [items, setItems] = useState(rawItems);
-  const albumReviews = [];
-  const artistReviews = [];
-  const shitPost = [];
-
-  const upsert = (array, item) => { // (1)
-    const i = array.findIndex(_item => _item === item);
-    if (i > -1) array[i] = item; // (2)
-    else array.push(item);
-  }
-  const labelList = [
-	  "Full Ep",
-	  "Mid-Week",
-	  "Movie Night"
-  ]
-
-  posts.map(post => {
-    if(post.fields.blogType.toLowerCase() == 'full ep'){
-      artistReviews.push(post.fields.blogType)
-    }else if(post.fields.blogType.toLowerCase() == 'mid-week'){
-      albumReviews.push(post.fields.blogType)
-    } else if(post.fields.blogType.toLowerCase() == "movie night"){
-      shitPost.push(post.fields.blogType)
-    }
-  })
+  const [activeType, setActiveType] = useState("All");
+	const [filtered, setFiltered] = useState([]);
   
-  const handleClick = (e,label) => {
-    
-    const newLabel = label ? label.toLowerCase() : "";
+  const blogTypes = [];
+	posts.forEach((post) => {
+	  blogTypes.push(post.fields.blogType)
+	})
+	const uniqueTypes = [...new Set(blogTypes)]
 
-    if(newLabel == "movie night"){
-      setItems(items => rawItems.filter(item => item.fields.blogType.toLowerCase().includes("movie night")))
-    } else if(newLabel == 'full ep'){
-
-      setItems(items => rawItems.filter(item => item.fields.blogType.toLowerCase().includes("full ep")))
-
-    } else if(newLabel == 'mid-week'){
-      setItems(items => rawItems.filter(item => item.fields.blogType.toLowerCase().includes("mid-week")))
+  useEffect(() => {
+    if(activeType === "All"){
+        setFiltered(posts)
+        return
     }
-    else{
-      setItems(rawItems);
-    }
+    const filtered = posts.filter(post =>
+        post.fields.blogType.toLowerCase().includes(activeType.toLowerCase())
+        )
+    setFiltered(filtered);
+
+},[activeType])
+  const handleClick = (label) => {
+    setActiveType(label)
   }
+
 const displayPostCount = (blogType) => {
-  if(blogType.toLowerCase() == 'mid-week'){
-    return albumReviews.length
-  }
-  else if(blogType.toLowerCase() == 'full ep'){
-    return artistReviews.length
-  }
-  else if(blogType.toLowerCase() == "movie night"){
-    return shitPost.length
-  }
+  return posts.filter(post => post.fields.blogType == blogType).length
 }
-const blogItemsId = "flip-blog-items";
-useFlip(blogItemsId, {
-  duration: 800,
-});
-
 
     return (
       <div className={styles.blogPage}>
@@ -95,20 +65,32 @@ useFlip(blogItemsId, {
       />
         <section className={styles.blogWrapper}>
         <h4 className="h4">Blog Posts</h4>
+        <Filter 
+          contentTypes={posts}
+          types={uniqueTypes} 
+          activeType={activeType} 
+          setActiveType={setActiveType} 
+          setFiltered={setFiltered}
+          className={styles.filter}
+          />
           <div className={clsx(styles.blogGrid, "inner")}>
           
-            <div className={clsx(styles.blogContainer)} data-flip-root-id={blogItemsId}>
-            {items.map(item => (
-              <BlogCard key={item.sys.id} post={item} flipId={`flip-id-${item.sys.id}`} className={styles.blogPost}/>
-            ))}
-            </div>
+            <motion.div className={clsx(styles.blogContainer)} >
+              <AnimatePresence>
+                {filtered.map(item => (
+                  <BlogCard key={item.sys.id} post={item} className={styles.blogPost}/>
+                ))}
+              </AnimatePresence>
+            </motion.div>
             <aside className={styles.aside}>
               <section className={styles.asideSection}>
               <h4 className={styles.asideTitle}>Categories</h4>
               <div className={clsx(styles.latestPosts, styles.categories)}>
-                <div onClick={(e) => handleClick(e)} className={clsx(styles.catItems)}>All <span className={styles.count}>({rawItems.length})</span></div>
-                {labelList.map(label => {
-                  return <div key={label} onClick={(e) => handleClick(e,label)} className={clsx(styles.catItems)}>{label} <span className={styles.count}>({displayPostCount(label)})</span></div>
+                <div onClick={(e) => handleClick("All")} className={clsx(styles.catItems)}>All <span className={styles.count}>({posts.length})</span></div>
+                {uniqueTypes.map(label => {
+                  return (
+                    <div key={label} onClick={(e) => handleClick(label)} className={clsx(styles.catItems)}>{label} <span className={styles.count}>({displayPostCount(label)})</span></div>
+                  )                  
                 })}   
               </div>
               </section>

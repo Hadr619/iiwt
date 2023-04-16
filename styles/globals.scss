@@ -20,7 +20,9 @@ body[data-theme="light"] {
   --color-text-pill: var(--color-bg-primary);
   --color-fill-moon: var(--color-yellow);
   --color-fill-lines: var(--color-yellow);
-
+  --color-bg-dropdown: var(--color-bg-card);
+  --color-bg-dropdown-btn: var(--color-bg-primary);
+  --color-border: #ddd;
 } 
 
 body[data-theme="dark"] {
@@ -28,13 +30,16 @@ body[data-theme="dark"] {
   --color-text-secondary: #95acc5;
   --color-bg-primary: hsl(215 33% 13%);
   --color-bg-light:hsl(215 33% 18%);
-  --color-bg-lighter: hsl(215 33% 28%);
+  --color-bg-lighter: hsl(215 33% 24%);
   --color-bg-card: var(--color-bg-light);
   --color-bg-scroll: var(--color-bg-lighter);
   --color-bg-pill: var(--color-white);
   --color-text-pill: var(--color-bg-primary);
   --color-fill-moon: var(--color-yellow);
   --color-fill-lines: var(--color-yellow);
+  --color-bg-dropdown: var(--color-bg-lighter);
+  --color-bg-dropdown-btn: var(--color-bg-lighter);
+  --color-border:var(--color-bg-light);
 }
 body {
   background: var(--color-bg-primary);

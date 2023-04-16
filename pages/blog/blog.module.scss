@@ -23,7 +23,7 @@
   @include bp(medium) {
     grid-template-columns: 750px 1fr;
     gap: spacing(0, 8);
-    margin-top: spacing(16);
+    margin-top: spacing(8);
   }
 }
 .blogContainer {
@@ -146,4 +146,10 @@
   font-weight: 500;
   line-height: 20px;
   transition: color 0.25s ease-in-out;
+}
+.filter{
+  margin-bottom: spacing(4);
+  @include bp(medium){
+    display:none;
+  }
 }
