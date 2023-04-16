@@ -148,6 +148,7 @@
   transition: color 0.25s ease-in-out;
 }
 .filter{
+  margin-bottom: spacing(4);
   @include bp(medium){
     display:none;
   }
