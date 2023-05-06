@@ -34,10 +34,11 @@ export default function Episodes({ episodes }) {
             <h4 className="h4">Check out our Episodes</h4>
             <div className={styles.episodeContainer}>
             {items.map((ep) => {
-              return(
+              const newText = {__html: ep.description.split('--')[0]};
+                       return(
                 <div key={ep.id} className={styles.item}>
                   <h5><Link href={ep.url}><a rel="noreferrer" target="_blank">{ep.title}</a></Link></h5>
-                  <section dangerouslySetInnerHTML={{__html: ep.description.split('--')[0]}}></section>
+                  <section dangerouslySetInnerHTML={newText}></section>
                 </div>
               )
             })}
