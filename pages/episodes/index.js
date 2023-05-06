@@ -22,8 +22,6 @@ export async function getStaticProps() {
 
 export default function Episodes({ episodes }) {
   const [items, setItems] = useState(episodes.items);
-
-// console.log(items)
   
     return (
       <div>
