@@ -17,9 +17,8 @@
   padding-top: spacing(3);
 }
 .episodeContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 30px;
+  display:flex;
+  flex-direction:column;gap: spacing(4)
 
 }
 .btnContainer {

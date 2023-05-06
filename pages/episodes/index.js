@@ -1,7 +1,7 @@
 
 import { NextSeo } from 'next-seo';
 import { useState } from 'react';
-import { useFlip } from 'react-easy-flip'
+import Link from "next/link";
 import EpisodeCard from '../../components/Card/EpisodeCard';
 import Feed from 'rss-to-json';
 import styles from './episodes.module.scss';
@@ -21,29 +21,9 @@ export async function getStaticProps() {
   }
 
 export default function Episodes({ episodes }) {
+  const [items, setItems] = useState(episodes.items);
 
-  const rawItems = episodes.items;
-  const [items, setItems] = useState(rawItems);
-  const [activeBtn, setActiveBtn] = useState('all');
-  const handleClick = (e) => {
-    const val = e.target.value;
-    e.preventDefault();
-    if(val.toLowerCase() == 'episodes'){
-      setItems(items => rawItems.filter(item => !item.title.toLowerCase().includes("mid")))    
-    }
-    if(val.toLowerCase() == "mid-week"){
-      setItems(items => rawItems.filter(item => item.title.toLowerCase().includes("mid")))
-    }
-    if(val.toLowerCase() == "all") {
-      setItems(rawItems);
-    }
-    setActiveBtn(val);
-  }
-  const epItemsId = "flip-ep-items";
-  useFlip(epItemsId, {
-    duration: 800,
-  });
-
+// console.log(items)
   
     return (
       <div>
@@ -54,16 +34,16 @@ export default function Episodes({ episodes }) {
         <section className={styles.epsiodesSection}>
           <div className={clsx(styles.episodePage, "inner")}>
             <h4 className="h4">Check out our Episodes</h4>
-            <div className={styles.btnContainer}>
-              <button className={clsx(styles.btn, activeBtn == 'all' ? styles.activeBtn : "")} value="all" onClick={handleClick}>All</button>
-              <button className={clsx(styles.btn, activeBtn == 'episodes' ? styles.activeBtn : "")} value="episodes" onClick={handleClick}>Episodes</button>
-              <button className={clsx(styles.btn, activeBtn == 'mid-week' ? styles.activeBtn : "")} value="mid-week" onClick={handleClick}>Mid Week Reviews</button>
-            </div>      
-          <div className={styles.episodeContainer} data-flip-root-id={epItemsId}>
-            {items.map((ep, index) => (
-              <EpisodeCard key={ep.id} flipId={`flip-id-${ep.id}`} episode={ep}/>
-            ))}
-          </div>
+            <div className={styles.episodeContainer}>
+            {items.map((ep) => {
+              return(
+                <div key={ep.id} className={styles.item}>
+                  <h5><Link href={ep.url}><a rel="noreferrer" target="_blank">{ep.title}</a></Link></h5>
+                  <section dangerouslySetInnerHTML={{__html: ep.description.split('--')[0]}}></section>
+                </div>
+              )
+            })}
+            </div>
         </div>
       </section>
       </div>
