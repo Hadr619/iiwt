@@ -6,7 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useFlip } from 'react-easy-flip'
 import Filter from "../../components/Filter/Filter";
 import { createClient} from 'contentful';
-import BlogCard from '../../components/Card/BlogCard/BlogCard';
+// import BlogCard from '../../components/Card/BlogCard/';
+import BlogCard from "../../components/Card/BlogCard"
 import clsx from 'clsx';
 import styles from './blog.module.scss';
 
