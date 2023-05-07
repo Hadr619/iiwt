@@ -9,6 +9,7 @@ export default function Avatar({author, className}) {
             <div className={clsx(styles.avatar)}>
                 <Image 
                 src={`/avatar-${cleanName}.${cleanName == 'rcro' ? 'jpg' : 'jpeg'}`}
+                alt={`${cleanName}'s avatar`}
                 layout="fill"
                 objectFit="cover"
                 objectPosition="center"

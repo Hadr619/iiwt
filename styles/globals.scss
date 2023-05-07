@@ -8,6 +8,11 @@
   --color-yellow: #f2ce3f;
   --color-black: #061020;
 }
+html{
+  font-size: $defaultPx;
+  font-family: var(--defaultFont);
+  line-height:1.5;
+}
 
 body,
 body[data-theme="light"] {
@@ -86,12 +91,49 @@ h3:not(.footer-h3) {
   text-transform: none;
   text-align:center;
 }
-h3:not(.footer-h3){
+h3:not(.footer-h3),
+h5 a{
   color: var(--color-text-primary);
+}
+h5 {
+  margin: 0;
+}
+h5 a{
+  transition: color .25s ease-in-out;
+
+  &:hover {
+    color: var(--color-yellow);
+    transition: color .25s ease-in-out;
+  }
 }
 .h4 {
   margin: spacing(8, 0, 6, 0);
   @include bp(medium) {
     display: none;
   }
+}
+a {
+  text-decoration: none;
+}
+
+html{
+  font-size: $defaultPx;
+  font-family: var(--defaultFont);
+  line-height:1.5;
+}
+
+h1{
+  font-size: 2.5rem;
+}
+h2{
+  font-size: 2rem;
+}
+h3{
+  font-size:1.75rem;
+}
+h4{
+  font-size:1.5rem;
+}
+h5{
+  font-size:1.25rem;
 }

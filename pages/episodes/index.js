@@ -1,8 +1,8 @@
 
 import { NextSeo } from 'next-seo';
-import { useState } from 'react';
-import { useFlip } from 'react-easy-flip'
-import EpisodeCard from '../../components/Card/EpisodeCard';
+import { useState, useEffect } from 'react';
+import Link from "next/link";
+import Filter from "../../components/Filter/Filter";
 import Feed from 'rss-to-json';
 import styles from './episodes.module.scss';
 import clsx from 'clsx';
@@ -21,30 +21,40 @@ export async function getStaticProps() {
   }
 
 export default function Episodes({ episodes }) {
+  const [items, setItems] = useState(episodes.items);
+  const [activeType, setActiveType] = useState("All");
+	const [filtered, setFiltered] = useState([]); 
+  const uniqueTypes = [
+    "Episodes",
+    "End of the Month",
+    "Movie Night"
+  ]
+  console.log(activeType)
+  useEffect(() => {
+    if(activeType === "All"){
+        setFiltered(episodes.items)
+        return
+    }
+let newFiltered = "";
+        if(activeType == "Episodes"){
+          newFiltered = episodes.items.filter((episode) =>
+              episode.title.toLowerCase().includes("ep")
+            )
+        }
+        else if (activeType == "End of the Month"){
+          newFiltered = episodes.items.filter(episode =>
+            episode.title.toLowerCase().includes("end of the month")
+            )
+        }
+        else if (activeType == "Movie Night"){
+          newFiltered = episodes.items.filter(episode =>
+            episode.title.toLowerCase().includes("movie night")
+            )
+        }
+    setFiltered(newFiltered);
+console.log(newFiltered)
+},[activeType])
 
-  const rawItems = episodes.items;
-  const [items, setItems] = useState(rawItems);
-  const [activeBtn, setActiveBtn] = useState('all');
-  const handleClick = (e) => {
-    const val = e.target.value;
-    e.preventDefault();
-    if(val.toLowerCase() == 'episodes'){
-      setItems(items => rawItems.filter(item => !item.title.toLowerCase().includes("mid")))    
-    }
-    if(val.toLowerCase() == "mid-week"){
-      setItems(items => rawItems.filter(item => item.title.toLowerCase().includes("mid")))
-    }
-    if(val.toLowerCase() == "all") {
-      setItems(rawItems);
-    }
-    setActiveBtn(val);
-  }
-  const epItemsId = "flip-ep-items";
-  useFlip(epItemsId, {
-    duration: 800,
-  });
-
-  
     return (
       <div>
         <NextSeo 
@@ -54,16 +64,24 @@ export default function Episodes({ episodes }) {
         <section className={styles.epsiodesSection}>
           <div className={clsx(styles.episodePage, "inner")}>
             <h4 className="h4">Check out our Episodes</h4>
-            <div className={styles.btnContainer}>
-              <button className={clsx(styles.btn, activeBtn == 'all' ? styles.activeBtn : "")} value="all" onClick={handleClick}>All</button>
-              <button className={clsx(styles.btn, activeBtn == 'episodes' ? styles.activeBtn : "")} value="episodes" onClick={handleClick}>Episodes</button>
-              <button className={clsx(styles.btn, activeBtn == 'mid-week' ? styles.activeBtn : "")} value="mid-week" onClick={handleClick}>Mid Week Reviews</button>
-            </div>      
-          <div className={styles.episodeContainer} data-flip-root-id={epItemsId}>
-            {items.map((ep, index) => (
-              <EpisodeCard key={ep.id} flipId={`flip-id-${ep.id}`} episode={ep}/>
-            ))}
-          </div>
+            <Filter 
+              types={uniqueTypes} 
+              activeType={activeType} 
+              setActiveType={setActiveType} 
+              setFiltered={setFiltered}
+              className={styles.filter}
+            />
+            <div className={styles.episodeContainer}>
+            {filtered.map((ep) => {
+              const newText = {__html: ep.description.split('--')[0]};
+                       return(
+                <div key={ep.id} className={styles.item}>
+                  <h5><Link href={ep.url}><a rel="noreferrer" target="_blank">{ep.title}</a></Link></h5>
+                  <section dangerouslySetInnerHTML={newText}></section>
+                </div>
+              )
+            })}
+            </div>
         </div>
       </section>
       </div>
