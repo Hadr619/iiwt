@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useFlip } from 'react-easy-flip'
 import Filter from "../../components/Filter/Filter";
 import { createClient} from 'contentful';
-import BlogCard from '../../components/Card/BlogCard';
+import BlogCard from '../../components/Card/BlogCard/BlogCard';
 import clsx from 'clsx';
 import styles from './blog.module.scss';
 
@@ -66,7 +66,6 @@ const displayPostCount = (blogType) => {
         <section className={styles.blogWrapper}>
         <h4 className="h4">Blog Posts</h4>
         <Filter 
-          contentTypes={posts}
           types={uniqueTypes} 
           activeType={activeType} 
           setActiveType={setActiveType} 
