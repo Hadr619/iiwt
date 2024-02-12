@@ -1,7 +1,7 @@
 @import "../styles/mixins";
 @import "../styles/variables";
 
-$navItems: 6;
+$navItems: 7;
 .nav {
   @include bp(medium) {
     margin-left: spacing(22);
