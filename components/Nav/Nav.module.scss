@@ -262,6 +262,9 @@ $navItems: 6;
 .twitter {
   svg {
     width: 24px;
-    fill: $white;
+    fill: var(--color-fill-lines);
+    @include bp(medium){
+        fill: var(--color-white);
+    }
   }
 }
