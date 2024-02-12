@@ -1,10 +1,11 @@
 @import "../styles/mixins";
 @import "../styles/variables";
 
-$navItems: 6;
+$navItems: 7;
 .nav {
   @include bp(medium) {
     margin-left: spacing(22);
+    backdrop-filter: blur(1px);
   }
 }
 .navWrapper {
@@ -44,6 +45,7 @@ $navItems: 6;
     position: static;
     top: 0;
     transform: none;
+    padding-right: spacing(4)
   }
 }
 .navItem {
@@ -258,8 +260,11 @@ $navItems: 6;
 }
 
 .twitter {
-  font-size: 25px;
-  @include bp (medium){
-    font-size: 30px;
+  svg {
+    width: 24px;
+    fill: var(--color-fill-lines);
+    @include bp(medium){
+        fill: var(--color-white);
+    }
   }
 }

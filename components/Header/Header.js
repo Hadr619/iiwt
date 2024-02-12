@@ -20,6 +20,10 @@ const pageData = {
 	blogPage: {
 		title: "Blog",
 		description: 'A place for us to complain about things'
+	},
+	rankingPage: {
+		title: "Ranking",
+		description: 'A tiered list of bands reviewed'
 	}
 }
 
@@ -64,6 +68,9 @@ export default function Header({props}) {
 		} else if(router.pathname == '/episodes'){
 			title = pageData.episodePage.title;
 			description = pageData.episodePage.description;
+		} else if (router.pathname == '/ranking'){
+			title = pageData.rankingPage.title;
+			description = pageData.rankingPage.description;
 		}else{
 			title = pageData.blogPage.title;
 			description = pageData.blogPage.description;	
