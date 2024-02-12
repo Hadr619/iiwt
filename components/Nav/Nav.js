@@ -37,7 +37,7 @@ export default function Nav(){
                     <li className={clsx(pathCheck('/blog'), styles.navItem)}><Link href="/blog"><a onClick={() => handleNav(true)} className={styles.navLink}>Blog</a></Link></li>
                     <li className={styles.navItem}><Link href="https://trashpitcity.threadless.com/"><a rel="noreferrer" target="_blank" onClick={() => handleNav(true)} className={styles.navLink}>Shop</a></Link></li>
                     <li className={clsx(styles.navItem, styles.icons)}>
-                        <Link href="https://twitter.com/isitworsethn311">
+                        <Link href="https://twitter.com/Hadr_iiwt">
                             <a rel="noreferrer" target="_blank" aria-label="Read more on Twitter" onClick={() => handleNav(true)} className={clsx(styles.navLink, styles.twitter)}>
                                 <svg viewBox="0 0 24 24" aria-hidden="true">
                                     <g>
