@@ -33,9 +33,20 @@ export default function Nav(){
                 <ul className={styles.navList}>
                     <li className={clsx(pathCheck('/'), styles.navItem)}><Link href="/"><a onClick={() => handleNav(true)} className={styles.navLink}>Home</a></Link></li>
                     <li className={clsx(pathCheck('/episodes'), styles.navItem)}><Link href="/episodes"><a onClick={() => handleNav(true)} className={styles.navLink}>Episodes</a></Link></li>
+                    <li className={clsx(pathCheck('/ranking'), styles.navItem)}><Link href="/ranking"><a onClick={() => handleNav(true)} className={styles.navLink}>Ranking</a></Link></li>
                     <li className={clsx(pathCheck('/blog'), styles.navItem)}><Link href="/blog"><a onClick={() => handleNav(true)} className={styles.navLink}>Blog</a></Link></li>
                     <li className={styles.navItem}><Link href="https://trashpitcity.threadless.com/"><a rel="noreferrer" target="_blank" onClick={() => handleNav(true)} className={styles.navLink}>Shop</a></Link></li>
-                    <li className={clsx(styles.navItem, styles.icons)}><Link href="https://twitter.com/isitworsethn311"><a rel="noreferrer" target="_blank" aria-label="Read more on Twitter" onClick={() => handleNav(true)} className={clsx(styles.navLink, styles.twitter)}><i className="fa fa-twitter" aria-hidden="true"></i></a></Link></li>
+                    <li className={clsx(styles.navItem, styles.icons)}>
+                        <Link href="https://twitter.com/isitworsethn311">
+                            <a rel="noreferrer" target="_blank" aria-label="Read more on Twitter" onClick={() => handleNav(true)} className={clsx(styles.navLink, styles.twitter)}>
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <g>
+                                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                                    </g>
+                                </svg>
+                            </a>
+                        </Link>
+                    </li>
                     <li className={clsx(styles.navItem, styles.icons, styles.themeToggle)}><ThemeToggle className={styles.navLink}/></li>
                 </ul>
                 </div>
